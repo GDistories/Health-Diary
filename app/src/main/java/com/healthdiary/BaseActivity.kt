@@ -52,7 +52,7 @@ open class BaseActivity : AppCompatActivity() {
 //        supportActionBar!!.show()
 //    }
 
-
+    @Suppress("DEPRECATION")
     open fun hideStatusAndActionBar() {
         val decorView = window.decorView
         // Hide the status bar.
@@ -63,6 +63,7 @@ open class BaseActivity : AppCompatActivity() {
         supportActionBar!!.hide()
     }
 
+    @Suppress("DEPRECATION")
     open fun showStatusAndActionBar() {
         val decorView = window.decorView
         val uiOptions = View.SYSTEM_UI_FLAG_VISIBLE
