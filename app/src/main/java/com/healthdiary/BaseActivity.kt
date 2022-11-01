@@ -28,6 +28,16 @@ open class BaseActivity : AppCompatActivity() {
         // Hide the action bar.
         supportActionBar!!.hide()
     }
+    open fun showStatusAndActionBar() {
+        val decorView = window.decorView
+        // Hide the status bar.
+        decorView.doOnLayout {
+            decorView.windowInsetsController?.show(android.view.WindowInsets.Type.statusBars())
+        }
+
+        // Show the action bar.
+        supportActionBar!!.show()
+    }
 
     open fun hasAllPermission(): Boolean? {
         val permission = getPermission()

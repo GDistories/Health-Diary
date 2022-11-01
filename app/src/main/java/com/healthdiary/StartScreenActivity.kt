@@ -15,10 +15,6 @@ import com.healthdiary.databinding.ActivityStartScreenBinding
 class StartScreenActivity : BaseActivity() {
 
     private val SPLASH_TIME_OUT = 5000
-    var logoAnimation1: Animation? = null
-    var logoAnimation2: Animation? = null
-    var logo_image: ImageView? = null
-    var logo_text: TextView? = null
     var startScreenHandler = Handler(Looper.getMainLooper())
     var skipHandler = Handler(Looper.getMainLooper())
     var startScreenRunnable: Runnable? = null

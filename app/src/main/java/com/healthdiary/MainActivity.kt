@@ -15,6 +15,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        hideStatusAndActionBar()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
