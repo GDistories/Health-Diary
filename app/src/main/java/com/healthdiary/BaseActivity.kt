@@ -20,6 +20,12 @@ open class BaseActivity : AppCompatActivity() {
     }
 /*    Using comments method will cause the app to crash, and now don't know why,
       so I'm going to use the method below, which is deprecated, but it works.
+
+      FATAL EXCEPTION: main
+      Process: com.healthdiary, PID: 17264
+      java.lang.NoSuchMethodError: No virtual method getWindowInsetsController()
+      Landroid/view/WindowInsetsController; in class Landroid/view/View; or its super classes
+      (declaration of 'android.view.View' appears in /system/framework/framework.jar!classes3.dex)
  */
 //    open fun hideStatusAndActionBar() {
 //        val decorView = window.decorView
