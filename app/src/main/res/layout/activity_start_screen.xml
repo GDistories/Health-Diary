@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".StartScreenActivity">
 
+    <ImageView
+        android:id="@+id/logo_heart_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_heart_start"
+        android:scaleX="0.2"
+        android:scaleY="0.2"
+        android:visibility="visible"
+        />
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo"
+        android:visibility="gone"
+        />
+
     <Button
         android:id="@+id/btn_skip"
         android:layout_width="wrap_content"
