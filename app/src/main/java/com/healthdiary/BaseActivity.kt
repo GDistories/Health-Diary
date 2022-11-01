@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.doOnLayout
 import kotlin.system.exitProcess
 
 open class BaseActivity : AppCompatActivity() {
@@ -18,6 +17,7 @@ open class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
     }
+
 /*
       TODO: Find the reason why this code is not working
       Using comments method will cause the app to crash, and now don't know why,
@@ -29,6 +29,7 @@ open class BaseActivity : AppCompatActivity() {
       Landroid/view/WindowInsetsController; in class Landroid/view/View; or its super classes
       (declaration of 'android.view.View' appears in /system/framework/framework.jar!classes3.dex)
  */
+
 //    open fun hideStatusAndActionBar() {
 //        val decorView = window.decorView
 //        // Hide the status bar.
@@ -40,26 +41,64 @@ open class BaseActivity : AppCompatActivity() {
 //        supportActionBar!!.hide()
 //    }
 
+//    open fun showStatusAndActionBar() {
+//        val decorView = window.decorView
+//        // Hide the status bar.
+//        decorView.doOnLayout {
+//            decorView.windowInsetsController?.show(android.view.WindowInsets.Type.statusBars())
+//        }
+//
+//        // Show the action bar.
+//        supportActionBar!!.show()
+//    }
+
 
     open fun hideStatusAndActionBar() {
-    val decorView = window.decorView
-    // Hide the status bar.
-    val uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN
-    decorView.systemUiVisibility = uiOptions
+        val decorView = window.decorView
+        // Hide the status bar.
+        val uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN
+        decorView.systemUiVisibility = uiOptions
 
-    // Hide the action bar.
-    supportActionBar!!.hide()
+        // Hide the action bar.
+        supportActionBar!!.hide()
     }
 
     open fun showStatusAndActionBar() {
         val decorView = window.decorView
-        // Hide the status bar.
-        decorView.doOnLayout {
-            decorView.windowInsetsController?.show(android.view.WindowInsets.Type.statusBars())
-        }
+        val uiOptions = View.SYSTEM_UI_FLAG_VISIBLE
+        decorView.systemUiVisibility = uiOptions
 
         // Show the action bar.
         supportActionBar!!.show()
+    }
+
+    open fun showActionBar() {
+        supportActionBar!!.show()
+    }
+
+    open fun showBackButton() {
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true)
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setDisplayShowCustomEnabled(true)
+        }
+    }
+
+    open fun hideBackButton() {
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(false)
+            actionBar.setDisplayHomeAsUpEnabled(false)
+            actionBar.setDisplayShowCustomEnabled(false)
+        }
+    }
+
+    open fun setActionBarTitle(title: String?) {
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.title = title
+        }
     }
 
     open fun hasAllPermission(): Boolean? {
