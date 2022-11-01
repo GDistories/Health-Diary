@@ -18,7 +18,9 @@ open class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
     }
-/*    Using comments method will cause the app to crash, and now don't know why,
+/*
+      TODO: Find the reason why this code is not working
+      Using comments method will cause the app to crash, and now don't know why,
       so I'm going to use the method below, which is deprecated, but it works.
 
       FATAL EXCEPTION: main
