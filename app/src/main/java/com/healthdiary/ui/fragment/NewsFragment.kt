@@ -1,4 +1,4 @@
-package com.healthdiary.ui
+package com.healthdiary.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,8 @@ import com.healthdiary.base.BaseFragment
 import com.healthdiary.R
 
 
-class CommunityFragment : BaseFragment() {
+class NewsFragment : BaseFragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -23,6 +24,6 @@ class CommunityFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_community, container, false)
+        return inflater.inflate(R.layout.fragment_news, container, false)
     }
 }

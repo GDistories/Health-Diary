@@ -18,7 +18,7 @@
             android:name=".base.BaseActivity"
             android:exported="true" />
         <activity
-            android:name=".StartScreenActivity"
+            android:name=".ui.activity.StartScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

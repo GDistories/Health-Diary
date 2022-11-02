@@ -1,4 +1,4 @@
-package com.healthdiary.ui
+package com.healthdiary.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

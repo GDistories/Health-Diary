@@ -1,4 +1,4 @@
-package com.healthdiary
+package com.healthdiary.ui.activity
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -9,6 +9,7 @@ import android.os.Looper
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.healthdiary.R
 import com.healthdiary.anim.SpringScaleInterpolator
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityStartScreenBinding

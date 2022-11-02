@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.healthdiary.ui.NewsFragment"
+        android:name="com.healthdiary.ui.fragment.NewsFragment"
         android:label="@string/title_news"
         tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_community"
-        android:name="com.healthdiary.ui.CommunityFragment"
+        android:name="com.healthdiary.ui.fragment.CommunityFragment"
         android:label="@string/title_community"
         tools:layout="@layout/fragment_community" />
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.healthdiary.ui.HomeFragment"
+        android:name="com.healthdiary.ui.fragment.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_health"
-        android:name="com.healthdiary.ui.HealthFragment"
+        android:name="com.healthdiary.ui.fragment.HealthFragment"
         android:label="@string/title_health"
         tools:layout="@layout/fragment_health" />
 
     <fragment
         android:id="@+id/navigation_my"
-        android:name="com.healthdiary.ui.MyFragment"
+        android:name="com.healthdiary.ui.fragment.MyFragment"
         android:label="@string/title_my"
         tools:layout="@layout/fragment_my" />
 </navigation>
