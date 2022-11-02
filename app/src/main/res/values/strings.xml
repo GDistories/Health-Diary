@@ -8,4 +8,6 @@
     <string name="title_health">Health</string>
     <string name="title_my">My</string>
     <string name="skip">Skip</string>
+    <string name="guest">Guest</string>
+    <string name="guest_description">Please Login First</string>
 </resources>
