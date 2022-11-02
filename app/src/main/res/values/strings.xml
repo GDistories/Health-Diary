@@ -12,4 +12,10 @@
     <string name="guest_description">Please Login First</string>
     <string name="profile">Profile</string>
     <string name="setting">Setting</string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
+    <string name="devices">Devices</string>
+    <string name="base">Base</string>
+    <string name="more">More</string>
+    <string name="check_for_update">Check for Update</string>
+    <string name="about_the_app">About the App</string>
 </resources>
