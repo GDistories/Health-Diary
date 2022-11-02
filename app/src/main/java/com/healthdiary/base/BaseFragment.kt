@@ -1,4 +1,4 @@
-package com.healthdiary
+package com.healthdiary.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

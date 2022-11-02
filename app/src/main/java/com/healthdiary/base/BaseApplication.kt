@@ -1,4 +1,4 @@
-package com.healthdiary
+package com.healthdiary.base
 
 class BaseApplication : android.app.Application() {
     override fun onCreate() {

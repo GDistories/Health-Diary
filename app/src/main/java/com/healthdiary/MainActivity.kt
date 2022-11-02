@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {

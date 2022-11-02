@@ -1,4 +1,4 @@
-package com.healthdiary
+package com.healthdiary.base
 
 import android.content.Context
 import android.content.pm.PackageManager
