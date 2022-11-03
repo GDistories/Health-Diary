@@ -41,6 +41,7 @@
         android:alpha="0.3"
         android:background="@drawable/btn_normal"
         android:text="@string/skip"
+        android:textColor="@color/white"
         android:onClick="skipStartScreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
