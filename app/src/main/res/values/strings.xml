@@ -19,4 +19,27 @@
     <string name="check_for_update">Check for Update</string>
     <string name="about_the_app">About the App</string>
     <string name="version">Version 1.0</string>
+    <string name="topnews">Top News for you</string>
+    <string name="news_all">All</string>
+    <string name="news_report">Report</string>
+    <string name="news_chroniccare">Chronic Care</string>
+    <string name="news_fitness">Fitness</string>
+    <string name="news_diet">Diet</string>
+    <!--News-->
+    <string name="newstitle1">The Top COVID-19 Hot Spots in the U.S.</string>
+    <string name="newscontent1">These are the 25 counties with the highest recent averages for new COVID cases per capita...</string>
+    <string name="newsauthor1">Christopher Wolf and Sharon Lurye</string>
+    <string name="newstime1">42 mins ago</string>
+    <string name="newstitle2">New study links ultra-processed foods and colorectal cancer in men</string>
+    <string name="newscontent2">A new study links men who consumed high rates of ultra-processed foods to a 29% higher...</string>
+    <string name="newsauthor2">Tufts University, Health Sciences Campus</string>
+    <string name="newstime2">1 hour ago</string>
+    <string name="newstitle3">Diet improve immunotherapy outcomes in advanced melanoma</string>
+    <string name="newscontent3">There is an association between the Mediterranean diet and the overall response rate...</string>
+    <string name="newsauthor3">Paul Ian Cross,, Catherine Carver, MPH</string>
+    <string name="newstime3">4 hours ago</string>
+    <string name="newstitle4">Can zero-calorie sweeteners raise your risk for cardiovascular disease?</string>
+    <string name="newscontent4">There is an association between the Mediterranean diet and the overall response rate...</string>
+    <string name="newsauthor4">Erika Watts</string>
+    <string name="newstime4">14 hours ago</string>
 </resources>

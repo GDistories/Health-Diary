@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.R
+import com.healthdiary.databinding.FragmentNewsBinding
 
 
 class NewsFragment : BaseFragment() {
+    private var _binding: FragmentNewsBinding? = null
 
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
