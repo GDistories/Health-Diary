@@ -45,5 +45,64 @@
         android:textStyle="bold"
         />
 
+    <TextView
+        android:id="@+id/app_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_description"
+        app:layout_constraintTop_toBottomOf="@+id/version"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dmsans_regular" />
+
+    <TextView
+        android:id="@+id/author_Gao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author_Gao"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dmsans_regular"/>
+
+    <TextView
+        android:id="@+id/author_Rao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author_Rao"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/author_Gao"
+        android:layout_marginEnd="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dmsans_regular"/>
+
+    <TextView
+        android:id="@+id/author_Xiang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author_Xiang"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/author_Gao"
+        android:layout_marginStart="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dmsans_regular"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

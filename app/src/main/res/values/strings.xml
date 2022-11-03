@@ -21,4 +21,8 @@
     <string name="version">Version 1.0</string>
     <string name="searching_update">Searching for new version…</string>
     <string name="no_update">The current APP is the latest version. </string>
+    <string name="app_description">Health Diary is a health management APP. It aims to provide healthcare services for chronic patients. </string>
+    <string name="author_Gao">Developer\n\nGao Jiaxiang\nSWE1909468</string>
+    <string name="author_Rao">Rao Yulin\nSWE1909488</string>
+    <string name="author_Xiang">Xiang Xingzhou\nDMT1909203</string>
 </resources>
