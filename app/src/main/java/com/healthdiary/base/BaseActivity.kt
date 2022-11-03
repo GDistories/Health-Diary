@@ -1,6 +1,7 @@
 package com.healthdiary.base
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
@@ -153,5 +154,13 @@ open class BaseActivity : AppCompatActivity() {
 
     open fun exitApp(delay: Int) {
         Handler(Looper.getMainLooper()).postDelayed({ exitProcess(0) }, delay.toLong())
+    }
+
+    open fun restartApp(delay: Int) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            val launchIntent = packageManager.getLaunchIntentForPackage(application.packageName)
+            launchIntent!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(launchIntent)
+        }, delay.toLong())
     }
 }
