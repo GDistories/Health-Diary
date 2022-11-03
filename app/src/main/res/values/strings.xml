@@ -18,4 +18,5 @@
     <string name="more">More</string>
     <string name="check_for_update">Check for Update</string>
     <string name="about_the_app">About the App</string>
+    <string name="version">Version 1.0</string>
 </resources>
