@@ -7,11 +7,29 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.healthdiary.utils.SharedPreferencesUtils
+import com.healthdiary.utils.Utils.Companion.changeLang
+import com.healthdiary.utils.Utils.Companion.getSysLang
+import java.util.*
 import kotlin.system.exitProcess
 
 open class BaseActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var language: String = getSysLang(baseContext)
+        if (language == "zh_CN_#Hans") {
+            language = "zh_CN"
+        } else if (language == "zh_TW_#Hant") {
+            language = "zh_TW"
+        }
+        SharedPreferencesUtils.setParam("language", language)
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        val lang = SharedPreferencesUtils.getParam("language", getSysLang(newBase!!)).toString()
+        val context: Context = changeLang(newBase, lang)
+        super.attachBaseContext(context)
     }
 
     override fun onDestroy() {

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">健康日記</string>
+    <string name="title_home">家</string>
+    <string name="title_news">消息</string>
+    <string name="title_community">社區</string>
+    <string name="title_health">健康</string>
+    <string name="title_my">我的</string>
+    <string name="skip">跳過</string>
+    <string name="guest">來賓</string>
+    <string name="guest_description">請先登錄</string>
+    <string name="profile">輪廓</string>
+    <string name="setting">環境</string>
+    <string name="help_support"><![CDATA[幫助支持]]></string>
+    <string name="devices">設備</string>
+    <string name="base">根據</string>
+    <string name="more">更多的</string>
+    <string name="check_for_update">檢查更新</string>
+    <string name="about_the_app">關於應用程序</string>
+    <string name="version">1.0 版</string>
+    <string name="searching_update">正在尋找新版本...</string>
+    <string name="no_update">當前APP為最新版本。</string>
+    <string name="app_description">健康日記是一款健康管理APP。它旨在為慢性病患者提供醫療保健服務。</string>
+    <string name="author_Gao">Developer\n\nGao Jiaxiang\nSWE1909468</string>
+    <string name="author_Rao">Rao Yulin\nSWE1909488</string>
+    <string name="author_Xiang">Xiang Xingzhou\nDMT1909203</string>
+</resources>
