@@ -17,6 +17,10 @@
     <string name="check_for_update">Check for Update</string>
     <string name="about_the_app">About the App</string>
     <string name="version">Version 1.0</string>
+    <string name="lang_en">English</string>
+    <string name="lang_zh_CN">Simplified Chinese(简体中文)</string>
+    <string name="lang_zh_TW">Traditional Chinese(繁体中文)</string>
+
     <string name="topnews">Top News for you</string>
     <string name="news_all">All</string>
     <string name="news_report">Report</string>

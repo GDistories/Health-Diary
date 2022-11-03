@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lang_entries">
+        <item>@string/lang_en</item>
+        <item>@string/lang_zh_CN</item>
+        <item>@string/lang_zh_TW</item>
+    </string-array>
+
+    <string-array name="lang_values">
+        <item>en_US</item>
+        <item>zh_CN</item>
+        <item>zh_TW</item>
+    </string-array>
+</resources>

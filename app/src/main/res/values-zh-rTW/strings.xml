@@ -23,4 +23,7 @@
     <string name="author_Gao">Developer\n\nGao Jiaxiang\nSWE1909468</string>
     <string name="author_Rao">Rao Yulin\nSWE1909488</string>
     <string name="author_Xiang">Xiang Xingzhou\nDMT1909203</string>
+    <string name="lang_zh_CN">簡體中文(Simplified Chinese)</string>
+    <string name="lang_zh_TW">繁體中文(Traditional Chinese)</string>
+    <string name="lang_en">英語(English)</string>
 </resources>
