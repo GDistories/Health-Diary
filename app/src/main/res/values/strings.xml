@@ -51,4 +51,8 @@
     <string name="author_Rao">Rao Yulin\nSWE1909488</string>
     <string name="author_Xiang">Xiang Xingzhou\nDMT1909203</string>
     <string name="General">General</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="server_client_id" translatable="false">34100753456-u8d4h1allue3da32omovfsls385fvtuj.apps.googleusercontent.com</string>
 </resources>

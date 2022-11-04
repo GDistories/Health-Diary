@@ -13,9 +13,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:iconifiedByDefault="false"
         android:background="@drawable/btn_normal"
-        android:backgroundTint="@color/black"
-        android:alpha="0.1"
-
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,9 @@ class MyFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
+        binding.profileImage.setOnClickListener {
+            startActivity(Intent(context, LoginActivity::class.java))
+        }
         binding.profile.setOnClickListener {
             startActivity(Intent(context, ProfileActivity::class.java))
         }

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black2">#EEEEEE</color>
     <color name="grey">#072D4B</color>
+    <color name = "input_background">#ececec</color>
 </resources>
