@@ -24,6 +24,10 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/dmsans_bold"
+                android:shadowColor="@color/grey"
+                android:shadowDx="-1"
+                android:shadowDy="-1"
+                android:shadowRadius="2"
                 android:text="@string/topnews"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
@@ -106,333 +110,374 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <!--News1-->
-                <LinearLayout
-                    android:id="@+id/news1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/bg_shadow_in_white"
-                    android:orientation="horizontal">
-                    <!--Lefthand parts-->
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="20dp">
+
                     <LinearLayout
-                        android:layout_width="35mm"
-                        android:layout_height="28mm"
-                        android:layout_marginStart="5dp"
+                        android:id="@+id/news1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/newstitle1"
-                            style="@style/news_fragment_title_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstitle1"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/newscontent1"
-                            style="@style/news_fragment_content_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="10"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newscontent1" />
-
-                        <TextView
-                            android:id="@+id/newsauthor1"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newsauthor1" />
-                    </LinearLayout>
-                    <!--Righthand parts-->
-                    <LinearLayout
-                        android:layout_width="25mm"
-                        android:layout_height="30mm"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/newspic1"
-                            android:layout_width="match_parent"
-                            android:layout_height="25mm"
-                            android:src="@drawable/newspic1"
-                            tools:ignore="ContentDescription" />
-
-                        <TextView
-                            android:id="@+id/newstime1"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal">
+                        <!--Lefthand parts-->
+                        <LinearLayout
+                            android:layout_width="35mm"
+                            android:layout_height="28mm"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="15dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstime1" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/newstitle1"
+                                style="@style/news_fragment_title_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstitle1"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/newscontent1"
+                                style="@style/news_fragment_content_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="10"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newscontent1" />
+
+                            <TextView
+                                android:id="@+id/newsauthor1"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newsauthor1" />
+                        </LinearLayout>
+                        <!--Righthand parts-->
+                        <LinearLayout
+                            android:layout_width="25mm"
+                            android:layout_height="30mm"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/newspic1"
+                                android:layout_width="match_parent"
+                                android:layout_height="25mm"
+                                android:src="@drawable/newspic1"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/newstime1"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstime1" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
 
                 <!--News2-->
-                <LinearLayout
-                    android:id="@+id/news2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/bg_shadow_in_white"
-                    android:orientation="horizontal">
-                    <!--Lefthand parts-->
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="20dp">
+
                     <LinearLayout
-                        android:layout_width="35mm"
-                        android:layout_height="28mm"
-                        android:layout_marginStart="5dp"
+                        android:id="@+id/news2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/newstitle2"
-                            style="@style/news_fragment_title_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstitle2"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/newscontent2"
-                            style="@style/news_fragment_content_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="10"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newscontent2" />
-
-                        <TextView
-                            android:id="@+id/newsauthor2"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newsauthor2" />
-                    </LinearLayout>
-                    <!--Righthand parts-->
-                    <LinearLayout
-                        android:layout_width="25mm"
-                        android:layout_height="30mm"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/newspic2"
-                            android:layout_width="match_parent"
-                            android:layout_height="25mm"
-                            android:src="@drawable/newspic2"
-                            tools:ignore="ContentDescription" />
-
-                        <TextView
-                            android:id="@+id/newstime2"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:drawablePadding="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal">
+                        <!--Lefthand parts-->
+                        <LinearLayout
+                            android:layout_width="35mm"
+                            android:layout_height="28mm"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:paddingStart="15dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstime2" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/newstitle2"
+                                style="@style/news_fragment_title_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstitle2"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/newscontent2"
+                                style="@style/news_fragment_content_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="10"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newscontent2" />
+
+                            <TextView
+                                android:id="@+id/newsauthor2"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newsauthor2" />
+                        </LinearLayout>
+                        <!--Righthand parts-->
+                        <LinearLayout
+                            android:layout_width="25mm"
+                            android:layout_height="30mm"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/newspic2"
+                                android:layout_width="match_parent"
+                                android:layout_height="25mm"
+                                android:src="@drawable/newspic2"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/newstime2"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstime2" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
                 <!--News3-->
-                <LinearLayout
-                    android:id="@+id/news3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/bg_shadow_in_white"
-                    android:orientation="horizontal">
-                    <!--Lefthand parts-->
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="20dp">
+
                     <LinearLayout
-                        android:layout_width="35mm"
-                        android:layout_height="28mm"
-                        android:layout_marginStart="5dp"
+                        android:id="@+id/news3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/newstitle3"
-                            style="@style/news_fragment_title_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstitle3"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/newscontent3"
-                            style="@style/news_fragment_content_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="10"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newscontent3" />
-
-                        <TextView
-                            android:id="@+id/newsauthor3"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newsauthor3" />
-                    </LinearLayout>
-                    <!--Righthand parts-->
-                    <LinearLayout
-                        android:layout_width="25mm"
-                        android:layout_height="30mm"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/newspic3"
-                            android:layout_width="match_parent"
-                            android:layout_height="25mm"
-                            android:src="@drawable/newspic3"
-                            tools:ignore="ContentDescription" />
-
-                        <TextView
-                            android:id="@+id/newstime3"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:drawablePadding="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal">
+                        <!--Lefthand parts-->
+                        <LinearLayout
+                            android:layout_width="35mm"
+                            android:layout_height="28mm"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:paddingStart="15dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstime3" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/newstitle3"
+                                style="@style/news_fragment_title_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstitle3"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/newscontent3"
+                                style="@style/news_fragment_content_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="10"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newscontent3" />
+
+                            <TextView
+                                android:id="@+id/newsauthor3"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newsauthor3" />
+                        </LinearLayout>
+                        <!--Righthand parts-->
+                        <LinearLayout
+                            android:layout_width="25mm"
+                            android:layout_height="30mm"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/newspic3"
+                                android:layout_width="match_parent"
+                                android:layout_height="25mm"
+                                android:src="@drawable/newspic3"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/newstime3"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstime3" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
                 <!--News4-->
-                <LinearLayout
-                    android:id="@+id/news4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    app:cardCornerRadius="10dp"
                     android:layout_marginBottom="65dp"
-                    android:background="@drawable/bg_shadow_in_white"
-                    android:orientation="horizontal">
-                    <!--Lefthand parts-->
+                    app:cardElevation="20dp">
+
                     <LinearLayout
-                        android:layout_width="35mm"
-                        android:layout_height="28mm"
-                        android:layout_marginStart="5dp"
+                        android:id="@+id/news4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
-                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/newstitle4"
-                            style="@style/news_fragment_title_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstitle4"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/newscontent4"
-                            style="@style/news_fragment_content_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="10"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newscontent4" />
-
-                        <TextView
-                            android:id="@+id/newsauthor4"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:drawablePadding="10dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newsauthor4" />
-                    </LinearLayout>
-                    <!--Righthand parts-->
-                    <LinearLayout
-                        android:layout_width="25mm"
-                        android:layout_height="30mm"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/newspic4"
-                            android:layout_width="match_parent"
-                            android:layout_height="25mm"
-                            android:src="@drawable/newspic4"
-                            tools:ignore="ContentDescription" />
-
-                        <TextView
-                            android:id="@+id/newstime4"
-                            style="@style/news_fragment_subcontent_style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:drawablePadding="10dp"
+                        android:orientation="horizontal">
+                        <!--Lefthand parts-->
+                        <LinearLayout
+                            android:layout_width="35mm"
+                            android:layout_height="28mm"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="5dp"
-                            android:paddingStart="15dp"
-                            android:paddingEnd="0dp"
-                            android:text="@string/newstime4" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/newstitle4"
+                                style="@style/news_fragment_title_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstitle4"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/newscontent4"
+                                style="@style/news_fragment_content_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="10"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newscontent4" />
+
+                            <TextView
+                                android:id="@+id/newsauthor4"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newsauthor4" />
+                        </LinearLayout>
+                        <!--Righthand parts-->
+                        <LinearLayout
+                            android:layout_width="27mm"
+                            android:layout_height="30mm"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/newspic4"
+                                android:layout_width="match_parent"
+                                android:layout_height="25mm"
+                                android:src="@drawable/newspic4"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/newstime4"
+                                style="@style/news_fragment_subcontent_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:drawablePadding="10dp"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/newstime4" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
 
 
