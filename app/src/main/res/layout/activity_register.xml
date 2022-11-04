@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ui.activity.RegisterActivity">
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cv_email"
+        style="@style/login_title_style" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_email"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.32">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_email"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:layout_width="0dp"
+                android:layout_weight="90"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:hint="@string/enter_your_email"
+                android:fontFamily="@font/montaguslab_48pt_medium"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="30dp"
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress" />
+
+            <ImageView
+                android:id="@+id/iv_email_remove"
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_remove"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                tools:ignore="ContentDescription"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_verify_code"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/cv_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_verify_code"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="70"
+                android:autofillHints="emailAddress"
+                android:background="@color/white"
+                android:fontFamily="@font/montaguslab_48pt_medium"
+                android:hint="@string/enter_vertify_code"
+                android:inputType="textEmailAddress"
+                android:maxLength="30"
+                android:layout_marginEnd="30dp"
+                android:maxLines="1" />
+
+            <ImageView
+                android:id="@+id/iv_verify_code_remove"
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_remove"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:layout_marginEnd="10dp"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/btn_send_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:layout_gravity="center"
+                android:text="@string/send"
+                android:fontFamily="@font/montaguslab_48pt_bold"
+                android:textColor="@color/white"
+                android:background="@drawable/button_blue"
+                android:textSize="11sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_password"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/cv_verify_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            <EditText
+                android:maxLength="30"
+                android:maxLines="1"
+                android:layout_width="0dp"
+                android:layout_weight="90"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:hint="@string/enter_your_password"
+                android:fontFamily="@font/montaguslab_48pt_medium"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="30dp"
+                android:inputType="textPassword"
+                android:autofillHints="password" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_invisible"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/cv_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            <EditText
+                android:maxLength="30"
+                android:maxLines="1"
+                android:layout_width="0dp"
+                android:layout_weight="90"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:hint="@string/enter_your_password_again"
+                android:fontFamily="@font/montaguslab_48pt_medium"
+                android:layout_marginStart="20dp"
+                android:inputType="textPassword"
+                android:layout_marginEnd="10dp"
+                android:autofillHints="password" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_invisible"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/cv_password"
+        app:layout_constraintEnd_toEndOf="@+id/cv_password"
+        app:layout_constraintTop_toBottomOf="@+id/cv_password_confirm"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="13dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" >
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:fontFamily="@font/montaguslab_48pt_bold"
+            android:textColor="@color/white"
+            android:background="@drawable/button_blue"
+            android:textSize="18sp"/>
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

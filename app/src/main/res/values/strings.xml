@@ -59,4 +59,9 @@
     <string name="if_you_don_t_an_account">If you don’t an account</string>
     <string name="register_here">Register Here!</string>
     <string name="or_continue_with">Or continue with</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_your_password_again">Enter your password again</string>
+    <string name="send">Send</string>
+    <string name="enter_vertify_code">Vertify Code</string>
+    <string name="reset_password">Reset Password</string>
 </resources>

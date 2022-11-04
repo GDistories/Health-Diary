@@ -15,6 +15,20 @@
         android:theme="@style/Theme.HealthDiary"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.ResetPasswordActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.activity.SettingActivity"
             android:exported="true">
             <meta-data
@@ -72,7 +86,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ui.activity.LoginActivity"
+        <activity
+            android:name=".ui.activity.LoginActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
