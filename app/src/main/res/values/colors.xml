@@ -10,4 +10,5 @@
     <color name="black2">#EEEEEE</color>
     <color name="grey">#072D4B</color>
     <color name = "input_background">#ececec</color>
+    <color name = "button_background">#4461F2</color>
 </resources>

@@ -55,4 +55,8 @@
     <string name="enter_your_email">Enter your email</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="server_client_id" translatable="false">34100753456-u8d4h1allue3da32omovfsls385fvtuj.apps.googleusercontent.com</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="if_you_don_t_an_account">If you don’t an account</string>
+    <string name="register_here">Register Here!</string>
+    <string name="or_continue_with">Or continue with</string>
 </resources>
