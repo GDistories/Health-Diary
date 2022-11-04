@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentMyBinding
-import com.healthdiary.ui.activity.AboutActivity
+import com.healthdiary.ui.activity.*
 
 
 class MyFragment : BaseFragment() {
@@ -23,11 +23,26 @@ class MyFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
+        binding.profile.setOnClickListener {
+            startActivity(Intent(context, ProfileActivity::class.java))
+        }
+        binding.setting.setOnClickListener {
+            startActivity(Intent(context, SettingActivity::class.java))
+        }
+        binding.help.setOnClickListener {
+
+            startActivity(Intent(context, HelpActivity::class.java))
+        }
+        binding.devices.setOnClickListener {
+            startActivity(Intent(context, DevicesActivity::class.java))
+        }
         binding.update.setOnClickListener {
             Toast.makeText(activity, R.string.searching_update, Toast.LENGTH_SHORT).show()
             Toast.makeText(activity, R.string.no_update, Toast.LENGTH_SHORT).show()
         }
-        binding.about.setOnClickListener { startActivity(Intent(activity, AboutActivity::class.java)) }
+        binding.about.setOnClickListener {
+            startActivity(Intent(activity, AboutActivity::class.java))
+        }
     }
 
 
