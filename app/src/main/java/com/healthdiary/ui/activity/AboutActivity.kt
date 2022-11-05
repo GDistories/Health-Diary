@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
+import com.healthdiary.databinding.ActivityAboutBinding
 
 class AboutActivity : BaseActivity() {
+    private lateinit var binding: ActivityAboutBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
+        binding = ActivityAboutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         hideStatusAndActionBar()
     }
 }

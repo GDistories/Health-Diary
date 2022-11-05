@@ -12,8 +12,6 @@ class SettingActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceChan
     private val TAG = "SettingActivity"
     lateinit var listener: OnSharedPreferenceChangeListener
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
