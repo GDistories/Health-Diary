@@ -3,11 +3,10 @@ package com.healthdiary.ui.activity
 import android.os.Bundle
 import android.util.Log
 import com.google.gson.Gson
-import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.bean.BMIRequest
 import com.healthdiary.bean.BMIResult
-import com.healthdiary.bean.CommonResponse
+import com.healthdiary.bean.JuheResponse
 import com.healthdiary.databinding.ActivityBmiactivityBinding
 import com.healthdiary.request.HealthCalculateServiceInterface
 import okhttp3.FormBody
@@ -49,11 +48,11 @@ class BMIActivity : BaseActivity() {
             .add("sex", bmiRequest.sex.toString())
             .build()
 
-        val call: Call<CommonResponse?>? = request.getBMI(body)
-        call!!.enqueue(object : retrofit2.Callback<CommonResponse?> {
+        val call: Call<JuheResponse?>? = request.getBMI(body)
+        call!!.enqueue(object : retrofit2.Callback<JuheResponse?> {
             override fun onResponse(
-                call: Call<CommonResponse?>,
-                response: Response<CommonResponse?>
+                call: Call<JuheResponse?>,
+                response: Response<JuheResponse?>
             ) {
                 val responseBMI = response.body()
                 if (responseBMI != null) {
@@ -68,7 +67,7 @@ class BMIActivity : BaseActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<CommonResponse?>, t: Throwable) {
+            override fun onFailure(call: Call<JuheResponse?>, t: Throwable) {
                 Log.e("onFailure", "Failure" + t.message)
             }
         }
