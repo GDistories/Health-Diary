@@ -1,10 +1,9 @@
 package com.healthdiary.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityHelpBinding
+
 
 class HelpActivity : BaseActivity() {
     private lateinit var binding: ActivityHelpBinding
@@ -14,5 +13,9 @@ class HelpActivity : BaseActivity() {
         binding = ActivityHelpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideStatusAndActionBar()
+
+
     }
+
+
 }
