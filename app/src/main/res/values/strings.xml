@@ -64,4 +64,10 @@
     <string name="send">Send</string>
     <string name="enter_vertify_code">Vertify Code</string>
     <string name="reset_password">Reset Password</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="gender">Gender</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="birthday">Birthday</string>
+    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
 </resources>
