@@ -70,4 +70,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="birthday">Birthday</string>
     <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
 </resources>

@@ -96,7 +96,8 @@
                     android:text="@string/gender"
                     style="@style/profile_title" />
 
-                <EditText
+                <TextView
+                    android:id="@+id/tv_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -104,9 +105,7 @@
                     android:layout_marginBottom="10dp"
                     style="@style/profile_content"
                     android:hint="@string/gender"
-                    android:background="@color/white"
-                    android:autofillHints="name"
-                    android:inputType="textPersonName" />
+                    android:background="@color/white" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -183,6 +182,6 @@
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
-
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
