@@ -14,5 +14,9 @@ class DevicesActivity : BaseActivity() {
         binding = ActivityDevicesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideStatusAndActionBar()
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
     }
 }

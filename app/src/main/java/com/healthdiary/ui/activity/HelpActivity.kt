@@ -21,6 +21,9 @@ class HelpActivity : BaseActivity() {
         setContentView(binding.root)
         hideStatusAndActionBar()
 
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
         buildRecyclerView()
 
     }

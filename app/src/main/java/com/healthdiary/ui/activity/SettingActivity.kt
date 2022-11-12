@@ -7,15 +7,22 @@ import android.view.MenuItem
 import androidx.preference.PreferenceFragmentCompat
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
+import com.healthdiary.databinding.ActivitySettingBinding
 
-class SettingActivity : BaseActivity(), SharedPreferences.OnSharedPreferenceChangeListener{
+class SettingActivity : BaseActivity(), OnSharedPreferenceChangeListener{
+    private lateinit var binding: ActivitySettingBinding
     private val TAG = "SettingActivity"
     lateinit var listener: OnSharedPreferenceChangeListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
+        binding = ActivitySettingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         hideStatusAndActionBar()
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
 
         if (savedInstanceState == null) {
             supportFragmentManager

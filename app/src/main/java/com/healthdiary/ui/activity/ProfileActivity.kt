@@ -1,5 +1,6 @@
 package com.healthdiary.ui.activity
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -35,6 +36,12 @@ class ProfileActivity : BaseActivity() {
         }
         binding.tvBirthday.setOnClickListener {
             showYearMonthDayPicker(it)
+        }
+        binding.btnSubmit.setOnClickListener {
+            finish()
+        }
+        binding.btnLogout.setOnClickListener {
+            finish()
         }
     }
 

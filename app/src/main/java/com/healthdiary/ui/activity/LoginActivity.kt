@@ -1,6 +1,7 @@
 package com.healthdiary.ui.activity
 
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -43,17 +44,20 @@ class LoginActivity : BaseActivity() {
     override fun onStart() {
         super.onStart()
         passwordVisibility = false
-        setPasswordVisibility()
+//        setPasswordVisibility()
     }
 
     private fun setPasswordVisibility(){
+        val typeface = resources.getFont(R.font.montaguslab_48pt_medium)
         if(passwordVisibility) {
             binding.ivPasswordVisibility.setImageResource(R.drawable.ic_visible)
             binding.etPassword.inputType = 0x91
+            binding.etPassword.typeface = typeface
             binding.etPassword.setSelection(binding.etPassword.text.length)
         } else {
             binding.ivPasswordVisibility.setImageResource(R.drawable.ic_invisible)
             binding.etPassword.inputType = 0x81
+            binding.etPassword.typeface = typeface
             binding.etPassword.setSelection(binding.etPassword.text.length)
         }
     }
