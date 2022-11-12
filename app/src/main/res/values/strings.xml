@@ -73,4 +73,12 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="other">Other</string>
+    <string name="_100">100%</string>
+    <string name="connected">Connected</string>
+    <string name="_92968">92,968</string>
+    <string name="steps">Steps</string>
+    <string name="kcal">kcal</string>
+    <string name="calories">Calories</string>
+    <string name="distance">Distance</string>
+    <string name="km">km</string>
 </resources>
