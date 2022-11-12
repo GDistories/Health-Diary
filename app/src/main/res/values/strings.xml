@@ -81,4 +81,9 @@
     <string name="calories">Calories</string>
     <string name="distance">Distance</string>
     <string name="km">km</string>
+    <string name="help_and_support">Help and Support</string>
+    <string name="how_can_we_help_you">How Can We Help You?</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="top_questions">Top Questions</string>
 </resources>
