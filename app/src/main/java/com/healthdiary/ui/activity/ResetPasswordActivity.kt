@@ -95,12 +95,12 @@ class ResetPasswordActivity : BaseActivity() {
         if(passwordConfirmVisibility) {
             binding.ivPasswordConfirmVisibility.setImageResource(R.drawable.ic_visible)
             binding.etPasswordConfirm.inputType = 0x91
-            binding.etPassword.typeface = typeface
+            binding.etPasswordConfirm.typeface = typeface
             binding.etPasswordConfirm.setSelection(binding.etPasswordConfirm.text.length)
         } else {
             binding.ivPasswordConfirmVisibility.setImageResource(R.drawable.ic_invisible)
             binding.etPasswordConfirm.inputType = 0x81
-            binding.etPassword.typeface = typeface
+            binding.etPasswordConfirm.typeface = typeface
             binding.etPasswordConfirm.setSelection(binding.etPasswordConfirm.text.length)
         }
     }

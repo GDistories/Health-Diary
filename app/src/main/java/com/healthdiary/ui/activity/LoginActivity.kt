@@ -44,7 +44,7 @@ class LoginActivity : BaseActivity() {
     override fun onStart() {
         super.onStart()
         passwordVisibility = false
-//        setPasswordVisibility()
+        setPasswordVisibility()
     }
 
     private fun setPasswordVisibility(){

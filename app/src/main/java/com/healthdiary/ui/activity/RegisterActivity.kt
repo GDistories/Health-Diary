@@ -12,9 +12,10 @@ class RegisterActivity : BaseActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private var passwordVisibility = false;
     private var passwordConfirmVisibility = false;
-    var sendHandler = Handler(Looper.getMainLooper())
+    private var sendHandler = Handler(Looper.getMainLooper())
     var sendRunnable: Runnable? = null
     var sendTime = 60
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,7 @@ class RegisterActivity : BaseActivity() {
                 binding.btnSendEmail.setTextColor(getColor(R.color.white))
             }
         }
+
 
         binding.ivBack.setOnClickListener {
             finish()
@@ -96,12 +98,12 @@ class RegisterActivity : BaseActivity() {
         if(passwordConfirmVisibility) {
             binding.ivPasswordConfirmVisibility.setImageResource(R.drawable.ic_visible)
             binding.etPasswordConfirm.inputType = 0x91
-            binding.etPassword.typeface = typeface
+            binding.etPasswordConfirm.typeface = typeface
             binding.etPasswordConfirm.setSelection(binding.etPasswordConfirm.text.length)
         } else {
             binding.ivPasswordConfirmVisibility.setImageResource(R.drawable.ic_invisible)
             binding.etPasswordConfirm.inputType = 0x81
-            binding.etPassword.typeface = typeface
+            binding.etPasswordConfirm.typeface = typeface
             binding.etPasswordConfirm.setSelection(binding.etPasswordConfirm.text.length)
         }
     }
