@@ -10,6 +10,21 @@
         <item name="android:textSize">32sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="activity_title">
+        <item name="android:fontFamily">@font/dmsans_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="profile_title">
+        <item name="android:fontFamily">@font/dmsans_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#515772</item>
+    </style>
+    <style name="profile_content">
+        <item name="android:fontFamily">@font/dmsans_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#0D1C36</item>
+    </style>
 
     <style name="news_fragment_title_style">
         <item name="android:fontFamily">@font/dmsans_medium</item>
@@ -25,5 +40,10 @@
         <item name="android:fontFamily">@font/dmsans_medium</item>
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/grey</item>
+    </style>
+
+    <style name="Animation.CustomPopup" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_out</item>
     </style>
 </resources>

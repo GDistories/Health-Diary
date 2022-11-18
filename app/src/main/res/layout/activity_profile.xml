@@ -4,6 +4,231 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ui.activity.ProfileActivity">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_title_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/iv_back"
+        app:layout_constraintTop_toTopOf="@id/iv_back"
+        app:layout_constraintBottom_toBottomOf="@id/iv_back"
+        android:layout_marginStart="10dp"
+        android:text="@string/profile"
+        android:gravity="center"
+        style="@style/activity_title" />
+
+    <LinearLayout
+        android:id="@+id/ll_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/iv_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_name"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="13dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/name"
+                    style="@style/profile_title" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    style="@style/profile_content"
+                    android:hint="@string/username"
+                    android:background="@color/white"
+                    android:autofillHints="name"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardElevation="13dp"
+            app:cardCornerRadius="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/gender"
+                    style="@style/profile_title" />
+
+                <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    style="@style/profile_content"
+                    android:hint="@string/gender"
+                    android:background="@color/white" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardElevation="13dp"
+            app:cardCornerRadius="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/birthday"
+                    style="@style/profile_title" />
+
+                <TextView
+                    android:id="@+id/tv_birthday"
+                    android:hint="@string/yyyy_mm_dd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    style="@style/profile_content"
+                    android:background="@color/white" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardElevation="13dp"
+            app:cardCornerRadius="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/phone_number"
+                    style="@style/profile_title" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    style="@style/profile_content"
+                    android:hint="@string/phone_number"
+                    android:background="@color/white"
+                    android:autofillHints="name"
+                    android:inputType="phone" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_profile"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="13dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" >
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:fontFamily="@font/montaguslab_48pt_bold"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_blue"
+            android:textSize="18sp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_submit"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="13dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" >
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/log_out"
+            android:fontFamily="@font/montaguslab_48pt_bold"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_red"
+            android:textSize="18sp"/>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

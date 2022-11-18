@@ -52,6 +52,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/et_email"
                 android:maxLength="30"
                 android:maxLines="1"
                 android:layout_width="0dp"
@@ -65,6 +66,7 @@
                 android:autofillHints="emailAddress" />
 
             <ImageView
+                android:id="@+id/iv_email_remove"
                 android:layout_width="0dp"
                 android:layout_weight="10"
                 android:layout_gravity="center"
@@ -99,6 +101,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/et_password"
                 android:maxLength="30"
                 android:maxLines="1"
                 android:layout_width="0dp"
@@ -108,10 +111,11 @@
                 android:hint="@string/enter_your_password"
                 android:fontFamily="@font/montaguslab_48pt_medium"
                 android:layout_marginStart="20dp"
-                android:inputType="textPassword"
+                android:inputType="textVisiblePassword"
                 android:autofillHints="password" />
 
             <ImageView
+                android:id="@+id/iv_password_visibility"
                 android:layout_width="0dp"
                 android:layout_weight="10"
                 android:layout_gravity="center"
@@ -156,7 +160,7 @@
             android:text="@string/sign_in"
             android:fontFamily="@font/montaguslab_48pt_bold"
             android:textColor="@color/white"
-            android:background="@drawable/button_blue"
+            android:background="@drawable/btn_blue"
             android:textSize="18sp"/>
     </androidx.cardview.widget.CardView>
 

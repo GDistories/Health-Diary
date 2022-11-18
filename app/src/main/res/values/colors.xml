@@ -11,4 +11,5 @@
     <color name="grey">#072D4B</color>
     <color name = "input_background">#ececec</color>
     <color name = "button_background">#4461F2</color>
+    <color name = "silver_gray">#999999</color>
 </resources>

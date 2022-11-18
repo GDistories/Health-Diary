@@ -136,7 +136,7 @@
                 android:text="@string/send"
                 android:fontFamily="@font/montaguslab_48pt_bold"
                 android:textColor="@color/white"
-                android:background="@drawable/button_blue"
+                android:background="@drawable/btn_blue"
                 android:textSize="11sp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"/>
@@ -165,6 +165,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/et_password"
                 android:maxLength="30"
                 android:maxLines="1"
                 android:layout_width="0dp"
@@ -174,11 +175,12 @@
                 android:hint="@string/enter_your_password"
                 android:fontFamily="@font/montaguslab_48pt_medium"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="10dp"
                 android:inputType="textPassword"
                 android:autofillHints="password" />
 
             <ImageView
+                android:id="@+id/iv_password_visibility"
                 android:layout_width="0dp"
                 android:layout_weight="10"
                 android:layout_gravity="center"
@@ -214,6 +216,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/et_password_confirm"
                 android:maxLength="30"
                 android:maxLines="1"
                 android:layout_width="0dp"
@@ -228,6 +231,7 @@
                 android:autofillHints="password" />
 
             <ImageView
+                android:id="@+id/iv_password_confirm_visibility"
                 android:layout_width="0dp"
                 android:layout_weight="10"
                 android:layout_gravity="center"
@@ -243,7 +247,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_sign_in"
+        android:id="@+id/cv_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/cv_password"
@@ -261,7 +265,7 @@
             android:text="@string/sign_up"
             android:fontFamily="@font/montaguslab_48pt_bold"
             android:textColor="@color/white"
-            android:background="@drawable/button_blue"
+            android:background="@drawable/btn_blue"
             android:textSize="18sp"/>
     </androidx.cardview.widget.CardView>
 
