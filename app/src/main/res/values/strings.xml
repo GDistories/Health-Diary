@@ -180,4 +180,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+
+    <!--Doctor Info starts-->
+    <string name="start_chat">Start Chat</string>
 </resources>

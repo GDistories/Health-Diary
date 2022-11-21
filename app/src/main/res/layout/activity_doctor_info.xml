@@ -8,7 +8,7 @@
     tools:context=".ui.activity.DoctorInfoActivity">
     <!--Bar-->
     <ImageView
-        android:id="@+id/back_to_all_doctor"
+        android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -31,7 +31,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toEndOf="@+id/back_to_all_doctor"
+        app:layout_constraintStart_toEndOf="@+id/iv_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--Doctor Image-->
@@ -63,7 +63,7 @@
         android:id="@+id/doctor_info_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/dmsans_bold"
         android:text="Dr. Maria Waston "
         android:textColor="@color/black"
@@ -72,6 +72,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/doctor_info_photo" />
+
     <TextView
         android:id="@+id/doctor_info_position"
         android:layout_width="wrap_content"
@@ -232,17 +233,18 @@
         android:id="@+id/doctor_info_intro"
         android:layout_width="369dp"
         android:layout_height="64dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/dmsans_bold"
         android:text="Dr. Maria Waston is the top most Heart Surgeon in  London Bridge Hospital. She is available for private consultation."
         android:textColor="@color/material_gray"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
+        android:id="@+id/doctor_info_sympton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -255,5 +257,116 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/doctor_info_intro" />
 
+    <!--Symptoms-->
+    <!--1-->
+    <ImageView
+        android:id="@+id/symptomborder1"
+        android:layout_width="137dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/sympton_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctor_info_sympton"></ImageView>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="Angina pectoris"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/symptomborder1"
+        app:layout_constraintEnd_toEndOf="@+id/symptomborder1"
+        app:layout_constraintStart_toStartOf="@+id/symptomborder1"
+        app:layout_constraintTop_toTopOf="@+id/symptomborder1" />
+
+    <!--2-->
+    <ImageView
+        android:id="@+id/symptomborder2"
+        android:layout_width="189dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/sympton_border"
+        app:layout_constraintStart_toEndOf="@+id/symptomborder1"
+        app:layout_constraintTop_toBottomOf="@+id/doctor_info_sympton"></ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="Congenital heart disease"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/symptomborder2"
+        app:layout_constraintEnd_toEndOf="@+id/symptomborder2"
+        app:layout_constraintStart_toStartOf="@+id/symptomborder2"
+        app:layout_constraintTop_toTopOf="@+id/symptomborder2" />
+
+    <!--3-->
+    <ImageView
+        android:id="@+id/symptomborder3"
+        android:layout_width="140dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+
+        android:layout_marginTop="16dp"
+        android:background="@drawable/sympton_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/symptomborder1"></ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="Coronary arteritis"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/symptomborder3"
+        app:layout_constraintEnd_toEndOf="@+id/symptomborder3"
+        app:layout_constraintStart_toStartOf="@+id/symptomborder3"
+        app:layout_constraintTop_toTopOf="@+id/symptomborder3" />
+
+    <!--4-->
+    <ImageView
+        android:id="@+id/symptomborder4"
+        android:layout_width="174dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/sympton_border"
+        app:layout_constraintStart_toEndOf="@+id/symptomborder3"
+        app:layout_constraintTop_toBottomOf="@+id/symptomborder2"></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="Chronic heart failure"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/symptomborder4"
+        app:layout_constraintEnd_toEndOf="@+id/symptomborder4"
+        app:layout_constraintStart_toStartOf="@+id/symptomborder4"
+        app:layout_constraintTop_toTopOf="@+id/symptomborder4" />
+
+    <Button
+        android:id="@+id/btn_start_chat"
+        android:layout_width="332dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/btn_blue"
+        android:fontFamily="@font/montaguslab_48pt_bold"
+        android:text="@string/start_chat"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
