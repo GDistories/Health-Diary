@@ -183,4 +183,16 @@
 
     <!--Doctor Info starts-->
     <string name="start_chat">Start Chat</string>
+
+    <!--News content-->
+    <string name="news_content_title">The Top COVID-19 Hot Spots in the U.S.</string>
+    <string name="news_content_abstract">These are the 25 counties with the highest recent averages for new COVID cases per capita.
+    </string>
+    <string name="news_content_author">By Christopher Wolf and Sharon Lurye |</string>
+    <string name="news_content_time">Oct. 3, 2022, at 11:38 a.m.</string>
+    <string name="news_content_body1">COVID-19 case counts in the U.S. ticked down in recent days, based on provisional data from the Centers for Disease Control and Prevention.</string>
+
+    <string name="news_content_body2"> The U.S. tallied a daily average of about 45,700 new COVID-19 cases over the seven days that ended Sep. 29, and a daily average of 325 deaths in that same time frame. In contrast, the averages one week earlier were about 54,200 cases and 375 deaths per day.</string>
+    <string name="news_conent_figure_title">Top 25 COVID-19 Hot Spots in the U.S.</string>
+    <string name="news_content_figure_desc">7-day average as of Sep. 29, 2022.</string>
 </resources>
