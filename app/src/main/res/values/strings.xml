@@ -210,6 +210,7 @@
     <string name="community_categories">Categories</string>
     <string name="community_top">Top</string>
     <string name="community_doctor">Doctor</string>
-    <string name="nutritionist">Nutritionist</string>
-    <string name="coach">Coach</string>
+    <string name="community_nutritionist">Nutritionist</string>
+    <string name="community_coach">Coach</string>
+    <string name="community_hint"></string>
 </resources>

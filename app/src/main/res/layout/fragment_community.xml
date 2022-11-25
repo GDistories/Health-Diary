@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="48dp"
                     android:fontFamily="@font/dmsans_bold"
                     android:text="@string/community_welcome_msg"
                     android:textColor="@color/white"
@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="42dp"
                     android:fontFamily="@font/dmsans_medium"
                     android:text="@string/community_try_msg"
                     android:textColor="@color/white"
@@ -48,14 +48,39 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/community_welcome" />
 
+
                 <ImageView
                     android:layout_width="81dp"
                     android:layout_height="81dp"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginEnd="36dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginEnd="32dp"
                     android:src="@drawable/community_avatar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/search_card_view"
+                    android:layout_width="370dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginBottom="42dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.609"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/community_try">
+
+                    <SearchView
+                        android:id="@+id/search_professionals"
+                        android:layout_width="370dp"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:iconifiedByDefault="false"
+                        android:queryHint="Search for professionals" />
+                </androidx.cardview.widget.CardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -148,7 +173,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/dmsans_regular"
-                        android:text="@string/nutritionist"
+                        android:text="@string/community_nutritionist"
                         android:textColor="@color/black"
                         android:textStyle="bold"></TextView>
                 </LinearLayout>
@@ -184,7 +209,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/dmsans_regular"
-                        android:text="@string/coach"
+                        android:text="@string/community_coach"
                         android:textColor="@color/black"
                         android:textStyle="bold"></TextView>
                 </LinearLayout>
