@@ -195,4 +195,12 @@
     <string name="news_content_body2"> The U.S. tallied a daily average of about 45,700 new COVID-19 cases over the seven days that ended Sep. 29, and a daily average of 325 deaths in that same time frame. In contrast, the averages one week earlier were about 54,200 cases and 375 deaths per day.</string>
     <string name="news_conent_figure_title">Top 25 COVID-19 Hot Spots in the U.S.</string>
     <string name="news_content_figure_desc">7-day average as of Sep. 29, 2022.</string>
+
+    <!--Home Page-->
+    <string name="home_check_status">You haven’t check-in today.</string>
+    <string name="score">Score</string>
+    <string name="check_in_record">Check-in Record</string>
+    <string name="health_tips">Health Tips</string>
+    <string name="track_data">Track Data</string>
+    <string name="recommended_articles">Recommended Articles</string>
 </resources>

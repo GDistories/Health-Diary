@@ -17,9 +17,10 @@ class NewsContentActivity : BaseActivity() {
         val onlineUrl = "https://www.shutterstock.com/shutterstock/videos/1060058060/preview/stock-footage-asia-businessmen-and-businesswomen-meeting-brainstorming-ideas-about-new-paperwork-colleagues.webm"
 
         //初始化视频播放器的视频链接和标题
-        binding.jzvdVideo.setUp(onlineUrl, "视频标题")
+        binding.jzvdVideo.setUp(onlineUrl, "The Top COVID-19 Hot Spots\n" +
+                "in the U.S.")
         //设置视频播放器的封面，视频默认是暂停状态
-        binding.jzvdVideo.posterImageView.setImageResource(R.drawable.image_simple_watch)
+        binding.jzvdVideo.posterImageView.setImageResource(R.drawable.covid_video_cover)
 
         binding.ivBack.setOnClickListener {
             finish()

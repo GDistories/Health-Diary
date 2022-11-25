@@ -15,4 +15,6 @@
     <color name = "input_background">#ececec</color>
     <color name = "button_background">#4461F2</color>
     <color name = "silver_gray">#999999</color>
+    <color name="rose_pink">#D2416E</color>
+    <color name="light_pink">#FFF1E3E7</color>
 </resources>
