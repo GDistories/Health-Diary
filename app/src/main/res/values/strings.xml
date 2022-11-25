@@ -203,4 +203,13 @@
     <string name="health_tips">Health Tips</string>
     <string name="track_data">Track Data</string>
     <string name="recommended_articles">Recommended Articles</string>
+
+    <!--Community Page-->
+    <string name="community_welcome_msg">Welcome to Community</string>
+    <string name="community_try_msg">Try to chat with professionals!</string>
+    <string name="community_categories">Categories</string>
+    <string name="community_top">Top</string>
+    <string name="community_doctor">Doctor</string>
+    <string name="nutritionist">Nutritionist</string>
+    <string name="coach">Coach</string>
 </resources>
