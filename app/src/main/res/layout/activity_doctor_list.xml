@@ -59,11 +59,13 @@
             android:layout_height="60dp"
             android:background="@color/white"
             android:iconifiedByDefault="false"
+            android:queryBackground="@android:color/transparent"
             android:queryHint="Search for doctors" />
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/doctor_list_recylerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/doctor_item_layout" />
 </LinearLayout>

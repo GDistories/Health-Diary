@@ -79,6 +79,7 @@
                         android:layout_height="60dp"
                         android:background="@color/white"
                         android:iconifiedByDefault="false"
+                        android:queryBackground="@android:color/transparent"
                         android:queryHint="Search for professionals" />
                 </androidx.cardview.widget.CardView>
 
@@ -215,169 +216,175 @@
                 android:text="@string/community_top"
                 android:theme="@style/activity_title" />
 
-            <androidx.cardview.widget.CardView
+            <include
+                layout="@layout/doctor_item_layout" />
+
+            <include
+                layout="@layout/doctor_item_layout" />
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:cardBackgroundColor="@color/white"-->
+<!--                app:cardCornerRadius="10dp"-->
+<!--                app:cardElevation="10dp"-->
+<!--                app:cardMaxElevation="10dp"-->
+<!--                app:cardPreventCornerOverlap="true"-->
+<!--                app:cardUseCompatPadding="true">-->
+
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/doctor_img"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="110dp"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:src="@drawable/doctor_img5"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/doctor_name"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:text="Dr. Maria Waston"-->
+<!--                        android:theme="@style/news_fragment_title_style"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/doctor_img"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/doctor_symptons"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dmsans_regular"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:theme="@style/news_fragment_content_style"-->
+<!--                        android:text="Heart Surgeon, London Bridge Hospital"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/doctor_name"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/doctor_name" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/doctor_personal_info_btn"-->
+<!--                        android:layout_width="110dp"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:text="Personal Info."-->
+<!--                        android:fontFamily="@font/dmsans_medium"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:background="@drawable/doctor_btn_border"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/doctor_symptons"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/doctor_symptons" >-->
+<!--                    </Button>-->
+
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/doctor_chat"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:background="#D7DCF5"-->
+<!--                        app:cardCornerRadius="10dp"-->
+<!--                        app:cardElevation="10dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/doctor_personal_info_btn"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/doctor_personal_info_btn">-->
+
+<!--                        <ImageView-->
+<!--                            android:background="#D7DCF5"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:src="@drawable/chat" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:cardBackgroundColor="@color/white"-->
+<!--                app:cardCornerRadius="10dp"-->
+<!--                app:cardElevation="10dp"-->
+<!--                app:cardPreventCornerOverlap="true"-->
+<!--                app:cardUseCompatPadding="true">-->
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/doctor2_img"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="110dp"-->
+<!--                        android:layout_margin="5dp"-->
+<!--                        android:src="@drawable/doctor_img2"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/doctor2_name"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:text="Dr. Kathy Pacheco"-->
+<!--                        android:theme="@style/news_fragment_title_style"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/doctor2_img"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/doctor2_symptons"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:fontFamily="@font/dmsans_regular"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:theme="@style/news_fragment_content_style"-->
+<!--                        android:text="Heart Surgeon, London, England"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/doctor2_name"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/doctor2_name" />-->
+
+<!--                    <Button-->
+<!--                        android:id="@+id/doctor2_personal_info_btn"-->
+<!--                        android:layout_width="110dp"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:layout_marginTop="12dp"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:text="Personal Info."-->
+<!--                        android:fontFamily="@font/dmsans_medium"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:background="@drawable/doctor_btn_border"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/doctor2_symptons"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/doctor2_symptons" >-->
+<!--                    </Button>-->
+
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/doctor2_chat"-->
+<!--                        app:cardCornerRadius="10dp"-->
+<!--                        app:cardElevation="10dp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:background="#D7DCF5"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/doctor2_personal_info_btn"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/doctor2_personal_info_btn">-->
+
+<!--                        <ImageView-->
+<!--                            android:background="#D7DCF5"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:src="@drawable/chat" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:cardMaxElevation="10dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/doctor_img"
-                        android:layout_width="100dp"
-                        android:layout_height="110dp"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/doctor_img5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/doctor_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Dr. Maria Waston"
-                        android:theme="@style/news_fragment_title_style"
-                        app:layout_constraintStart_toEndOf="@+id/doctor_img"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/doctor_symptons"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dmsans_regular"
-                        android:textSize="12sp"
-                        android:theme="@style/news_fragment_content_style"
-                        android:text="Heart Surgeon, London Bridge Hospital"
-                        app:layout_constraintStart_toStartOf="@+id/doctor_name"
-                        app:layout_constraintTop_toBottomOf="@+id/doctor_name" />
-
-                    <Button
-                        android:id="@+id/doctor_personal_info_btn"
-                        android:layout_width="110dp"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="12dp"
-                        android:textSize="12sp"
-                        android:text="Personal Info."
-                        android:fontFamily="@font/dmsans_medium"
-                        android:textAllCaps="false"
-                        android:background="@drawable/doctor_btn_border"
-                        app:layout_constraintStart_toStartOf="@+id/doctor_symptons"
-                        app:layout_constraintTop_toBottomOf="@+id/doctor_symptons" >
-                    </Button>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/doctor_chat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:background="#D7DCF5"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="10dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/doctor_personal_info_btn"
-                        app:layout_constraintStart_toEndOf="@+id/doctor_personal_info_btn">
-
-                        <ImageView
-                            android:background="#D7DCF5"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/chat" />
-                    </androidx.cardview.widget.CardView>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/doctor2_img"
-                        android:layout_width="100dp"
-                        android:layout_height="110dp"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/doctor_img2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/doctor2_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Dr. Kathy Pacheco"
-                        android:theme="@style/news_fragment_title_style"
-                        app:layout_constraintStart_toEndOf="@+id/doctor2_img"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/doctor2_symptons"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dmsans_regular"
-                        android:textSize="12sp"
-                        android:theme="@style/news_fragment_content_style"
-                        android:text="Heart Surgeon, London, England"
-                        app:layout_constraintStart_toStartOf="@+id/doctor2_name"
-                        app:layout_constraintTop_toBottomOf="@+id/doctor2_name" />
-
-                    <Button
-                        android:id="@+id/doctor2_personal_info_btn"
-                        android:layout_width="110dp"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="12dp"
-                        android:textSize="12sp"
-                        android:text="Personal Info."
-                        android:fontFamily="@font/dmsans_medium"
-                        android:textAllCaps="false"
-                        android:background="@drawable/doctor_btn_border"
-                        app:layout_constraintStart_toStartOf="@+id/doctor2_symptons"
-                        app:layout_constraintTop_toBottomOf="@+id/doctor2_symptons" >
-                    </Button>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/doctor2_chat"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:background="#D7DCF5"
-                        app:layout_constraintBottom_toBottomOf="@+id/doctor2_personal_info_btn"
-                        app:layout_constraintStart_toEndOf="@+id/doctor2_personal_info_btn">
-
-                        <ImageView
-                            android:background="#D7DCF5"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/chat" />
-                    </androidx.cardview.widget.CardView>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-            <TextView
-                android:layout_width="match_parent"
-                android:text=" "
                 android:layout_height="55dp"/>
         </LinearLayout>
 
