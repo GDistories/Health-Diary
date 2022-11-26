@@ -1,16 +1,14 @@
 package com.healthdiary.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.healthdiary.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityDoctorListBinding
-import com.healthdiary.ui.fragment.DoctorList
-import com.healthdiary.ui.fragment.DoctorListAdapter
-import kotlinx.android.synthetic.main.doctor_item_layout.view.*
+import com.healthdiary.data.DoctorList
+import com.healthdiary.adapter.DoctorListAdapter
 
 class DoctorListActivity : BaseActivity() {
     private lateinit var binding:ActivityDoctorListBinding

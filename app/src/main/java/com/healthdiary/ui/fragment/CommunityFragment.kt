@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.healthdiary.base.BaseFragment
-import com.healthdiary.R
 import com.healthdiary.databinding.FragmentCommunityBinding
+import com.healthdiary.codepalace.chatbot.ui.ChatActivity
 import com.healthdiary.ui.activity.DoctorInfoActivity
 import com.healthdiary.ui.activity.DoctorListActivity
-import com.healthdiary.ui.activity.NewsContentActivity
 
 
 class CommunityFragment : BaseFragment() {
@@ -24,12 +23,17 @@ class CommunityFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
+
         binding.categoryDoctor.setOnClickListener {
             startActivity(Intent(activity, DoctorListActivity::class.java))
         }
 
         binding.doctorPersonalInfoBtn.setOnClickListener {
             startActivity(Intent(activity, DoctorInfoActivity::class.java))
+        }
+
+        binding.doctorChat.setOnClickListener {
+            startActivity(Intent(activity, ChatActivity::class.java))
         }
     }
 

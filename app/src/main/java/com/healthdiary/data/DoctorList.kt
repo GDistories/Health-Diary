@@ -1,4 +1,4 @@
-package com.healthdiary.ui.fragment
+package com.healthdiary.data
 
 import androidx.annotation.DrawableRes
 

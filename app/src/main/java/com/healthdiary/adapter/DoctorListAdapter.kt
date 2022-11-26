@@ -1,4 +1,4 @@
-package com.healthdiary.ui.fragment
+package com.healthdiary.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.healthdiary.R
+import com.healthdiary.data.DoctorList
 
 class DoctorListAdapter(var locations: ArrayList<DoctorList>):
     RecyclerView.Adapter<DoctorListAdapter.DoctorListViewHolder>()  //interface to implement
