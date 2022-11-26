@@ -120,9 +120,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_margin="20dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="20dp"
                     app:cardBackgroundColor="@color/white">
@@ -211,9 +209,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_margin="20dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="20dp">
 
@@ -301,9 +297,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_margin="20dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="20dp">
 
@@ -391,9 +385,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="20dp"
                     app:cardCornerRadius="10dp"
                     android:layout_marginBottom="65dp"
                     app:cardElevation="20dp">
