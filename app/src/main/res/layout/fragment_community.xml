@@ -90,14 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/dmsans_bold"
-                android:shadowColor="@color/grey"
-                android:shadowDx="-1"
-                android:shadowDy="-1"
-                android:shadowRadius="1"
                 android:text="@string/community_categories"
-                android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:theme="@style/activity_title" />
+
             <!--Category Botton Row-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,10 +131,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/dmsans_regular"
+                        android:theme="@style/my_fragment_style"
                         android:text="@string/community_doctor"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"></TextView>
+                        />
                 </LinearLayout>
 
                 <!--Nutritionist-->
@@ -172,10 +166,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/dmsans_regular"
                         android:text="@string/community_nutritionist"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"></TextView>
+                        android:theme="@style/my_fragment_style"/>
                 </LinearLayout>
 
                 <!--Coach-->
@@ -208,10 +200,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/dmsans_regular"
                         android:text="@string/community_coach"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"></TextView>
+                        android:theme="@style/my_fragment_style"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -222,14 +212,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/dmsans_bold"
-                android:shadowColor="@color/grey"
-                android:shadowDx="-1"
-                android:shadowDy="-1"
-                android:shadowRadius="1"
                 android:text="@string/community_top"
-                android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:theme="@style/activity_title" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

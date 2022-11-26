@@ -12,7 +12,10 @@
     </style>
     <style name="activity_title">
         <item name="android:fontFamily">@font/dmsans_bold</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:shadowDx">-1</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">2</item>
         <item name="android:textColor">@color/black</item>
     </style>
     <style name="profile_title">

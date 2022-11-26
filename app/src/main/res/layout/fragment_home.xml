@@ -28,8 +28,8 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="10dp"
                     app:cardBackgroundColor="#DED1F6"
-                    app:cardElevation="10dp"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -120,7 +120,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
@@ -146,10 +146,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/dmsans_regular"
+                        android:theme="@style/my_fragment_style"
                         android:text="@string/check_in_record"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"></TextView>
+                        />
                 </LinearLayout>
 
                 <!--Health Tips-->
@@ -182,10 +181,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/dmsans_regular"
+                        android:theme="@style/my_fragment_style"
                         android:text="@string/health_tips"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"></TextView>
+                        />
                 </LinearLayout>
 
                 <!--Track Data-->
@@ -218,10 +216,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/dmsans_regular"
+                        android:theme="@style/my_fragment_style"
                         android:text="@string/track_data"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"></TextView>
+                        />
                 </LinearLayout>
 
             </LinearLayout>
@@ -232,14 +229,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/dmsans_bold"
-                android:shadowColor="@color/grey"
-                android:shadowDx="-1"
-                android:shadowDy="-1"
-                android:shadowRadius="2"
                 android:text="@string/recommended_articles"
-                android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:theme="@style/activity_title" />
 
             <!--News1-->
             <androidx.cardview.widget.CardView
@@ -248,16 +239,16 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="20dp"
-                app:cardBackgroundColor="@color/white">
+                app:cardElevation="20dp">
 
                 <LinearLayout
                     android:id="@+id/news1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="10dp"
                     android:orientation="horizontal">
                     <!--Lefthand parts-->
