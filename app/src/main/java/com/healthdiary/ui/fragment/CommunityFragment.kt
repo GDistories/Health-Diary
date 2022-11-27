@@ -28,13 +28,13 @@ class CommunityFragment : BaseFragment() {
             startActivity(Intent(activity, DoctorListActivity::class.java))
         }
 
-        binding.doctorPersonalInfoBtn.setOnClickListener {
-            startActivity(Intent(activity, DoctorInfoActivity::class.java))
-        }
-
-        binding.doctorChat.setOnClickListener {
-            startActivity(Intent(activity, ChatActivity::class.java))
-        }
+//        binding.doctorPersonalInfoBtn.setOnClickListener {
+//            startActivity(Intent(activity, DoctorInfoActivity::class.java))
+//        }
+//
+//        binding.doctorChat.setOnClickListener {
+//            startActivity(Intent(activity, ChatActivity::class.java))
+//        }
     }
 
 

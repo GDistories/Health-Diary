@@ -6,4 +6,5 @@ data class DoctorList (
     var doctorName: String,
     var doctorSymptons: String,
 
-    @DrawableRes var doctorimg: Int)
+    @DrawableRes var doctorimg: Int
+    )

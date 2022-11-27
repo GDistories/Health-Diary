@@ -9,17 +9,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.healthdiary.R
 import com.healthdiary.data.DoctorList
 
-class DoctorListAdapter(var locations: ArrayList<DoctorList>):
+class DoctorListAdapter(
+    var locations: ArrayList<DoctorList>
+):
     RecyclerView.Adapter<DoctorListAdapter.DoctorListViewHolder>()  //interface to implement
 {
     // Constructor for the viewholder
     // second called
     class DoctorListViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) //interface to implement
+        RecyclerView.ViewHolder(itemView)//interface to implement
     {
         val doctor_name = itemView.findViewById<TextView>(R.id.doctor_name)
         val doctor_symptons = itemView.findViewById<TextView>(R.id.doctor_symptons)
         val doctor_img = itemView.findViewById<ImageView>(R.id.doctor_img)
+
+//        init {
+//            itemView.setOnClickListener(this)
+//        }
+//
+//        override fun onClick(v: View?) {
+//            val position=adapterPosition
+//            if(position!=RecyclerView.NO_POSITION){
+//                listener.onItemClick(position)
+//            }
+//        }
 
         fun bind(location: DoctorList) {
             doctor_name.text = location.doctorName
@@ -29,6 +42,10 @@ class DoctorListAdapter(var locations: ArrayList<DoctorList>):
         }
 
     }
+
+//    interface OnItemClickListener{
+//        fun onItemClick(position: Int)
+//    }
 
     // First function called
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorListViewHolder {

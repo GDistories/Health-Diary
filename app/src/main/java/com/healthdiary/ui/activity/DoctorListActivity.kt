@@ -2,13 +2,14 @@ package com.healthdiary.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import com.healthdiary.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.healthdiary.base.BaseActivity
-import com.healthdiary.databinding.ActivityDoctorListBinding
-import com.healthdiary.data.DoctorList
+import com.healthdiary.R
 import com.healthdiary.adapter.DoctorListAdapter
+import com.healthdiary.base.BaseActivity
+import com.healthdiary.codepalace.chatbot.ui.ChatActivity
+import com.healthdiary.data.DoctorList
+import com.healthdiary.databinding.ActivityDoctorListBinding
 
 class DoctorListActivity : BaseActivity() {
     private lateinit var binding:ActivityDoctorListBinding
@@ -75,7 +76,12 @@ class DoctorListActivity : BaseActivity() {
 
     }
 
-    private fun onListItemClick(position: Int) {
-        startActivity(Intent(this, DoctorInfoActivity::class.java))
-    }
+//    override fun onItemClick(position: Int) {
+//        val intent = Intent(this,DoctorInfoActivity::class.java)
+//        startActivity(intent)
+//    }
+
+//    private fun onListItemClick(position: Int) {
+//        startActivity(Intent(this, DoctorInfoActivity::class.java))
+//    }
 }
