@@ -215,9 +215,13 @@
                 android:text="@string/community_top"
                 android:theme="@style/activity_title" />
 
-            <include layout="@layout/doctor_item_layout" />
+            <include
+                android:id="@+id/community_top1"
+                layout="@layout/doctor_item_layout" />
 
-            <include layout="@layout/doctor_item_layout" />
+            <include
+                android:id="@+id/community_top2"
+                layout="@layout/doctor_item_layout" />
 
             <!--            <androidx.cardview.widget.CardView-->
             <!--                android:layout_width="match_parent"-->

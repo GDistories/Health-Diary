@@ -28,13 +28,19 @@ class CommunityFragment : BaseFragment() {
             startActivity(Intent(activity, DoctorListActivity::class.java))
         }
 
-//        binding.doctorPersonalInfoBtn.setOnClickListener {
-//            startActivity(Intent(activity, DoctorInfoActivity::class.java))
-//        }
-//
-//        binding.doctorChat.setOnClickListener {
-//            startActivity(Intent(activity, ChatActivity::class.java))
-//        }
+        binding.communityTop1.doctorPersonalInfoBtn.setOnClickListener {
+            startActivity(Intent(activity, DoctorInfoActivity::class.java))
+        }
+        binding.communityTop2.doctorPersonalInfoBtn.setOnClickListener {
+            startActivity(Intent(activity, DoctorInfoActivity::class.java))
+        }
+        binding.communityTop1.doctorChat.setOnClickListener {
+            startActivity(Intent(activity, ChatActivity::class.java))
+        }
+        binding.communityTop2.doctorChat.setOnClickListener {
+            startActivity(Intent(activity, ChatActivity::class.java))
+        }
+
     }
 
 
