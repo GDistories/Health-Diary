@@ -19,77 +19,77 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".CheckInHistoryActivity"
+            android:name=".ui.activity.CheckInHistoryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".CheckInSuccessActivity"
+            android:name=".ui.activity.CheckInSuccessActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".TipsActivity"
+            android:name=".ui.activity.TipsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DashboardActivity"
+            android:name=".ui.activity.DashboardActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EditInfoActivity"
+            android:name=".ui.activity.EditInfoActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".CheckInActivity"
+            android:name=".ui.activity.CheckInActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Check_in_success_Activity"
+            android:name=".ui.activity.Check_in_success_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Check_in_history_Activity"
+            android:name=".ui.activity.Check_in_history_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ScoreActivity"
+            android:name=".ui.activity.ScoreActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".TrackerActivity"
+            android:name=".ui.activity.TrackerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SleepReportActivity"
+            android:name=".ui.activity.SleepReportActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
