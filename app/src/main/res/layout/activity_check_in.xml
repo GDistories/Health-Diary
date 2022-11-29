@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.CheckInActivity"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/calendar1"
+            android:layout_marginTop="50dp">
+        </ImageView>
+
+        <TextView
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="28dp"
+            android:text="Today is Thursday,"
+            android:fontFamily="@font/dmsans_bold"
+            android:textSize="24dp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How are you feeling now:"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="28dp"
+            android:fontFamily="@font/dmsans_bold"
+            android:textSize="24dp">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your body temperature:" />
+
+<!--            <EditText-->
+<!--                android:id="@+id/et_temperature"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="355dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_weight="10"-->
+<!--                android:autofillHints="emailAddress"-->
+<!--                android:background="@color/white"-->
+<!--                android:fontFamily="@font/montaguslab_48pt_medium"-->
+<!--                android:hint="Enter Your Body Temperature"-->
+<!--                android:inputType="textEmailAddress"-->
+<!--                android:maxLength="30"-->
+<!--                android:maxLines="1" />-->
+
+            <EditText
+                android:id="@+id/et_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter Your Body Temperature"
+                android:inputType="numberSigned" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your heart rate:"
+                />
+
+            <EditText
+                android:id="@+id/et_heart_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter Your Heart Rate"
+                android:inputType="numberSigned">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Any Symptoms?">
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="114dp">
+
+                <Button
+                    android:id="@+id/btn_symptom1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:fontFamily="@font/montaguslab_48pt_bold"
+                    android:text="Vomit"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_symptom2"
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:fontFamily="@font/montaguslab_48pt_bold"
+                    android:text="Fatigue"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_symptom3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:fontFamily="@font/montaguslab_48pt_bold"
+                    android:text="Fever"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="114dp">
+
+                <Button
+                    android:id="@+id/btn_med1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:fontFamily="@font/montaguslab_48pt_bold"
+                    android:text="Med A"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_med2"
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:fontFamily="@font/montaguslab_48pt_bold"
+                    android:text="Med B"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_med3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:fontFamily="@font/montaguslab_48pt_bold"
+                    android:text="None"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/check_in_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_blue"
+                android:fontFamily="@font/montaguslab_48pt_bold"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
