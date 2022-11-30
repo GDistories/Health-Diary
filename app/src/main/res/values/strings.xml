@@ -213,4 +213,7 @@
     <string name="community_nutritionist">Nutritionist</string>
     <string name="community_coach">Coach</string>
     <string name="community_hint"></string>
+    <string name="days_later">Days Later</string>
+    <string name="days_ago">Days Ago</string>
+    <string name="today">Today</string>
 </resources>
