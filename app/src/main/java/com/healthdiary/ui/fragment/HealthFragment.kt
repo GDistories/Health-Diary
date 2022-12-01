@@ -128,6 +128,7 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         binding.tvLunar.text = calendar.lunar
         mYear = calendar.year
         calculateDayDifference(calendar)
+
     }
 
     override fun onYearChange(year: Int) {

@@ -61,20 +61,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activity.Check_in_success_Activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.activity.Check_in_history_Activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.activity.ScoreActivity"
             android:exported="false">
             <meta-data
