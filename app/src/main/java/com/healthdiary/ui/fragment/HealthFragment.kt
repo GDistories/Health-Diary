@@ -1,17 +1,20 @@
 package com.healthdiary.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentHealthBinding
 import com.healthdiary.databinding.FragmentMyBinding
+import com.healthdiary.ui.activity.*
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -35,6 +38,22 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         super.onStart()
         initView()
         initData()
+
+
+        binding.iconEdit.setOnClickListener {
+            startActivity(Intent(activity, EditInfoActivity::class.java))
+        }
+        binding.iconScore.setOnClickListener {
+            startActivity(Intent(activity, ScoreActivity::class.java))
+        }
+        binding.iconTracker.setOnClickListener {
+            startActivity(Intent(activity, TrackerActivity::class.java))
+        }
+        binding.iconTips.setOnClickListener {
+            startActivity(Intent(activity, TipsActivity::class.java))
+        }
+
+
     }
 
     override fun onDestroyView() {
