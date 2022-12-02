@@ -36,6 +36,7 @@
             android:theme="@style/activity_title" />
     </LinearLayout>
 
+    <!--Main content-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -279,7 +280,6 @@
                 android:background="@drawable/sympton_border"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/doctor_info_sympton"></ImageView>
-
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
@@ -304,7 +304,6 @@
                 android:background="@drawable/sympton_border"
                 app:layout_constraintStart_toEndOf="@+id/symptomborder1"
                 app:layout_constraintTop_toBottomOf="@+id/doctor_info_sympton"></ImageView>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -329,7 +328,6 @@
                 android:background="@drawable/sympton_border"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/symptomborder1"></ImageView>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -353,7 +351,6 @@
                 android:background="@drawable/sympton_border"
                 app:layout_constraintStart_toEndOf="@+id/symptomborder3"
                 app:layout_constraintTop_toBottomOf="@+id/symptomborder2"></ImageView>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -366,7 +363,9 @@
                 app:layout_constraintEnd_toEndOf="@+id/symptomborder4"
                 app:layout_constraintStart_toStartOf="@+id/symptomborder4"
                 app:layout_constraintTop_toTopOf="@+id/symptomborder4" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--Button to start content from doctor detail page-->
         <Button
             android:id="@+id/btn_start_chat"
             android:layout_width="332dp"
