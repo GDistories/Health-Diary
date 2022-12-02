@@ -23,7 +23,7 @@
             android:layout_weight=".5"
             android:background="@drawable/btn_border"
             android:backgroundTint="@android:color/white"
-            android:hint="Type a message..."
+            android:hint="@string/chat_hint"
             android:padding="10dp"
             android:singleLine="true" />
 
@@ -36,7 +36,7 @@
             android:background="@drawable/btn_border"
             android:backgroundTint="#B28CFF"
             android:textAllCaps="false"
-            android:text="Send"
+            android:text="@string/chat_send"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
@@ -89,7 +89,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Online"
+                    android:text="@string/chat_online"
                     android:textColor="@color/white"
                     android:fontFamily="@font/dmsans_medium"
                     android:textSize="14sp"/>

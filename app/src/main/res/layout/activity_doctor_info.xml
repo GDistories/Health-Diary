@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="110dp"
             android:layout_marginTop="16dp"
-            android:text="Detail Info "
+            android:text="@string/doctor_info_title"
             android:theme="@style/activity_title" />
     </LinearLayout>
 
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsans_bold"
-                android:text="Heart Surgeon"
+                android:text="@string/doctor_info_position"
                 android:textColor="@color/material_gray"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +148,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/dmsans_bold"
-                                android:text="Patients"
+                                android:text="@string/doctor_info_patients"
                                 android:textColor="@color/material_gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -184,7 +184,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/dmsans_bold"
-                                android:text="Exp. years"
+                                android:text="@string/doctor_indo_expyears"
                                 android:textColor="@color/material_gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -220,7 +220,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/dmsans_bold"
-                                android:text="Reviews"
+                                android:text="@string/doctor_info_reviews"
                                 android:textColor="@color/material_gray"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -235,7 +235,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:text="About Doctor"
+                android:text="@string/about_doctor"
                 android:theme="@style/activity_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.035"
@@ -248,7 +248,7 @@
                 android:layout_height="64dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/dmsans_bold"
-                android:text="Dr. Maria Waston is the top most Heart Surgeon in  London Bridge Hospital. She is available for private consultation."
+                android:text="@string/doctor_info_intro"
                 android:textColor="@color/material_gray"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -262,7 +262,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/dmsans_bold"
-                android:text="Symptoms"
+                android:text="@string/doctor_info_symptoms"
                 android:theme="@style/activity_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.078"
@@ -285,7 +285,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsans_medium"
-                android:text="Angina pectoris"
+                android:text="@string/sym_angina_pectoris"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -308,7 +308,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsans_medium"
-                android:text="Congenital heart disease"
+                android:text="@string/sym_congenital_heart_diseas"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -332,7 +332,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsans_medium"
-                android:text="Coronary arteritis"
+                android:text="@string/sym_coronary_arteritis"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -355,7 +355,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsans_medium"
-                android:text="Chronic heart failure"
+                android:text="@string/sym_chronic_heart_failure"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"

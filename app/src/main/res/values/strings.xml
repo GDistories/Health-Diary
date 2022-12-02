@@ -38,7 +38,7 @@
     <string name="newstime2">1 hour ago</string>
     <string name="newstitle3">Diet improve immunotherapy outcomes in advanced melanoma</string>
     <string name="newscontent3">There is an association between the Mediterranean diet and the overall response rate...</string>
-    <string name="newsauthor3">Paul Ian Cross,, Catherine Carver, MPH</string>
+    <string name="newsauthor3">Paul Ian Cross, Catherine Carver, MPH</string>
     <string name="newstime3">4 hours ago</string>
     <string name="newstitle4">Can zero-calorie sweeteners raise your risk for cardiovascular disease?</string>
     <string name="newscontent4">There is an association between the Mediterranean diet and the overall response rate...</string>
@@ -181,8 +181,26 @@
     </string>
     <string name="action_settings">Settings</string>
 
-    <!--Doctor Info starts-->
+    <!--Doctor Info page-->
+    <string name="doctor_info_title">Detail Info</string>
     <string name="start_chat">Start Chat</string>
+    <string name="doctor_info_position">Heart Surgeon</string>
+    <string name="doctor_info_patients">Patients</string>
+    <string name="doctor_indo_expyears">Exp. years</string>
+    <string name="doctor_info_reviews">Reviews</string>
+    <string name="about_doctor">About Doctor</string>
+    <string name="doctor_info_intro">Dr. Maria Waston is the top most Heart Surgeon in  London Bridge Hospital. She is available for private consultation.</string>
+    <string name="doctor_info_symptoms">Symptoms</string>
+    <string name="sym_angina_pectoris">Angina pectoris</string>
+    <string name="sym_congenital_heart_diseas">Congenital heart diseas</string>
+    <string name="sym_coronary_arteritis">Coronary arteritis</string>
+    <string name="sym_chronic_heart_failure">Chronic heart failure</string>
+
+    <!--Doctor list page-->
+    <string name="doctor_list_title">Doctor List</string>
+    <string name="doctor_list_search">Search for doctors</string>
+    <string name="doctor_list_personal_info">Personal Info.</string>
+    <string name="doctor_list_abstract">Heart Surgeon, London Bridge Hospital</string>
 
     <!--News content-->
     <string name="news_content_title">The Top COVID-19 Hot Spots in the U.S.</string>
@@ -212,8 +230,15 @@
     <string name="community_doctor">Doctor</string>
     <string name="community_nutritionist">Nutritionist</string>
     <string name="community_coach">Coach</string>
-    <string name="community_hint"></string>
+    <string name="community_search">Search for professionals</string>
     <string name="days_later">Days Later</string>
     <string name="days_ago">Days Ago</string>
     <string name="today">Today</string>
+
+    <!--Chat Page-->
+    <string name="chat_hint">Type a message...</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_online">online</string>
+
+    <!---->
 </resources>

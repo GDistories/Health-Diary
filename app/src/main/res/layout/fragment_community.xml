@@ -80,7 +80,7 @@
                         android:background="@color/white"
                         android:iconifiedByDefault="false"
                         android:queryBackground="@android:color/transparent"
-                        android:queryHint="Search for professionals" />
+                        android:queryHint="@string/community_search" />
                 </androidx.cardview.widget.CardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

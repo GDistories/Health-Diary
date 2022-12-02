@@ -44,7 +44,7 @@
             android:fontFamily="@font/dmsans_regular"
             android:textSize="12sp"
             android:theme="@style/news_fragment_content_style"
-            android:text="Heart Surgeon, London Bridge Hospital"
+            android:text="@string/doctor_list_abstract"
             app:layout_constraintStart_toStartOf="@+id/doctor_name"
             app:layout_constraintTop_toBottomOf="@+id/doctor_name" />
 
@@ -54,7 +54,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
             android:textSize="12sp"
-            android:text="Personal Info."
+            android:text="@string/doctor_list_personal_info"
             android:fontFamily="@font/dmsans_medium"
             android:textAllCaps="false"
             android:background="@drawable/doctor_btn_border"
