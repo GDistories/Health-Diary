@@ -7,13 +7,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentHealthBinding
-import com.healthdiary.databinding.FragmentMyBinding
 import com.healthdiary.ui.activity.*
 import java.text.DateFormat
 import java.text.DecimalFormat
@@ -53,6 +51,7 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
             startActivity(Intent(activity, TipsActivity::class.java))
         }
 
+//        i = Intent(this, LineChartActivityColored::class.java)
 
     }
 
@@ -64,7 +63,7 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentHealthBinding.inflate(inflater, container, false)
         return binding.root
@@ -128,7 +127,7 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         year: Int,
         month: Int,
         day: Int,
-        color: Int
+        color: Int,
     ): Calendar {
         val calendar = Calendar()
         calendar.year = year
