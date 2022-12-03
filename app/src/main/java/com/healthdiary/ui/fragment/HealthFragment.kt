@@ -41,6 +41,9 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         binding.iconEdit.setOnClickListener {
             startActivity(Intent(activity, EditInfoActivity::class.java))
         }
+        binding.iconCheckIn.setOnClickListener {
+            startActivity(Intent(activity, CheckInActivity::class.java))
+        }
         binding.iconScore.setOnClickListener {
             startActivity(Intent(activity, ScoreActivity::class.java))
         }

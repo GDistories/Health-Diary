@@ -28,9 +28,11 @@ class DashboardActivity : BaseActivity() {
         setContentView(binding.root)
         hideStatusAndActionBar()
 
-        set_Data_to_Line();
+        set_Data_to_Lines();
 
         //setDataToLineChart();
+        sleep_lineChart2
+        wrokout_lineChart1
 
         binding.ivBack.setOnClickListener {
             finish()
@@ -81,25 +83,38 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-    fun week1(): ArrayList<Entry> {
-        val sales = ArrayList<Entry>()
-        sales.add(Entry(0f, 15f))
-        sales.add(Entry(1f, 16f))
-        sales.add(Entry(2f, 13f))
-        sales.add(Entry(3f, 22f))
-        sales.add(Entry(4f, 20f))
-        return sales
+    fun sleep_data_1(): ArrayList<Entry>{
+        val sleep = ArrayList<Entry>()
+        // float from 0.0 to 2.0
+        sleep.add(Entry(0f, 1.1f))
+        sleep.add(Entry(1f, 1.3f))
+        sleep.add(Entry(2f, 1.8f))
+        sleep.add(Entry(3f, 1.6f))
+        sleep.add(Entry(4f, 1.5f))
+        return sleep
     }
 
-    fun sleep_data_1(): ArrayList<Entry>{
-        val sales = ArrayList<Entry>()
+    fun sleep_data_2(): ArrayList<Entry>{
+        val sleep = ArrayList<Entry>()
         // float from 0.0 to 2.0
-        sales.add(Entry(0f, 1.1f))
-        sales.add(Entry(1f, 1.3f))
-        sales.add(Entry(2f, 1.8f))
-        sales.add(Entry(3f, 1.6f))
-        sales.add(Entry(4f, 1.5f))
-        return sales
+        sleep.add(Entry(0f, 1.1f))
+        sleep.add(Entry(1f, 1.3f))
+        sleep.add(Entry(2f, 1.8f))
+        sleep.add(Entry(3f, 1.6f))
+        sleep.add(Entry(4f, 1.5f))
+        return sleep
+    }
+
+    fun workout_data_1(): ArrayList<Entry>{
+        val workout = ArrayList<Entry>()
+        // float from 0.0 to 2.0
+        workout.add(Entry(0f, 0f))
+        workout.add(Entry(1f, 0.25f))
+        workout.add(Entry(2f, 1.75f))
+        workout.add(Entry(3f, 0.35f))
+        workout.add(Entry(4f, 1.5f))
+        workout.add(Entry(4f, 1.0f))
+        return workout
     }
 
 
@@ -107,13 +122,25 @@ class DashboardActivity : BaseActivity() {
 //        sleep_lineChart1
 //    }
 
-    fun set_Data_to_Line(){
+    fun set_Data_to_Lines(){
         val weekSleepData = LineDataSet(sleep_data_1(), "Week 1")
         val dataSet = ArrayList<ILineDataSet>()
         dataSet.add(weekSleepData)
-
         val lineData = LineData(dataSet)
         sleep_lineChart1.data = lineData
+
+        val weekSleepData2 = LineDataSet(sleep_data_2(), "Week 2")
+        val dataSet2 = ArrayList<ILineDataSet>()
+        dataSet2.add(weekSleepData)
+        val lineData2 = LineData(dataSet)
+        sleep_lineChart2.data = lineData2
+
+        val weekWorkoutData = LineDataSet(workout_data_1(), "Workout")
+        val dataSet3 = ArrayList<ILineDataSet>()
+        dataSet3.add(weekSleepData)
+        val lineData3 = LineData(dataSet)
+        wrokout_lineChart1.data = lineData3
+
 
         //sleep_lineChart1.invalidate();
     }
