@@ -46,8 +46,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="10dp"
             android:text="Sleep Analytics"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,7 +57,9 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="10dp"
             android:text="Based on your data"
-            android:textSize="20dp"/>
+            android:fontFamily="@font/dmsans_bold"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -67,15 +71,17 @@
             app:cardElevation="10dp">
 
             <TextView
-                android:layout_width="157dp"
+                android:layout_width="184dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginVertical="40dp"
                 android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="40dp"
+                android:fontFamily="@font/dmsans_bold"
                 android:gravity="center_vertical"
                 android:text="You almost Reach a perfect month of sleep!"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="90dp"
@@ -93,8 +99,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="10dp"
             android:text="Sleep Reminder"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
 
 
 
@@ -111,10 +119,10 @@
                 app:cardCornerRadius="20dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/ic_bed" />
+                    android:src="@drawable/ic_bed_" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,12 +134,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bed time" />
+                        android:text="Bed time"
+                        android:fontFamily="@font/dmsans_bold"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="7H and 28Min " />
+                        android:text="7H and 28Min "
+                        android:fontFamily="@font/dmsans_bold"
+                        android:textStyle="bold"
+                        android:textSize="12sp"/>
 
                     <Switch
                         android:id="@+id/switch1"
@@ -149,10 +164,10 @@
                 app:cardCornerRadius="20dp"
                 android:layout_margin="10dp">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/ic_alarm"/>
+                    android:src="@drawable/ic_alarm_"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -164,12 +179,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bed time" />
+                        android:text="Alarm"
+                        android:fontFamily="@font/dmsans_bold"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="7H and 28Min " />
+                        android:text="16H and 18Min "
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
 
                     <Switch
                         android:id="@+id/switch2"
@@ -188,8 +209,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="10dp"
             android:text="Weekly Overview"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -198,8 +221,9 @@
             app:cardCornerRadius="20dp">
 
             <ImageView
-                android:layout_width="251dp"
+                android:layout_width="281dp"
                 android:layout_height="200dp"
+                android:layout_marginStart="15dp"
                 android:layout_gravity="center"
                 android:src="@drawable/img_sleep_line_chart" />
         </androidx.cardview.widget.CardView>

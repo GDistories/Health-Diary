@@ -50,6 +50,9 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         binding.iconTips.setOnClickListener {
             startActivity(Intent(activity, TipsActivity::class.java))
         }
+        binding.iconDashboard.setOnClickListener {
+            startActivity(Intent(activity, DashboardActivity::class.java))
+        }
 
 //        i = Intent(this, LineChartActivityColored::class.java)
 

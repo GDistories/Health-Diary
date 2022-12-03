@@ -17,5 +17,8 @@ class EditInfoActivity : BaseActivity() {
         binding.ivBack.setOnClickListener {
             finish()
         }
+        binding.btnSubmitEdit.setOnClickListener{
+            finish()
+        }
     }
 }

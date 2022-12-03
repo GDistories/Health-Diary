@@ -10,4 +10,5 @@ import android.view.MenuItem
 import android.view.WindowManager
 
 class LineChartView {
+    // Maybe not finished in assignment 2, but continued in assignment 3.
 }

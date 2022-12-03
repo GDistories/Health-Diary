@@ -45,9 +45,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="10dp"
+            android:fontFamily="@font/dmsans_bold"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="Give us some basic information, so that we can generate better health plan:"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            android:textSize="20sp"/>
 
         <LinearLayout
             android:layout_width="220dp"
@@ -78,8 +80,11 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/dmsans_bold"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:text="Height"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,12 +115,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="120cm"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="220cm"/>
             </androidx.cardview.widget.CardView>
 
@@ -134,7 +145,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weight"
-                android:textSize="30dp"/>
+                android:fontFamily="@font/dmsans_bold"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="30sp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -169,12 +183,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="120cm"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="220cm"/>
             </androidx.cardview.widget.CardView>
 

@@ -51,7 +51,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Check-in Successful!"
-            android:textSize="30dp" />
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -59,10 +62,11 @@
             android:layout_marginBottom="50dp"
             android:gravity="center"
             android:text="Thank you for sharing with us!"
-            android:textSize="20dp" />
+            android:fontFamily="@font/dmsans_bold"
+            android:textSize="18sp"/>
 
         <Button
-            android:id="@+id/btn_check_in_back"
+            android:id="@+id/btn_check_in_close"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_blue"
@@ -81,27 +85,34 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textSize="20dp"
-                android:text="Share via:" />
+                android:text="Share via:"
+                android:fontFamily="@font/dmsans_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:src="@drawable/ic_share_1" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:src="@drawable/ic_share_2" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:src="@drawable/ic_share_3" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:src="@drawable/ic_share_4" />
         </LinearLayout>
 

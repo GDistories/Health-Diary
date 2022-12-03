@@ -18,5 +18,8 @@ class CheckInSuccessActivity : BaseActivity() {
         binding.ivBack.setOnClickListener {
             finish()
         }
+        binding.btnCheckInClose.setOnClickListener {
+            finish()
+        }
     }
 }

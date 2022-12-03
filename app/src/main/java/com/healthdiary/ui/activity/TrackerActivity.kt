@@ -1,5 +1,8 @@
 package com.healthdiary.ui.activity
 
+
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.healthdiary.base.BaseActivity
@@ -16,6 +19,12 @@ class TrackerActivity : BaseActivity() {
 
         binding.ivBack.setOnClickListener {
             finish()
+        }
+        binding.btnGoDashboard.setOnClickListener {
+            startActivity(Intent(this, DashboardActivity::class.java))
+        }
+        binding.btnGoSleepReport.setOnClickListener {
+            startActivity(Intent(this, SleepReportActivity::class.java))
         }
     }
 }
