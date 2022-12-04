@@ -191,12 +191,14 @@
     <string name="med_A">药物A</string>
     <string name="med_B">药物B</string>
     <string name="history_day">9月23日，周三。这一天，你的打卡：</string>
-    <string name="no_sympton">没有不良症状。\\n很好，请保持！</string>
-    <string name="no_medicine">未服用药。 \\n你的身体很健康。</string>
+    <string name="no_sympton">没有不良症状。\n很好，请保持！</string>
+    <string name="no_medicine">未服用药。 \n你的身体很健康。</string>
     <string name="your_temp_was">你的体温是：</string>
     <string name="your_heart_rate_was">你的心率是：</string>
     <string name="past_week_heart">在过去一周，你的心率变化：</string>
     <string name="check_in_successful">打卡成功！</string>
     <string name="thank_you_for_sharing_with_us">感谢你的分享！</string>
     <string name="as_the_linecharts_shows_nyour_sleep_time_goes_down_in_the_past_month">根据折线图显示，近期你的睡眠质量下降。</string>
+    <string name="close">关闭</string>
+    <string name="Hello">您好</string>
 </resources>

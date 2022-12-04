@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
-            android:text="Dr. Maria Waston"
+            android:text="@string/dr_maria_waston"
             android:theme="@style/news_fragment_title_style"
             app:layout_constraintStart_toEndOf="@+id/doctor_img"
             app:layout_constraintTop_toTopOf="parent" />

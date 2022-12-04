@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_blue"
             android:fontFamily="@font/dmsans_bold"
-            android:text="Close"
+            android:text="@string/close"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

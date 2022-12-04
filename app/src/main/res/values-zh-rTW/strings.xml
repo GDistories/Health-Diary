@@ -199,4 +199,6 @@
     <string name="water_is_your_body_s_principal_chemical_component_and_makes_up_about_50_to_70_of_your_body_weight">水是身體的必要化學成分，占人體的50%~70%</string>
     <string name="please_drink_at_least_7_glasses_of_water_every_day">請注意每天要喝最少七杯水</string>
     <string name="you_have_slept_9_etc">你睡了9小時30分鐘，已經超過推薦睡眠時間了</string>
+    <string name="close">關閉</string>
+    <string name="Hello">您好</string>
 </resources>

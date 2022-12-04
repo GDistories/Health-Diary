@@ -37,13 +37,13 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dmsans_medium"
                         android:textColor="@color/black"
-                        android:text="Hello,"
+                        android:text="@string/Hello"
                         android:textSize="20dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kamisato Ayaka"
+                        android:text="@string/Kamisato_Ayaka"
                         android:fontFamily="@font/dmsans_bold"
                         android:textStyle="bold"
                         android:textColor="@color/black"

@@ -83,7 +83,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dr. Maria Waston "
+                    android:text="@string/dr_maria_waston"
                     android:textColor="@color/white"
                     android:theme="@style/news_fragment_content_style"/>
                 <TextView

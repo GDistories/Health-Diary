@@ -224,6 +224,10 @@
     <string name="water_is_your_body_s_principal_chemical_component_and_makes_up_about_50_to_70_of_your_body_weight">Water is your body\'s principal chemical component and makes up about 50% to 70% of your body weight.</string>
     <string name="please_drink_at_least_7_glasses_of_water_every_day">Please drink at least 7 glasses of water every day.</string>
     <string name="you_have_slept_9_etc">You have You have slept 09:30 that is above your recommendation</string>
+    <string name="close">Close</string>
+    <string name="dr_maria_waston" translatable="false">Dr. Maria Waston</string>
+    <string name="Hello">Hello,</string>
+    <string name="Kamisato_Ayaka" translatable="false">Kamisato Ayaka</string>
 
     <!---->
 </resources>
