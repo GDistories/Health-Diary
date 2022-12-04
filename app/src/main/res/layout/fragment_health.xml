@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ui.fragment.HealthFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
         android:fitsSystemWindows="true"
         android:orientation="vertical"
-        tools:ignore="RtlHardcoded,HardcodedText,RtlSymmetry,SmallSp">
+        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SmallSp,UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,6 +22,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#00000000"
                 android:layout_marginVertical="10dp">
 
                 <LinearLayout
@@ -74,7 +75,7 @@
             android:id="@+id/rl_tool"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:background="#ffffff">
+            android:background="#00000000">
 
             <TextView
                 android:id="@+id/tv_month_day"
@@ -169,7 +170,7 @@
             android:id="@+id/calendarLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fff"
+            android:background="#00000000"
             android:orientation="vertical"
             app:calendar_show_mode="only_week_view"
             app:calendar_content_view_id="@+id/recyclerView">
@@ -178,7 +179,7 @@
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff"
+                android:background="@android:color/transparent"
                 app:calendar_height="46dp"
                 app:calendar_padding="10dp"
                 app:current_month_lunar_text_color="#CFCFCF"
@@ -191,7 +192,7 @@
                 app:scheme_theme_color="#333"
                 app:selected_text_color="#fff"
                 app:selected_theme_color="#333"
-                app:week_background="#fff"
+                app:week_background="#00000000"
                 app:week_text_color="#111"
                 app:week_view="com.healthdiary.simple.SimpleWeekView"
                 app:year_view_day_text_color="#333333"
@@ -201,6 +202,7 @@
                 app:year_view_scheme_color="#f17706" />
 
             <ScrollView
+                android:background="#00000000"
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -551,8 +553,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:layout_marginTop="15dp"
-                        >
+                        android:layout_marginTop="15dp">
+
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_down"
@@ -566,7 +568,7 @@
                             app:cardElevation="10dp"
                             android:layout_marginTop="15dp">
 
-                            <LinearLayout
+                            <View
                                 android:layout_width="200dp"
                                 android:layout_height="80dp"/>
 
@@ -600,7 +602,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_bulb"
-                            app:layout_constraintEnd_toStartOf="@id/card_down"
+                            android:elevation="11dp"
+                            app:layout_constraintStart_toStartOf="@+id/card_up"
                             app:layout_constraintTop_toTopOf="parent"
                             android:layout_marginEnd="15dp"
                             tools:ignore="ContentDescription" />
