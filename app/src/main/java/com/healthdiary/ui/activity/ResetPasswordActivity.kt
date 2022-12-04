@@ -76,7 +76,7 @@ class ResetPasswordActivity : BaseActivity() {
     }
 
     private fun setPasswordVisibility(){
-        val typeface = resources.getFont(R.font.montaguslab_48pt_medium)
+        val typeface = resources.getFont(R.font.dmsans_medium)
         if(passwordVisibility) {
             binding.ivPasswordVisibility.setImageResource(R.drawable.ic_visible)
             binding.etPassword.inputType = 0x91
@@ -91,7 +91,7 @@ class ResetPasswordActivity : BaseActivity() {
     }
 
     private fun setPasswordConfirmVisibility(){
-        val typeface = resources.getFont(R.font.montaguslab_48pt_medium)
+        val typeface = resources.getFont(R.font.dmsans_medium)
         if(passwordConfirmVisibility) {
             binding.ivPasswordConfirmVisibility.setImageResource(R.drawable.ic_visible)
             binding.etPasswordConfirm.inputType = 0x91

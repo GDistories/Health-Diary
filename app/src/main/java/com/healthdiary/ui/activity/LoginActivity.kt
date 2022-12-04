@@ -97,7 +97,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun setPasswordVisibility(){
-        val typeface = resources.getFont(R.font.montaguslab_48pt_medium)
+        val typeface = resources.getFont(R.font.dmsans_medium)
         if(passwordVisibility) {
             binding.ivPasswordVisibility.setImageResource(R.drawable.ic_visible)
             binding.etPassword.inputType = 0x91

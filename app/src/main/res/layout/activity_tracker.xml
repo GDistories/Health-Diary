@@ -341,7 +341,7 @@
             android:background="@drawable/btn_blue"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:fontFamily="@font/montaguslab_48pt_bold"
+            android:fontFamily="@font/dmsans_bold"
             android:text="@string/check_your_health_dashboard"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -353,7 +353,7 @@
             android:background="@drawable/btn_blue"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:fontFamily="@font/montaguslab_48pt_bold"
+            android:fontFamily="@font/dmsans_bold"
             android:text="@string/check_your_sleep_report"
             android:textColor="@color/white"
             android:textSize="16sp" />
