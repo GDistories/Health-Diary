@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_back"
         app:layout_constraintBottom_toBottomOf="@id/iv_back"
         android:layout_marginStart="10dp"
-        android:text="Sleep Report"
+        android:text="@string/sleep_report"
         android:gravity="center"
         style="@style/activity_title" />
 
@@ -49,7 +49,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/dmsans_bold"
-            android:text="Sleep Analytics"
+            android:text="@string/sleep_analytics"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:fontFamily="@font/dmsans_bold"
-            android:text="Based on your data"
+            android:text="@string/based_on_your_data"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -101,7 +101,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/dmsans_bold"
-            android:text="Sleep Reminder"
+            android:text="@string/sleep_reminder"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dmsans_bold"
-                        android:text="Bed time"
+                        android:text="@string/bed_time"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -185,7 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dmsans_bold"
-                        android:text="Alarm"
+                        android:text="@string/alarm"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -217,7 +217,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/dmsans_bold"
-            android:text="Weekly Overview"
+            android:text="@string/weekly_overview"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />

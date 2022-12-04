@@ -48,7 +48,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/dmsans_bold"
             android:paddingTop="10dp"
-            android:text="Your health score:"
+            android:text="@string/your_health_score"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -106,7 +106,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/dmsans_bold"
             android:paddingTop="20dp"
-            android:text="The calculation of score:"
+            android:text="@string/the_calculation_of_score"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -151,7 +151,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="40dp"
                     android:fontFamily="@font/dmsans_medium"
-                    android:text="Exercise"
+                    android:text="@string/exercise"
                     android:textColor="@color/text_green"
                     android:textSize="18sp" />
 
@@ -192,7 +192,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="40dp"
                     android:fontFamily="@font/dmsans_medium"
-                    android:text="Not check-in"
+                    android:text="@string/not_check_in"
                     android:textColor="@color/text_purple"
                     android:textSize="18sp" />
 
@@ -233,7 +233,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="40dp"
                     android:fontFamily="@font/dmsans_medium"
-                    android:text="Sleep well"
+                    android:text="@string/sleep_well"
                     android:textColor="@color/text_blue"
                     android:textSize="18sp" />
 
@@ -275,7 +275,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="40dp"
                     android:fontFamily="@font/dmsans_medium"
-                    android:text="Keep a diet"
+                    android:text="@string/keep_a_diet"
                     android:textColor="@color/text_red"
                     android:textSize="18sp" />
 

@@ -225,7 +225,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/dmsans_bold"
-                            android:text="Your health data"
+                            android:text="@string/your_health_data"
                             android:textColor="@color/black"
                             android:textSize="24dp"
                             android:textStyle="bold"
@@ -260,7 +260,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="25dp"
                             android:layout_marginRight="25dp"
-                            android:text="More"
+                            android:text="@string/more_"
                             android:fontFamily="@font/dmsans_bold"
                             android:textStyle="bold"
                             android:textSize="14dp"
@@ -312,7 +312,7 @@
                                     android:id="@+id/data_title_1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Heart Rate"
+                                    android:text="@string/heart_"
                                     android:fontFamily="@font/dmsans_bold"
                                     android:textStyle="bold"
                                     android:textColor="@color/text_red"
@@ -378,7 +378,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/dmsans_bold"
-                                    android:text="Exercise"
+                                    android:text="@string/exercise_"
                                     android:textColor="@color/text_purple"
                                     android:textSize="14dp"
                                     android:textStyle="bold"
@@ -511,7 +511,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/dmsans_bold"
-                                    android:text="Exercise"
+                                    android:text="@string/sleep"
                                     android:textColor="@color/text_blue"
                                     android:textSize="14dp"
                                     android:textStyle="bold"
@@ -627,7 +627,7 @@
                             android:fontFamily="@font/dmsans_bold"
                             android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:text="Check your score today"/>
+                            android:text="@string/Check_your_score_today"/>
 
                         <ImageView
                             android:id="@+id/icon_score"
@@ -652,7 +652,7 @@
                             android:fontFamily="@font/dmsans_bold"
                             android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:text="Check your health dashboard"/>
+                            android:text="@string/Check_your_health_dashboard"/>
 
                         <ImageView
                             android:id="@+id/icon_dashboard"

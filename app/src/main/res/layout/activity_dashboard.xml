@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_back"
         app:layout_constraintBottom_toBottomOf="@id/iv_back"
         android:layout_marginStart="10dp"
-        android:text="Health Dashboard"
+        android:text="@string/health_dashboard"
         android:gravity="center"
         style="@style/activity_title" />
 
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dmsans_bold"
-                    android:text="Daily Workout Time"
+                    android:text="@string/sleep_time"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -130,7 +130,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     android:fontFamily="@font/dmsans_bold"
-                    android:text="Have a problem with sleep?"
+                    android:text="@string/have_a_problem_with_sleep"
                     android:textSize="20sp" />
 
                 <Button
@@ -140,7 +140,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="40dp"
                     android:backgroundTint="@color/light_blue"
-                    android:text="Consult an Expert"
+                    android:text="@string/consult_an_expert"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -159,7 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dmsans_bold"
-                    android:text="Daily Workout Time"
+                    android:text="@string/daily_workout_time"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -187,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dmsans_bold"
-                    android:text="Overall Change"
+                    android:text="@string/overall_change"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />

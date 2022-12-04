@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_back"
         app:layout_constraintBottom_toBottomOf="@id/iv_back"
         android:layout_marginStart="10dp"
-        android:text="Check-in"
+        android:text="@string/check_in"
         android:gravity="center"
         style="@style/activity_title" />
 
@@ -184,7 +184,7 @@
                             android:fontFamily="@font/dmsans_bold"
                             android:textColor="@color/black"
                             android:textSize="18sp"
-                            android:text="History"/>
+                            android:text="@string/history"/>
 
                         <ImageView
                             android:id="@+id/icon_check_in_history"
@@ -225,7 +225,7 @@
                         android:fontFamily="@font/dmsans_bold"
                         android:layout_marginHorizontal="12dp"
                         android:layout_marginVertical="10dp"
-                        android:text="Your body temperature:"
+                        android:text="@string/temperature"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -246,7 +246,7 @@
                         android:fontFamily="@font/dmsans_bold"
                         android:layout_marginVertical="10dp"
                         android:layout_marginHorizontal="12dp"
-                        android:text="Your heart rate:"
+                        android:text="@string/heartRate"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -266,7 +266,7 @@
                         android:fontFamily="@font/dmsans_bold"
                         android:layout_marginVertical="10dp"
                         android:layout_marginHorizontal="12dp"
-                        android:text="Any symptoms?"
+                        android:text="@string/symptoms"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -342,7 +342,7 @@
                         android:fontFamily="@font/dmsans_bold"
                         android:layout_marginVertical="10dp"
                         android:layout_marginHorizontal="12dp"
-                        android:text="Any medicine taken?"
+                        android:text="@string/medicine"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -419,7 +419,7 @@
                         android:layout_marginVertical="10dp"
                         android:background="@drawable/btn_blue"
                         android:fontFamily="@font/montaguslab_48pt_bold"
-                        android:text="Submit"
+                        android:text="@string/submit"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
                     <View

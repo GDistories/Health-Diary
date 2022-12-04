@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_back"
         app:layout_constraintBottom_toBottomOf="@id/iv_back"
         android:layout_marginStart="10dp"
-        android:text="Edit Information"
+        android:text="@string/edit_information"
         android:gravity="center"
         style="@style/activity_title" />
 
@@ -84,7 +84,7 @@
                 android:fontFamily="@font/dmsans_bold"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:text="Height"
+                android:text="@string/height"
                 android:textSize="30sp"/>
 
             <LinearLayout
@@ -152,7 +152,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weight"
+                android:text="@string/weight"
                 android:fontFamily="@font/dmsans_bold"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -223,7 +223,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/btn_blue"
             android:fontFamily="@font/montaguslab_48pt_bold"
-            android:text="Save"
+            android:text="@string/save"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>

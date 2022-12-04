@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_back"
         app:layout_constraintBottom_toBottomOf="@id/iv_back"
         android:layout_marginStart="10dp"
-        android:text="Check-in Success"
+        android:text="@string/check_in_success"
         android:gravity="center"
         style="@style/activity_title" />
 
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="Share via:"
+                android:text="@string/share_via"
                 android:fontFamily="@font/dmsans_bold"
                 android:textColor="@color/black"
                 android:textStyle="bold"

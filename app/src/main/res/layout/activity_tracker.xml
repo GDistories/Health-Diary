@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:gravity="center"
-        android:text="Health Tracker"
+        android:text="@string/health_tracker"
         app:layout_constraintBottom_toBottomOf="@id/iv_back"
         app:layout_constraintStart_toEndOf="@+id/iv_back"
         app:layout_constraintTop_toTopOf="@id/iv_back" />
@@ -40,7 +40,7 @@
         android:layout_marginTop="25dp"
         android:fontFamily="@font/dmsans_bold"
         android:gravity="center"
-        android:text="The health data from input devices:"
+        android:text="@string/the_health_data_from_input_devices"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -342,7 +342,7 @@
             android:layout_margin="10dp"
             android:padding="10dp"
             android:fontFamily="@font/montaguslab_48pt_bold"
-            android:text="Check Your Health Dashboard"
+            android:text="@string/check_your_health_dashboard"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -354,7 +354,7 @@
             android:layout_margin="10dp"
             android:padding="10dp"
             android:fontFamily="@font/montaguslab_48pt_bold"
-            android:text="Check Your Sleep Report"
+            android:text="@string/check_your_sleep_report"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
