@@ -28,10 +28,6 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
     private val binding get() = _binding!!
     private var green = -0x66bf24db
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onStart() {
         super.onStart()
         initView()
@@ -73,16 +69,6 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
 
 
     private fun initView() {
-        binding.tvMonthDay.setOnClickListener(View.OnClickListener {
-            if (!binding.calendarLayout.isExpand) {
-                binding.calendarLayout.expand()
-                return@OnClickListener
-            }
-            binding.calendarView.showYearSelectLayout(mYear)
-            binding.tvLunar.visibility = View.GONE
-            binding.tvYear.visibility = View.GONE
-            binding.tvMonthDay.text = mYear.toString()
-        })
 
         binding.flCurrent.setOnClickListener {
             binding.calendarView.scrollToCurrent()

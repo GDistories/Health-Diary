@@ -280,6 +280,7 @@
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
@@ -443,7 +444,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/dmsans_bold"
-                                    android:text="Walking"
+                                    android:text="@string/walking"
                                     android:textColor="@color/text_green"
                                     android:textSize="14dp"
                                     android:textStyle="bold"
@@ -549,7 +550,9 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp">
+                        android:paddingTop="10dp"
+                        android:layout_marginTop="15dp"
+                        >
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_down"
@@ -580,7 +583,8 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginTop="30dp">
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="20dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -597,10 +601,16 @@
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_bulb"
                             app:layout_constraintEnd_toStartOf="@id/card_down"
-                            app:layout_constraintBottom_toTopOf="@+id/card_down"
-                            android:layout_marginEnd="-15dp"
-                            android:layout_marginBottom="-15dp"/>
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginEnd="15dp"
+                            tools:ignore="ContentDescription" />
 
+                        <View
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/card_up"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="20dp"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

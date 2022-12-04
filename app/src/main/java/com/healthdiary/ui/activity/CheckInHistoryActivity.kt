@@ -38,18 +38,13 @@ class CheckInHistoryActivity : BaseActivity(), CalendarView.OnYearChangeListener
         }
     }
 
-    private fun initView() {
-        binding.tvMonthDay.setOnClickListener(View.OnClickListener {
-            if (!binding.calendarLayout.isExpand) {
-                binding.calendarLayout.expand()
-                return@OnClickListener
-            }
-            binding.calendarView.showYearSelectLayout(mYear)
-            binding.tvLunar.visibility = View.GONE
-            binding.tvYear.visibility = View.GONE
-            binding.tvMonthDay.text = mYear.toString()
-        })
+    override fun onStart() {
+        super.onStart()
+        initView()
+        initData()
+    }
 
+    private fun initView() {
         binding.flCurrent.setOnClickListener {
             binding.calendarView.scrollToCurrent()
         }

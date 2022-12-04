@@ -12,7 +12,6 @@ import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityCheckInBinding
-import com.healthdiary.databinding.FragmentHealthBinding
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -20,22 +19,19 @@ import java.util.*
 import kotlin.math.abs
 
 class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
-    CalendarView.OnCalendarSelectListener {
+    CalendarView.OnCalendarSelectListener, View.OnClickListener {
 
-    private var _binding: FragmentHealthBinding? = null
     private var mYear: Int = 0
     private var green = -0x66bf24db
 
     private lateinit var binding: ActivityCheckInBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
 
         super.onCreate(savedInstanceState)
         binding = ActivityCheckInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideStatusAndActionBar()
-
         binding.ivBack.setOnClickListener {
             finish()
         }
@@ -45,19 +41,16 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
         binding.iconCheckInHistory.setOnClickListener {
             startActivity(Intent(this, CheckInHistoryActivity::class.java))
         }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initView()
+        initData()
     }
 
     private fun initView() {
-        binding.tvMonthDay.setOnClickListener(View.OnClickListener {
-            if (!binding.calendarLayout.isExpand) {
-                binding.calendarLayout.expand()
-                return@OnClickListener
-            }
-            binding.calendarView.showYearSelectLayout(mYear)
-            binding.tvLunar.visibility = View.GONE
-            binding.tvYear.visibility = View.GONE
-            binding.tvMonthDay.text = mYear.toString()
-        })
 
         binding.flCurrent.setOnClickListener {
             binding.calendarView.scrollToCurrent()
@@ -75,7 +68,7 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
         binding.tvCurrentDay.text = binding.calendarView.curDay.toString()
     }
 
-    protected open fun initData() {
+    private fun initData() {
         val year: Int = binding.calendarView.curYear
         val month: Int = binding.calendarView.curMonth
         val map: MutableMap<String, Calendar> = HashMap()
@@ -130,7 +123,7 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
         binding.tvMonthDay.text = year.toString()
     }
 
-    open fun calculateDayDifference(calendar: Calendar) {
+    private fun calculateDayDifference(calendar: Calendar) {
         @SuppressLint("SimpleDateFormat") val df: DateFormat = SimpleDateFormat("yyyyMMdd")
         try {
             val d1 = df.parse(calendar.toString())
@@ -151,8 +144,7 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
             e.printStackTrace()
         }
     }
-
-    fun onClick(v: View?) {}
+    override fun onClick(v: View?) {}
     override fun onCalendarOutOfRange(calendar: Calendar?) {}
 
 }
