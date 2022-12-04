@@ -32,40 +32,63 @@
         style="@style/activity_title" />
 
     <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="495dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tv_title_devices">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:fontFamily="@font/dmsans_bold"
             android:text="The health tip for today:"
             android:textColor="@color/black"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="30dp"
             app:cardBackgroundColor="@color/light_green"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp">
+            app:cardElevation="2dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/dmsans_bold"
+                android:gravity="center"
+                android:text="Water is your body's principal chemical component and makes up about 50% to 70% of your body weight."
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="30dp"
+            app:cardBackgroundColor="@color/light_purple"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="10dp"
-                android:text="Water is your body's principal chemical component and makes up about 50% to 70% of your body weight. Your body depends on water to survive."
+                android:layout_margin="10dp"
+                android:text="Please drink at least 7 glasses of water every day."
                 android:fontFamily="@font/dmsans_bold"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -73,32 +96,21 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            app:cardBackgroundColor="@color/light_purple"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp">
+            app:cardElevation="2dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Please drink at least 7 glasses of water every day."
-                android:fontFamily="@font/dmsans_bold"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="28sp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="157dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/tips_water" />
         </androidx.cardview.widget.CardView>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:src="@drawable/tips_water" />
     </LinearLayout>
 
 

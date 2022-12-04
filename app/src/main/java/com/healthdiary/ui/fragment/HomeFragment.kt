@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.R
 import com.healthdiary.databinding.FragmentHomeBinding
-import com.healthdiary.ui.activity.NewsContentActivity
+import com.healthdiary.ui.activity.*
 
 
 class HomeFragment : BaseFragment() {
@@ -23,6 +23,18 @@ class HomeFragment : BaseFragment() {
         super.onStart()
         binding.news1.setOnClickListener {
             startActivity(Intent(activity, NewsContentActivity::class.java))
+        }
+        binding.checkInRecord.setOnClickListener{
+            startActivity(Intent(activity, CheckInHistoryActivity::class.java))
+        }
+        binding.healthScore.setOnClickListener{
+            startActivity(Intent(activity, ScoreActivity::class.java))
+        }
+        binding.healthTips.setOnClickListener{
+            startActivity(Intent(activity, TipsActivity::class.java))
+        }
+        binding.trackData.setOnClickListener{
+            startActivity(Intent(activity, TrackerActivity::class.java))
         }
     }
 

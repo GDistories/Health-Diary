@@ -36,15 +36,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_devices">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/dmsans_bold"
             android:text="Sleep Analytics"
@@ -56,27 +58,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginBottom="5dp"
             android:fontFamily="@font/dmsans_bold"
             android:text="Based on your data"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginHorizontal="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="10dp"
             android:backgroundTint="@color/light_purple"
             app:cardCornerRadius="20dp"
             app:cardElevation="10dp">
 
             <TextView
-                android:layout_width="184dp"
+                android:layout_width="168dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="30dp"
-                android:layout_marginVertical="40dp"
                 android:fontFamily="@font/dmsans_bold"
                 android:gravity="center_vertical"
                 android:text="You almost Reach a perfect month of sleep!"
@@ -88,6 +88,7 @@
                 android:layout_width="90dp"
                 android:layout_height="108dp"
                 android:layout_gravity="right"
+                android:layout_marginVertical="0dp"
                 android:layout_marginRight="30dp"
                 android:src="@drawable/img_progress75" />
 
@@ -151,7 +152,10 @@
                     <Switch
                         android:id="@+id/switch1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:thumbTint="@color/light_purple"
+                        android:trackTint="@color/light_purple"/>
 
                 </LinearLayout>
 
@@ -196,7 +200,10 @@
                     <Switch
                         android:id="@+id/switch2"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:thumbTint="@color/light_purple"
+                        android:trackTint="@color/light_purple"/>
 
                 </LinearLayout>
 
@@ -218,6 +225,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="240dp"
             android:layout_height="120dp"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="60dp"
             app:cardCornerRadius="20dp">
 

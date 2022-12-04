@@ -137,10 +137,10 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleX="0.6"
-                            android:scaleY="0.6"
                             android:layout_gravity="center"
                             android:background="@color/white"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6"
                             android:src="@drawable/calendar" />
                     </androidx.cardview.widget.CardView>
 

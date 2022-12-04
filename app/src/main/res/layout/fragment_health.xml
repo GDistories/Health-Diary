@@ -243,11 +243,12 @@
                             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
                         <ImageView
-                            android:id="@+id/imageView3"
+                            android:id="@+id/icon_sync"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginStart="2dp"
                             android:layout_marginEnd="20dp"
+                            android:layout_marginTop="5dp"
                             android:src="@drawable/ic_sync"
                             app:layout_constraintEnd_toStartOf="@+id/textView9"
                             app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -351,13 +352,16 @@
                             android:backgroundTint="@color/light_purple"
                             app:cardCornerRadius="20dp"
                             app:cardElevation="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/data_card_1"
                             app:layout_constraintTop_toTopOf="parent">
+
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="120dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
                                 android:padding="10dp">
+
                                 <ImageView
                                     android:id="@+id/data_icon_2"
                                     android:layout_width="wrap_content"
@@ -366,6 +370,7 @@
                                     android:src="@drawable/ic_health_data_3"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
+
                                 <TextView
                                     android:id="@+id/data_title_2"
                                     android:layout_width="wrap_content"
@@ -378,6 +383,7 @@
                                     android:textStyle="bold"
                                     app:layout_constraintStart_toEndOf="@+id/data_icon_2"
                                     app:layout_constraintTop_toTopOf="@+id/data_icon_2" />
+
                                 <TextView
                                     android:id="@+id/data_value_2"
                                     android:layout_width="wrap_content"
@@ -391,6 +397,7 @@
                                     android:textStyle="bold"
                                     app:layout_constraintStart_toStartOf="@+id/data_icon_2"
                                     app:layout_constraintTop_toBottomOf="@+id/data_icon_2" />
+
                                 <TextView
                                     android:id="@+id/data_unit_2"
                                     android:layout_width="wrap_content"
@@ -412,7 +419,8 @@
                             app:cardCornerRadius="20dp"
                             app:cardElevation="10dp"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/data_card_1">
+                            app:layout_constraintTop_toBottomOf="@+id/data_card_1"
+                            app:layout_constraintBottom_toBottomOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="120dp"
@@ -476,6 +484,8 @@
                             android:backgroundTint="@color/light_blue"
                             app:cardCornerRadius="20dp"
                             app:cardElevation="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/data_card_3"
                             app:layout_constraintTop_toBottomOf="@+id/data_card_2">
 
@@ -613,6 +623,7 @@
                             android:id="@+id/icon_score"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_gravity="center_vertical"
                             android:src="@drawable/ic_jump"/>
 
@@ -637,6 +648,7 @@
                             android:id="@+id/icon_dashboard"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_gravity="center_vertical"
                             android:src="@drawable/ic_jump"/>
 
@@ -645,7 +657,8 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"/>
+                        android:layout_height="1dp"
+                        android:layout_marginTop="80dp"/>
 
                 </LinearLayout>
             </ScrollView>

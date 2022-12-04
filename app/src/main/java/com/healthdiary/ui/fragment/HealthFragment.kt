@@ -37,7 +37,6 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         initView()
         initData()
 
-
         binding.iconEdit.setOnClickListener {
             startActivity(Intent(activity, EditInfoActivity::class.java))
         }
@@ -56,9 +55,6 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         binding.iconDashboard.setOnClickListener {
             startActivity(Intent(activity, DashboardActivity::class.java))
         }
-
-//        i = Intent(this, LineChartActivityColored::class.java)
-
     }
 
     override fun onDestroyView() {
