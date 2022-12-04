@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Check-in Successful!"
+            android:text="@string/check_in_successful"
             android:fontFamily="@font/dmsans_bold"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:gravity="center"
-            android:text="Thank you for sharing with us!"
+            android:text="@string/thank_you_for_sharing_with_us"
             android:fontFamily="@font/dmsans_bold"
             android:textSize="18sp"/>
 

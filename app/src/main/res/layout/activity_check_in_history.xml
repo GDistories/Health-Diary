@@ -193,10 +193,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/dmsans_bold"
-                        android:text="Sept 23, Wedensday. \nIn this day, you:"
+                        android:text="@string/history_day"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -217,7 +217,7 @@
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
                             android:textSize="14sp"
-                            android:text="Didn’t have any sympton.\nThat’s good, please keep it up! "/>
+                            android:text="@string/no_sympton"/>
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -235,7 +235,7 @@
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
                             android:fontFamily="@font/dmsans_medium"
-                            android:text="Didn’t take any medicine.\nYou were in good condition."
+                            android:text="@string/no_medicine"
                             android:textColor="@color/text_purple"
                             android:textSize="14sp" />
                     </androidx.cardview.widget.CardView>
@@ -256,7 +256,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_margin="10dp"
                             android:textSize="14sp"
-                            android:text="Your body temperature was:"/>
+                            android:text="@string/your_temp_was"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -285,7 +285,7 @@
                             android:layout_margin="10dp"
                             android:textSize="14sp"
                             android:fontFamily="@font/dmsans_medium"
-                            android:text="Your heart rate was:"
+                            android:text="@string/your_heart_rate_was"
                             android:textColor="@color/text_purple" />
 
                         <TextView
@@ -305,7 +305,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginHorizontal="10dp"
-                        android:text="In the past week, your heart rate:"
+                        android:text="@string/past_week_heart"
                         android:fontFamily="@font/dmsans_bold"
                         android:textColor="@color/black"
                         android:textSize="16sp"

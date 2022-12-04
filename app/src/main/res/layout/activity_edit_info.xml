@@ -49,7 +49,7 @@
             android:fontFamily="@font/dmsans_bold"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="Give us some basic information, so that we can generate better health plan:"
+            android:text="@string/give_us_some_basic_information_so_that_we_can_generate_better_health_plan"
             android:textSize="18sp"/>
 
         <LinearLayout

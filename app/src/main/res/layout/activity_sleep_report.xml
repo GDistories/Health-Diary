@@ -79,7 +79,7 @@
                 android:layout_marginHorizontal="30dp"
                 android:fontFamily="@font/dmsans_bold"
                 android:gravity="center_vertical"
-                android:text="You almost Reach a perfect month of sleep!"
+                android:text="@string/you_almost_reach_a_perfect_month_of_sleep"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -145,7 +145,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dmsans_bold"
-                        android:text="7H and 28Min "
+                        android:text="@string/_7h_and_28min"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -193,7 +193,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="16H and 18Min "
+                        android:text="@string/_16h_and_18min"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
