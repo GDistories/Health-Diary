@@ -31,6 +31,9 @@ class ProfileActivity : BaseActivity() {
         setContentView(binding.root)
         hideStatusAndActionBar()
 
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
         binding.tvGender.setOnClickListener {
             showGenderPicker(it)
         }
