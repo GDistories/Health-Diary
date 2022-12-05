@@ -127,7 +127,7 @@
                             android:layout_height="49dp"
                             android:layout_gravity="center"
                             android:background="@color/white"
-                            android:src="@drawable/doctor" />
+                            android:src="@drawable/ic_doctor" />
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -161,7 +161,7 @@
                             android:layout_height="49dp"
                             android:layout_gravity="center"
                             android:background="@color/white"
-                            android:src="@drawable/nutritionist" />
+                            android:src="@drawable/ic_nutritionist" />
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -195,7 +195,7 @@
                             android:layout_height="49dp"
                             android:layout_gravity="center"
                             android:background="@color/white"
-                            android:src="@drawable/coach" />
+                            android:src="@drawable/ic_coach" />
                     </androidx.cardview.widget.CardView>
 
                     <TextView
