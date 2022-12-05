@@ -234,6 +234,8 @@
     <string name="password_must_at_least_6_characters">Password must be at least 6 characters</string>
     <string name="password_must_be_at_most_20_characters">Password must be at most 20 characters</string>
     <string name="password_must_contain_at_least_one_letter_and_one_number">Password must contain at least one letter and one number</string>
+    <string name="update_3_minutes_ago">Updated 3 minutes ago</string>
+    <string name="language">Language</string>
 
     <!---->
 </resources>

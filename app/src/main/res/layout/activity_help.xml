@@ -125,13 +125,15 @@
         android:layout_marginTop="10dp"
         />
 
-<!--    TODO: 目前高度设为固定值，寻找更好的办法！-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_top_questions"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_top_questions"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constrainedHeight="true"
+        android:layout_marginBottom="20dp"
         tools:listitem="@layout/item_top_question"
         android:layout_marginTop="20dp"
         />
