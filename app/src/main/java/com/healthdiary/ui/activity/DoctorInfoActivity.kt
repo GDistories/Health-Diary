@@ -1,9 +1,7 @@
 package com.healthdiary.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.codepalace.chatbot.ui.ChatActivity
 import com.healthdiary.databinding.ActivityDoctorInfoBinding

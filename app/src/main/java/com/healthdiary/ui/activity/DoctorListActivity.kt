@@ -1,13 +1,11 @@
 package com.healthdiary.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.healthdiary.R
 import com.healthdiary.adapter.DoctorListAdapter
 import com.healthdiary.base.BaseActivity
-import com.healthdiary.codepalace.chatbot.ui.ChatActivity
 import com.healthdiary.data.DoctorList
 import com.healthdiary.databinding.ActivityDoctorListBinding
 
@@ -24,7 +22,7 @@ class DoctorListActivity : BaseActivity() {
         }
 
 
-        var locations: ArrayList<DoctorList> = arrayListOf(
+        val locations: ArrayList<DoctorList> = arrayListOf(
             DoctorList(
                 "Dr. Rodger Struck",
                 "Heart Surgeon, London, England",
@@ -61,7 +59,7 @@ class DoctorListActivity : BaseActivity() {
 //        )
 
 
-        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.doctor_list_recylerview)
+        val recyclerView = findViewById<RecyclerView>(R.id.doctor_list_recylerview)
 
         recyclerView.layoutManager = LinearLayoutManager(
             this,

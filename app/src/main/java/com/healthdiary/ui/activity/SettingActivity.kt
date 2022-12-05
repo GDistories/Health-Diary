@@ -11,8 +11,6 @@ import com.healthdiary.databinding.ActivitySettingBinding
 
 class SettingActivity : BaseActivity(), OnSharedPreferenceChangeListener{
     private lateinit var binding: ActivitySettingBinding
-    private val TAG = "SettingActivity"
-    lateinit var listener: OnSharedPreferenceChangeListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,9 +1,7 @@
 package com.healthdiary.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.healthdiary.base.BaseActivity
-import com.healthdiary.databinding.ActivityAboutBinding
 import com.healthdiary.databinding.ActivityEditInfoBinding
 
 class EditInfoActivity : BaseActivity() {

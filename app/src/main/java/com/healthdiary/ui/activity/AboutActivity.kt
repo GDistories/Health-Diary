@@ -1,8 +1,6 @@
 package com.healthdiary.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityAboutBinding
 

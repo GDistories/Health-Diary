@@ -1,12 +1,8 @@
 package com.healthdiary.ui.activity
 
-
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.healthdiary.base.BaseActivity
-import com.healthdiary.databinding.ActivityAboutBinding
 import com.healthdiary.databinding.ActivityTrackerBinding
 
 class TrackerActivity : BaseActivity() {

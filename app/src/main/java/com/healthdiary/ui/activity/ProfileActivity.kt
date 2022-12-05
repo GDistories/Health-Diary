@@ -1,16 +1,12 @@
 package com.healthdiary.ui.activity
 
-import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import cn.addapp.pickers.listeners.OnItemPickListener
 import cn.addapp.pickers.picker.DatePicker
 import cn.addapp.pickers.picker.DatePicker.OnYearMonthDayPickListener
 import cn.addapp.pickers.picker.SinglePicker
 import com.blankj.utilcode.util.TimeUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityProfileBinding

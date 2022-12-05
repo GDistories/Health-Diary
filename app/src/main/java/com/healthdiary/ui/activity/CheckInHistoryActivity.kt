@@ -1,7 +1,6 @@
 package com.healthdiary.ui.activity
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,21 +8,17 @@ import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
-import com.healthdiary.databinding.ActivityAboutBinding
-import com.healthdiary.databinding.ActivityCheckInBinding
 import com.healthdiary.databinding.ActivityCheckInHistoryBinding
-import com.healthdiary.databinding.FragmentHealthBinding
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
 
-class CheckInHistoryActivity : BaseActivity(), CalendarView.OnYearChangeListener,
+open class CheckInHistoryActivity : BaseActivity(), CalendarView.OnYearChangeListener,
     CalendarView.OnCalendarSelectListener {
     private lateinit var binding: ActivityCheckInHistoryBinding
 
-    private var _binding: FragmentHealthBinding? = null
     private var mYear: Int = 0
     private var green = -0x66bf24db
 
@@ -138,6 +133,5 @@ class CheckInHistoryActivity : BaseActivity(), CalendarView.OnYearChangeListener
         }
     }
 
-    fun onClick(v: View?) {}
     override fun onCalendarOutOfRange(calendar: Calendar?) {}
 }

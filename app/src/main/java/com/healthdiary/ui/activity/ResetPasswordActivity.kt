@@ -12,9 +12,9 @@ class ResetPasswordActivity : BaseActivity() {
     private lateinit var binding: ActivityResetPasswordBinding
     private var passwordVisibility = false
     private var passwordConfirmVisibility = false
-    var sendHandler = Handler(Looper.getMainLooper())
-    var sendRunnable: Runnable? = null
-    var sendTime = 60
+    private var sendHandler = Handler(Looper.getMainLooper())
+    private var sendRunnable: Runnable? = null
+    private var sendTime = 60
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

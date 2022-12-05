@@ -10,11 +10,11 @@ import com.healthdiary.databinding.ActivityRegisterBinding
 
 class RegisterActivity : BaseActivity() {
     private lateinit var binding: ActivityRegisterBinding
-    private var passwordVisibility = false;
-    private var passwordConfirmVisibility = false;
+    private var passwordVisibility = false
+    private var passwordConfirmVisibility = false
     private var sendHandler = Handler(Looper.getMainLooper())
-    var sendRunnable: Runnable? = null
-    var sendTime = 60
+    private var sendRunnable: Runnable? = null
+    private var sendTime = 60
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

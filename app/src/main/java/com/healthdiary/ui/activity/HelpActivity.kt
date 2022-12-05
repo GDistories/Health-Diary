@@ -5,7 +5,6 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.blankj.utilcode.util.LogUtils
 import com.healthdiary.adapter.TopQuestionAdapter
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.data.TopQuestionData
