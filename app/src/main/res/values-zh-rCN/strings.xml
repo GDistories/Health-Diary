@@ -201,4 +201,10 @@
     <string name="as_the_linecharts_shows_nyour_sleep_time_goes_down_in_the_past_month">根据折线图显示，近期你的睡眠质量下降。</string>
     <string name="close">关闭</string>
     <string name="Hello">您好</string>
+    <string name="email_is_required">请输入邮箱</string>
+    <string name="please_enter_a_valid_email">请输入正确格式的邮箱</string>
+    <string name="password_is_required">请输入密码</string>
+    <string name="password_must_at_least_6_characters">密码至少为6个字符</string>
+    <string name="password_must_be_at_most_20_characters">密码最多为20个字符</string>
+    <string name="password_must_contain_at_least_one_letter_and_one_number">密码需要至少包含1个字母和1个数字</string>
 </resources>
