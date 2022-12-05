@@ -1,10 +1,8 @@
 package com.healthdiary.ui.activity
 
-import android.R
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
@@ -16,7 +14,6 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityDashboardBinding
 import kotlinx.android.synthetic.main.activity_dashboard.*
-import java.security.AccessController.getContext
 
 
 class DashboardActivity : BaseActivity() {
@@ -28,11 +25,11 @@ class DashboardActivity : BaseActivity() {
         hideStatusAndActionBar()
 
         set_lineCharts()
-        set_Data_to_Lines();
+        set_Data_to_Lines()
 
         //setDataToLineChart();
 //        sleep_lineChart2
-//        wrokout_lineChart1
+//        workout_lineChart1
 
         binding.ivBack.setOnClickListener {
             finish()
@@ -44,27 +41,27 @@ class DashboardActivity : BaseActivity() {
 
     private fun set_lineCharts() {
         with(sleep_lineChart1){
-            getDescription().setEnabled(false)
+            description.isEnabled = false
             setDrawGridBackground(false)
             setBorderWidth(2.0f)
-            getAxisLeft().setEnabled(false)
-            getAxisLeft().setSpaceTop(40f)
-            getAxisLeft().setSpaceBottom(40f)
-            getAxisRight().setEnabled(false)
-            getXAxis().setEnabled(false)
+            axisLeft.isEnabled = false
+            axisLeft.spaceTop = 40f
+            axisLeft.spaceBottom = 40f
+            axisRight.isEnabled = false
+            xAxis.isEnabled = false
             //setBackgroundColor(Color.rgb(137, 230, 81));
             animateX(500)
 
         }
 
         with(sleep_lineChart2){
-            getDescription().setEnabled(false)
+            description.isEnabled = false
             setDrawGridBackground(false)
-            getAxisLeft().setEnabled(false)
-            getAxisLeft().setSpaceTop(40f)
-            getAxisLeft().setSpaceBottom(40f)
-            getAxisRight().setEnabled(false)
-            getXAxis().setEnabled(false)
+            axisLeft.isEnabled = false
+            axisLeft.spaceTop = 40f
+            axisLeft.spaceBottom = 40f
+            axisRight.isEnabled = false
+            xAxis.isEnabled = false
 
             animateX(500)
         }
@@ -75,8 +72,8 @@ class DashboardActivity : BaseActivity() {
 
             setDrawGridBackground(false)
 
-            getDescription().setEnabled(false)
-            getAxisRight().setEnabled(false)
+            description.isEnabled = false
+            axisRight.isEnabled = false
             animateX(500)
         }
 
@@ -160,22 +157,22 @@ class DashboardActivity : BaseActivity() {
     fun set_Data_to_Lines(){
         val weekSleepData = LineDataSet(sleep_data_1(), "Sleep 1")
         val dataSet = ArrayList<ILineDataSet>()
-        weekSleepData.setLineWidth(2f)
-        weekSleepData.setColor(Color.GRAY)
+        weekSleepData.lineWidth = 2f
+        weekSleepData.color = Color.GRAY
         weekSleepData.setDrawValues(false)
         //to make the smooth line
-        weekSleepData.setMode(LineDataSet.Mode.CUBIC_BEZIER)
+        weekSleepData.mode = LineDataSet.Mode.CUBIC_BEZIER
         //to enable the cubic density : if 1 then it will be sharp curve
-        weekSleepData.setCubicIntensity(0.2f)
+        weekSleepData.cubicIntensity = 0.2f
         //to fill the below of smooth line in graph
         weekSleepData.setDrawFilled(true)
         weekSleepData.fillColor= Color.BLUE
         //set the transparency
-        weekSleepData.setFillAlpha(70)
+        weekSleepData.fillAlpha = 70
         //set legend disable or enable to hide {the left down corner name of graph}
-        val legend: Legend = sleep_lineChart1.getLegend()
+        val legend: Legend = sleep_lineChart1.legend
         legend.isEnabled = false
-        //to remove the cricle from the graph
+        //to remove the circle from the graph
         weekSleepData.setDrawCircles(false)
         //Display
         dataSet.add(weekSleepData)
@@ -186,22 +183,22 @@ class DashboardActivity : BaseActivity() {
 
         val weekSleepData2 = LineDataSet(sleep_data_2(), "Sleep 2")
         val dataSet2 = ArrayList<ILineDataSet>()
-        weekSleepData2.setLineWidth(2f)
-        weekSleepData2.setColor(Color.GRAY)
+        weekSleepData2.lineWidth = 2f
+        weekSleepData2.color = Color.GRAY
         weekSleepData2.setDrawValues(false)
         //to make the smooth line
-        weekSleepData2.setMode(LineDataSet.Mode.CUBIC_BEZIER)
+        weekSleepData2.mode = LineDataSet.Mode.CUBIC_BEZIER
         //to enable the cubic density : if 1 then it will be sharp curve
-        weekSleepData2.setCubicIntensity(0.2f)
+        weekSleepData2.cubicIntensity = 0.2f
         //to fill the below of smooth line in graph
         weekSleepData2.setDrawFilled(true)
         weekSleepData2.fillColor= Color.RED
         //set the transparency
-        weekSleepData2.setFillAlpha(70)
+        weekSleepData2.fillAlpha = 70
         //set legend disable or enable to hide {the left down corner name of graph}
-        val legend2: Legend = sleep_lineChart2.getLegend()
+        val legend2: Legend = sleep_lineChart2.legend
         legend2.isEnabled = false
-        //to remove the cricle from the graph
+        //to remove the circle from the graph
         weekSleepData2.setDrawCircles(false)
         //Display
         dataSet2.add(weekSleepData2)
@@ -212,22 +209,22 @@ class DashboardActivity : BaseActivity() {
 
         val weekWorkoutData3 = LineDataSet(workout_data_1(), "Workout")
         val dataSet3 = ArrayList<ILineDataSet>()
-        weekWorkoutData3.setLineWidth(2f)
-        weekWorkoutData3.setColor(Color.GRAY)
+        weekWorkoutData3.lineWidth = 2f
+        weekWorkoutData3.color = Color.GRAY
         weekWorkoutData3.setDrawValues(false)
         //to make the smooth line
-        weekWorkoutData3.setMode(LineDataSet.Mode.CUBIC_BEZIER)
+        weekWorkoutData3.mode = LineDataSet.Mode.CUBIC_BEZIER
         //to enable the cubic density : if 1 then it will be sharp curve
-        weekWorkoutData3.setCubicIntensity(0.2f)
+        weekWorkoutData3.cubicIntensity = 0.2f
         //to fill the below of smooth line in graph
         weekWorkoutData3.setDrawFilled(true)
         weekWorkoutData3.fillColor= Color.RED
         //set the transparency
-        weekWorkoutData3.setFillAlpha(70)
+        weekWorkoutData3.fillAlpha = 70
         //set legend disable or enable to hide {the left down corner name of graph}
-        val legend3: Legend = workout_lineChart1.getLegend()
+        val legend3: Legend = workout_lineChart1.legend
         legend3.isEnabled = false
-        //to remove the cricle from the graph
+        //to remove the circle from the graph
         weekWorkoutData3.setDrawCircles(false)
         //Display
         dataSet3.add(weekWorkoutData3)
