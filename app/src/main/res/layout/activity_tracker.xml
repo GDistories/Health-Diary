@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ui.activity.TrackerActivity">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_title_devices"
+        style="@style/activity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="@string/health_tracker"
+        app:layout_constraintBottom_toBottomOf="@id/iv_back"
+        app:layout_constraintStart_toEndOf="@+id/iv_back"
+        app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/dmsans_bold"
+        android:gravity="center"
+        android:text="@string/the_health_data_from_input_devices"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_devices" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        android:layout_margin="15dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/data_card_1"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/light_pink"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/data_icon_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_health_data_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/data_title_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="@string/heart_"
+                    android:textColor="@color/text_red"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/data_icon_1"
+                    app:layout_constraintTop_toTopOf="@+id/data_icon_1" />
+
+                <TextView
+                    android:id="@+id/data_value_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="78"
+                    android:textColor="@color/text_red"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/data_icon_1"
+                    app:layout_constraintTop_toBottomOf="@+id/data_icon_1" />
+
+                <TextView
+                    android:id="@+id/data_unit_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="bpm"
+                    android:textColor="@color/text_red"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/data_value_1"
+                    app:layout_constraintStart_toEndOf="@+id/data_value_1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/data_card_2"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/light_purple"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/data_card_1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/data_icon_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_health_data_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/data_title_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="@string/exercise_"
+                    android:textColor="@color/text_purple"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/data_icon_2"
+                    app:layout_constraintTop_toTopOf="@+id/data_icon_2" />
+
+                <TextView
+                    android:id="@+id/data_value_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="24"
+                    android:textColor="@color/text_purple"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/data_icon_2"
+                    app:layout_constraintTop_toBottomOf="@+id/data_icon_2" />
+
+                <TextView
+                    android:id="@+id/data_unit_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="min"
+                    android:textColor="@color/text_purple"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/data_value_2"
+                    app:layout_constraintStart_toEndOf="@+id/data_value_2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/data_card_3"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/light_green"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_card_1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/data_icon_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_health_data_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/data_title_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="@string/walking"
+                    android:textColor="@color/text_green"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/data_icon_3"
+                    app:layout_constraintTop_toTopOf="@+id/data_icon_3" />
+
+                <TextView
+                    android:id="@+id/data_value_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="10"
+                    android:textColor="@color/text_green"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/data_icon_3"
+                    app:layout_constraintTop_toBottomOf="@+id/data_icon_3" />
+
+                <TextView
+                    android:id="@+id/data_unit_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="km"
+                    android:textColor="@color/text_green"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/data_value_3"
+                    app:layout_constraintStart_toEndOf="@+id/data_value_3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/data_card_4"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/light_blue"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/data_card_3"
+            app:layout_constraintTop_toBottomOf="@+id/data_card_2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/data_icon_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_health_data_4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/data_title_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="@string/sleep"
+                    android:textColor="@color/text_blue"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/data_icon_4"
+                    app:layout_constraintTop_toTopOf="@+id/data_icon_4" />
+
+                <TextView
+                    android:id="@+id/data_value_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="9.5"
+                    android:textColor="@color/text_blue"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/data_icon_4"
+                    app:layout_constraintTop_toBottomOf="@+id/data_icon_4" />
+
+                <TextView
+                    android:id="@+id/data_unit_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hrs"
+                    android:textColor="@color/text_blue"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/data_value_4"
+                    app:layout_constraintStart_toEndOf="@+id/data_value_4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_layout1"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn_go_dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:fontFamily="@font/dmsans_bold"
+            android:text="@string/check_your_health_dashboard"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_go_sleepReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:fontFamily="@font/dmsans_bold"
+            android:text="@string/check_your_sleep_report"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

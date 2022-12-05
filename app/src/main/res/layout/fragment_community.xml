@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ui.fragment.CommunityFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--Top part CardView of Community page-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:background="@drawable/community_border">
+
+                <TextView
+                    android:id="@+id/community_welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/dmsans_bold"
+                    android:text="@string/community_welcome_msg"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/community_try"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/dmsans_medium"
+                    android:text="@string/community_try_msg"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_profile_photo"
+                    app:layout_constraintTop_toBottomOf="@+id/community_welcome" />
+
+                <ImageView
+                    android:id="@+id/iv_profile_photo"
+                    android:layout_width="81dp"
+                    android:layout_height="81dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/community_avatar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/search_card_view"
+                    android:layout_width="370dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginBottom="42dp"
+                    android:background="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.609"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/community_try">
+
+                    <SearchView
+                        android:id="@+id/search_professionals"
+                        android:layout_width="370dp"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:iconifiedByDefault="false"
+                        android:queryBackground="@android:color/transparent"
+                        android:queryHint="@string/community_search" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Categories with buttons-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/community_categories"
+                android:theme="@style/activity_title" />
+
+            <!--Category Botton Row-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <!--Doctor-->
+                <LinearLayout
+                    android:id="@+id/category_doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="2dp">
+
+                        <ImageView
+                            android:layout_width="49dp"
+                            android:layout_height="49dp"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_doctor" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/community_doctor"
+                        android:theme="@style/my_fragment_style" />
+                </LinearLayout>
+
+                <!--Nutritionist-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/category_nutritionist"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="2dp">
+
+                        <ImageView
+                            android:layout_width="49dp"
+                            android:layout_height="49dp"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_nutritionist" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/community_nutritionist"
+                        android:theme="@style/my_fragment_style" />
+                </LinearLayout>
+
+                <!--Coach-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/category_coach"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="2dp">
+
+                        <ImageView
+                            android:layout_width="49dp"
+                            android:layout_height="49dp"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_coach" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/community_coach"
+                        android:theme="@style/my_fragment_style" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--Top professionals list-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/community_top"
+                android:theme="@style/activity_title" />
+
+            <include
+                android:id="@+id/community_top1"
+                layout="@layout/doctor_item_layout" />
+
+            <include
+                android:id="@+id/community_top2"
+                layout="@layout/doctor_item_layout" />
+
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:cardBackgroundColor="@color/white"-->
+            <!--                app:cardCornerRadius="10dp"-->
+            <!--                app:cardElevation="10dp"-->
+            <!--                app:cardMaxElevation="10dp"-->
+            <!--                app:cardPreventCornerOverlap="true"-->
+            <!--                app:cardUseCompatPadding="true">-->
+
+            <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/doctor_img"-->
+            <!--                        android:layout_width="100dp"-->
+            <!--                        android:layout_height="110dp"-->
+            <!--                        android:layout_margin="5dp"-->
+            <!--                        android:src="@drawable/doctor_img5"-->
+            <!--                        app:layout_constraintStart_toStartOf="parent"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/doctor_name"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="16dp"-->
+            <!--                        android:layout_marginTop="10dp"-->
+            <!--                        android:text="Dr. Maria Waston"-->
+            <!--                        android:theme="@style/news_fragment_title_style"-->
+            <!--                        app:layout_constraintStart_toEndOf="@+id/doctor_img"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/doctor_symptons"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="10dp"-->
+            <!--                        android:fontFamily="@font/dmsans_regular"-->
+            <!--                        android:textSize="12sp"-->
+            <!--                        android:theme="@style/news_fragment_content_style"-->
+            <!--                        android:text="Heart Surgeon, London Bridge Hospital"-->
+            <!--                        app:layout_constraintStart_toStartOf="@+id/doctor_name"-->
+            <!--                        app:layout_constraintTop_toBottomOf="@+id/doctor_name" />-->
+
+            <!--                    <Button-->
+            <!--                        android:id="@+id/doctor_personal_info_btn"-->
+            <!--                        android:layout_width="110dp"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginTop="12dp"-->
+            <!--                        android:textSize="12sp"-->
+            <!--                        android:text="Personal Info."-->
+            <!--                        android:fontFamily="@font/dmsans_medium"-->
+            <!--                        android:textAllCaps="false"-->
+            <!--                        android:background="@drawable/doctor_btn_border"-->
+            <!--                        app:layout_constraintStart_toStartOf="@+id/doctor_symptons"-->
+            <!--                        app:layout_constraintTop_toBottomOf="@+id/doctor_symptons" >-->
+            <!--                    </Button>-->
+
+            <!--                    <androidx.cardview.widget.CardView-->
+            <!--                        android:id="@+id/doctor_chat"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="16dp"-->
+            <!--                        android:background="#D7DCF5"-->
+            <!--                        app:cardCornerRadius="10dp"-->
+            <!--                        app:cardElevation="10dp"-->
+            <!--                        app:layout_constraintBottom_toBottomOf="@+id/doctor_personal_info_btn"-->
+            <!--                        app:layout_constraintStart_toEndOf="@+id/doctor_personal_info_btn">-->
+
+            <!--                        <ImageView-->
+            <!--                            android:background="#D7DCF5"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="match_parent"-->
+            <!--                            android:src="@drawable/chat" />-->
+            <!--                    </androidx.cardview.widget.CardView>-->
+
+            <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+            <!--            </androidx.cardview.widget.CardView>-->
+
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:cardBackgroundColor="@color/white"-->
+            <!--                app:cardCornerRadius="10dp"-->
+            <!--                app:cardElevation="10dp"-->
+            <!--                app:cardPreventCornerOverlap="true"-->
+            <!--                app:cardUseCompatPadding="true">-->
+            <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/doctor2_img"-->
+            <!--                        android:layout_width="100dp"-->
+            <!--                        android:layout_height="110dp"-->
+            <!--                        android:layout_margin="5dp"-->
+            <!--                        android:src="@drawable/doctor_img2"-->
+            <!--                        app:layout_constraintStart_toStartOf="parent"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/doctor2_name"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="16dp"-->
+            <!--                        android:layout_marginTop="10dp"-->
+            <!--                        android:text="Dr. Kathy Pacheco"-->
+            <!--                        android:theme="@style/news_fragment_title_style"-->
+            <!--                        app:layout_constraintStart_toEndOf="@+id/doctor2_img"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/doctor2_symptons"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="10dp"-->
+            <!--                        android:fontFamily="@font/dmsans_regular"-->
+            <!--                        android:textSize="12sp"-->
+            <!--                        android:theme="@style/news_fragment_content_style"-->
+            <!--                        android:text="Heart Surgeon, London, England"-->
+            <!--                        app:layout_constraintStart_toStartOf="@+id/doctor2_name"-->
+            <!--                        app:layout_constraintTop_toBottomOf="@+id/doctor2_name" />-->
+
+            <!--                    <Button-->
+            <!--                        android:id="@+id/doctor2_personal_info_btn"-->
+            <!--                        android:layout_width="110dp"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginTop="12dp"-->
+            <!--                        android:textSize="12sp"-->
+            <!--                        android:text="Personal Info."-->
+            <!--                        android:fontFamily="@font/dmsans_medium"-->
+            <!--                        android:textAllCaps="false"-->
+            <!--                        android:background="@drawable/doctor_btn_border"-->
+            <!--                        app:layout_constraintStart_toStartOf="@+id/doctor2_symptons"-->
+            <!--                        app:layout_constraintTop_toBottomOf="@+id/doctor2_symptons" >-->
+            <!--                    </Button>-->
+
+            <!--                    <androidx.cardview.widget.CardView-->
+            <!--                        android:id="@+id/doctor2_chat"-->
+            <!--                        app:cardCornerRadius="10dp"-->
+            <!--                        app:cardElevation="10dp"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="16dp"-->
+            <!--                        android:background="#D7DCF5"-->
+            <!--                        app:layout_constraintBottom_toBottomOf="@+id/doctor2_personal_info_btn"-->
+            <!--                        app:layout_constraintStart_toEndOf="@+id/doctor2_personal_info_btn">-->
+
+            <!--                        <ImageView-->
+            <!--                            android:background="#D7DCF5"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="match_parent"-->
+            <!--                            android:src="@drawable/chat" />-->
+            <!--                    </androidx.cardview.widget.CardView>-->
+
+            <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!--            </androidx.cardview.widget.CardView>-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="55dp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
