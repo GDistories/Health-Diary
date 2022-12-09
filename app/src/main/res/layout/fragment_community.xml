@@ -18,7 +18,7 @@
             <!--Top part CardView of Community page-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/community_border">
 
                 <TextView
@@ -53,23 +53,29 @@
 
                 <ImageView
                     android:id="@+id/iv_profile_photo"
-                    android:layout_width="81dp"
-                    android:layout_height="81dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="80dp"
-                    android:layout_marginEnd="32dp"
+
+                    android:scaleType="centerInside"
+                    android:scaleY="0.5"
+                    android:scaleX="0.5"
                     android:src="@drawable/community_avatar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/search_card_view"
-                    android:layout_width="370dp"
-                    android:layout_height="60dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="42dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="42dp"
                     android:background="@color/white"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="2dp"
+                    android:scaleX="1.11"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.609"
@@ -78,8 +84,8 @@
 
                     <SearchView
                         android:id="@+id/search_professionals"
-                        android:layout_width="370dp"
-                        android:layout_height="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:iconifiedByDefault="false"
                         android:queryBackground="@android:color/transparent"
@@ -115,7 +121,7 @@
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="88dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="88dp"
                         android:layout_gravity="center"
                         android:background="@color/white"

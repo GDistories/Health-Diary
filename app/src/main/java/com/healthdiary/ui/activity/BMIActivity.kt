@@ -2,6 +2,7 @@ package com.healthdiary.ui.activity
 
 import android.os.Bundle
 import android.util.Log
+import com.blankj.utilcode.util.ClipboardUtils
 import com.google.gson.Gson
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.bean.BMIRequest
@@ -37,6 +38,7 @@ class BMIActivity : BaseActivity() {
             .baseUrl("http://apis.juhe.cn")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+        ClipboardUtils.
 
         val request: HealthCalculateServiceInterface =
             retrofit.create(HealthCalculateServiceInterface::class.java)
