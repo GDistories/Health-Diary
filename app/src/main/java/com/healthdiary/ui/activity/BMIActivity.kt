@@ -33,7 +33,7 @@ class BMIActivity : BaseActivity() {
         }
     }
 
-    fun getBMI(bmiRequest: BMIRequest){
+    private fun getBMI(bmiRequest: BMIRequest){
         val retrofit = Retrofit.Builder()
             .baseUrl("http://apis.juhe.cn")
             .addConverterFactory(GsonConverterFactory.create())

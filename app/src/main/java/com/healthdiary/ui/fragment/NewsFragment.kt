@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.healthdiary.base.BaseFragment
-import com.healthdiary.R
-import com.healthdiary.databinding.FragmentMyBinding
 import com.healthdiary.databinding.FragmentNewsBinding
 import com.healthdiary.ui.activity.*
 
@@ -16,10 +14,6 @@ class NewsFragment : BaseFragment() {
     private var _binding: FragmentNewsBinding? = null
 
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onStart() {
         super.onStart()
@@ -32,7 +26,7 @@ class NewsFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
         return binding.root

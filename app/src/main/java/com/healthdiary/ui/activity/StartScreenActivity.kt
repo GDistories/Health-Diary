@@ -18,19 +18,18 @@ import com.healthdiary.databinding.ActivityStartScreenBinding
 class StartScreenActivity : BaseActivity() {
 
     private val SPLASH_TIME_OUT = 5000
-    var startScreenHandler = Handler(Looper.getMainLooper())
-    var skipHandler = Handler(Looper.getMainLooper())
-    var animHandler = Handler(Looper.getMainLooper())
-    var startScreenRunnable: Runnable? = null
-    var skipRunnable: Runnable? = null
-    var animRunnable1: Runnable? = null
-    var animRunnable2: Runnable? = null
-    var animRunnable3: Runnable? = null
-    var animRunnable4: Runnable? = null
-    var logoAnimation3: Animation? = null
-    var logoAnimation4: Animation? = null
+    private var startScreenHandler = Handler(Looper.getMainLooper())
+    private var skipHandler = Handler(Looper.getMainLooper())
+    private var animHandler = Handler(Looper.getMainLooper())
+    private var startScreenRunnable: Runnable? = null
+    private var skipRunnable: Runnable? = null
+    private var animRunnable1: Runnable? = null
+    private var animRunnable2: Runnable? = null
+    private var animRunnable3: Runnable? = null
+    private var animRunnable4: Runnable? = null
+    private var logoAnimation3: Animation? = null
+    private var logoAnimation4: Animation? = null
 
-    private val TAG = "StartScreenActivity"
     var times: Int = SPLASH_TIME_OUT / 1000
 
     private lateinit var binding: ActivityStartScreenBinding
@@ -98,7 +97,7 @@ class StartScreenActivity : BaseActivity() {
         finish()
     }
 
-    private fun logoAnimOne(): Unit{
+    private fun logoAnimOne() {
         val animatorX: ObjectAnimator = ObjectAnimator.ofFloat(binding.logoHeartImage, "translationX", 0f, 0f)
         val animatorY: ObjectAnimator = ObjectAnimator.ofFloat(binding.logoHeartImage, "translationY", -1000f, 0f)
         val set = AnimatorSet()
@@ -108,7 +107,7 @@ class StartScreenActivity : BaseActivity() {
         set.start()
     }
 
-    private fun logoAnimTwo(): Unit{
+    private fun logoAnimTwo() {
         val animatorX: ObjectAnimator = ObjectAnimator.ofFloat(binding.logoHeartImage, "scaleX", 0.2f, 0.8f)
         val animatorY: ObjectAnimator = ObjectAnimator.ofFloat(binding.logoHeartImage, "scaleY", 0.2f, 0.8f)
         val set = AnimatorSet()

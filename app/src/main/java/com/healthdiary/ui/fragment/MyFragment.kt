@@ -17,10 +17,6 @@ class MyFragment : BaseFragment() {
 
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onStart() {
         super.onStart()
         binding.profileImage.setOnClickListener {

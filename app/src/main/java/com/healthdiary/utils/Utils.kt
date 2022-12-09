@@ -6,7 +6,6 @@ import java.util.*
 
 class Utils {
     companion object{
-        private const val TAG = "Util"
         fun changeLang(context: Context, lang: String): ContextWrapper {
             var context = context
             val langs = lang.split("_").toTypedArray()
