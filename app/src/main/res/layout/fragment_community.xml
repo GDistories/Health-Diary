@@ -122,16 +122,19 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
-                        android:layout_height="88dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@color/white"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="2dp">
 
                         <ImageView
-                            android:layout_width="49dp"
-                            android:layout_height="49dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:scaleY="1"
+                            android:scaleX="1"
+                            android:layout_margin="20dp"
                             android:background="@color/white"
                             android:src="@drawable/ic_doctor" />
                     </androidx.cardview.widget.CardView>
@@ -155,17 +158,20 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/category_nutritionist"
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@color/white"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="2dp">
 
                         <ImageView
-                            android:layout_width="49dp"
-                            android:layout_height="49dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:scaleY="1"
+                            android:scaleX="1"
+                            android:layout_margin="20dp"
                             android:background="@color/white"
                             android:src="@drawable/ic_nutritionist" />
                     </androidx.cardview.widget.CardView>
@@ -189,17 +195,20 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/category_coach"
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@color/white"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="2dp">
 
                         <ImageView
-                            android:layout_width="49dp"
-                            android:layout_height="49dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:scaleY="1"
+                            android:scaleX="1"
+                            android:layout_margin="20dp"
                             android:background="@color/white"
                             android:src="@drawable/ic_coach" />
                     </androidx.cardview.widget.CardView>
