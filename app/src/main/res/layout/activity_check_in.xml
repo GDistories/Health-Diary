@@ -159,6 +159,7 @@
                 app:year_view_month_text_color="#ff0000"
                 app:year_view_month_text_size="20sp"
                 app:year_view_scheme_color="#f17706" />
+<!--            TODO: 将check in和history页面合并-->
             <ScrollView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
