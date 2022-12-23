@@ -37,7 +37,7 @@
     <string name="newstime3">4小时之前</string>
     <string name="newstime4">14小时之前</string>
     <string name="General">常规</string>
-    <string name="sign_in">注册</string>
+    <string name="sign_in">登录</string>
     <string name="enter_your_email">请输入邮箱</string>
     <string name="enter_your_password">请输入密码</string>
     <string name="forgot_password">忘记密码？</string>
