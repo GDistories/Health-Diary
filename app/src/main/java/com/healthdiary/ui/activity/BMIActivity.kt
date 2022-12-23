@@ -4,18 +4,17 @@ import android.os.Bundle
 import android.util.Log
 import com.blankj.utilcode.util.ClipboardUtils
 import com.google.gson.Gson
+import com.healthdiary.api.API
+import com.healthdiary.api.RetrofitClient
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.bean.BMIRequest
 import com.healthdiary.bean.BMIResult
 import com.healthdiary.bean.JuheResponse
 import com.healthdiary.databinding.ActivityBmiactivityBinding
-import com.healthdiary.request.HealthCalculateServiceInterface
 import okhttp3.FormBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class BMIActivity : BaseActivity() {
     lateinit var binding : ActivityBmiactivityBinding
@@ -34,14 +33,10 @@ class BMIActivity : BaseActivity() {
     }
 
     private fun getBMI(bmiRequest: BMIRequest){
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://apis.juhe.cn")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        ClipboardUtils.
+        val retrofit = RetrofitClient.getInstance("http://apis.juhe.cn")
 
-        val request: HealthCalculateServiceInterface =
-            retrofit.create(HealthCalculateServiceInterface::class.java)
+        val request: API = retrofit.create(API::class.java)
+
         val body: RequestBody = FormBody.Builder()
             .add("key", bmiRequest.key!!)
             .add("height", bmiRequest.height.toString())
@@ -51,6 +46,7 @@ class BMIActivity : BaseActivity() {
             .build()
 
         val call: Call<JuheResponse?>? = request.getBMI(body)
+
         call!!.enqueue(object : retrofit2.Callback<JuheResponse?> {
             override fun onResponse(
                 call: Call<JuheResponse?>,
