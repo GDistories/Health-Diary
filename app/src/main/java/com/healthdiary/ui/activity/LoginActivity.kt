@@ -1,8 +1,17 @@
 package com.healthdiary.ui.activity
 
 import android.content.Intent
+import android.content.IntentSender
 import android.os.Bundle
+import android.util.Log
 import com.blankj.utilcode.util.RegexUtils
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
+import com.google.android.gms.auth.api.identity.Identity
+import com.google.android.gms.auth.api.identity.SignInClient
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityLoginBinding
@@ -10,6 +19,7 @@ import com.healthdiary.databinding.ActivityLoginBinding
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private var passwordVisibility = false
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +27,7 @@ class LoginActivity : BaseActivity() {
         hideStatusAndActionBar()
         val view = binding.root
         setContentView(view)
+        auth = Firebase.auth
 
         binding.ivBack.setOnClickListener {
             finish()
@@ -89,6 +100,7 @@ class LoginActivity : BaseActivity() {
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
         //TODO: Implement sign in
+        lateinit var auth: FirebaseAuth
 
         finish()
     }

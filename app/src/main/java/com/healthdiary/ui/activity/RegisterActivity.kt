@@ -4,9 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.viewModels
+import com.blankj.utilcode.util.RegexUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityRegisterBinding
+import com.healthdiary.repository.AuthRepository
+import com.healthdiary.viewmodel.AuthViewModel
 
 class RegisterActivity : BaseActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -15,6 +20,10 @@ class RegisterActivity : BaseActivity() {
     private var sendHandler = Handler(Looper.getMainLooper())
     private var sendRunnable: Runnable? = null
     private var sendTime = 60
+
+    private val viewModel: AuthViewModel by viewModels {
+        AuthViewModel.Provider(AuthRepository.repository)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +77,11 @@ class RegisterActivity : BaseActivity() {
             sendHandler.postDelayed(sendRunnable!!, 1000)
         }
 
+        binding.btnSignUp.setOnClickListener {
+            inputValidation()
+
+        }
+
     }
 
     override fun onStart() {
@@ -76,6 +90,60 @@ class RegisterActivity : BaseActivity() {
         passwordConfirmVisibility = false
         setPasswordVisibility()
         setPasswordConfirmVisibility()
+    }
+
+    private fun inputValidation(){
+        val email = binding.etEmail.text.toString()
+        val verifyCode = binding.etVerifyCode.text.toString()
+        val password = binding.etPassword.text.toString()
+        val passwordConfirm = binding.etPasswordConfirm.text.toString()
+        if (email.isEmpty()) {
+            binding.etEmail.error = getString(R.string.email_is_required)
+            binding.etEmail.requestFocus()
+            return
+        }
+        if (verifyCode.isEmpty()) {
+            binding.etVerifyCode.error = getString(R.string.verify_code_is_required)
+            binding.etVerifyCode.requestFocus()
+            return
+        }
+        if (password.isEmpty()) {
+            binding.etPassword.error = getString(R.string.password_is_required)
+            binding.etPassword.requestFocus()
+            return
+        }
+        if (passwordConfirm.isEmpty()) {
+            binding.etPasswordConfirm.error = getString(R.string.password_confirm_is_required)
+            binding.etPasswordConfirm.requestFocus()
+            return
+        }
+        if (password != passwordConfirm) {
+            binding.etPasswordConfirm.error = getString(R.string.password_confirm_is_not_match)
+            binding.etPasswordConfirm.requestFocus()
+            return
+        }
+        if (password.length < 6) {
+            binding.etPassword.error = getString(R.string.password_length_is_too_short)
+            binding.etPassword.requestFocus()
+            return
+        }
+        if (RegexUtils.isEmail(email)) {
+            binding.etEmail.error = getString(R.string.not_a_valid_email)
+            binding.etEmail.requestFocus()
+            return
+        }
+
+        signUp(email, password)
+    }
+
+    private fun signUp(email: String, password: String) {
+        viewModel.signUp(email, password).observe(this) {
+            if (it) {
+                ToastUtils.showShort("Sign up successfully")
+            } else {
+                ToastUtils.showShort("Sign up failed")
+            }
+        }
     }
 
     private fun setPasswordVisibility(){

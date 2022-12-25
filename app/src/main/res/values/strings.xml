@@ -54,7 +54,7 @@
     <string name="sign_in">Sign In</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="enter_your_password">Enter your password</string>
-    <string name="server_client_id" translatable="false">34100753456-u8d4h1allue3da32omovfsls385fvtuj.apps.googleusercontent.com</string>
+    <string name="server_client_id" translatable="false">636241345510-ftcbqvs8qtkqcl217qrl22o0aufrimf2.apps.googleusercontent.com</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="if_you_don_t_an_account">If you don’t an account</string>
     <string name="register_here">Register Here!</string>
@@ -236,6 +236,11 @@
     <string name="password_must_contain_at_least_one_letter_and_one_number">Password must contain at least one letter and one number</string>
     <string name="update_3_minutes_ago">Updated 3 minutes ago</string>
     <string name="language">Language</string>
+    <string name="verify_code_is_required">Verify Code Is Required</string>
+    <string name="password_confirm_is_required">Password Confirm Is Required</string>
+    <string name="password_confirm_is_not_match">Password Confirm Is Not Match</string>
+    <string name="not_a_valid_email">Not a Valid Email</string>
+    <string name="password_length_is_too_short">Password Length Is Too Short</string>
 
     <!---->
 </resources>
