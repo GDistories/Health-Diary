@@ -7,27 +7,17 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
-import com.blankj.utilcode.util.LogUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.healthdiary.data.User
-import com.healthdiary.repository.UserRepository
 import com.healthdiary.utils.SharedPreferencesUtils
 import com.healthdiary.utils.Utils.Companion.changeLang
 import com.healthdiary.utils.Utils.Companion.getSysLang
-import com.healthdiary.viewmodel.UserViewModel
 import java.util.*
 import kotlin.system.exitProcess
 
 open class BaseActivity : AppCompatActivity() {
-
-    private val userViewModel: UserViewModel by viewModels {
-        UserViewModel.Provider(UserRepository.repository)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +36,7 @@ open class BaseActivity : AppCompatActivity() {
         super.attachBaseContext(context)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-/*
+    /*
       TODO: Find the reason why this code is not working
       Using comments method will cause the app to crash, and now don't know why,
       so I'm going to use the method below, which is deprecated, but it works.
