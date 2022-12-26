@@ -70,8 +70,7 @@ class ProfileActivity : BaseActivity() {
             user = it
             updateUI(user)
         }
-
-
+        
         binding.ivBack.setOnClickListener {
             finish()
         }
