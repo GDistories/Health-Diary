@@ -10,12 +10,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import com.blankj.utilcode.util.LogUtils
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.data.User
 import com.healthdiary.databinding.FragmentMyBinding
+import com.healthdiary.repository.UserRepository
 import com.healthdiary.ui.activity.*
+import com.healthdiary.viewmodel.UserViewModel
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -24,17 +27,34 @@ import java.util.*
 
 class MyFragment : BaseFragment() {
     private var _binding: FragmentMyBinding? = null
-
+    var user: User? = null
     private val binding get() = _binding!!
+
+    private val userViewModel: UserViewModel by viewModels {
+        UserViewModel.Provider(UserRepository.repository)
+    }
 
     override fun onStart() {
         super.onStart()
         if (isLogin()) {
             // User is signed in
-            val user = getUserInfo()
-            getUserPhoto(context!!.cacheDir.absolutePath + "/" + user!!.email + ".jpg")
-            LogUtils.e("user: " + user.name)
-            binding.username.text = user.name ?: getString(R.string.anonymous)
+            userViewModel.getUser(getUserEmail()!!).observe(this){
+                user = it
+                if (user != null) {
+                    LogUtils.e(user!!.name)
+                    LogUtils.e(user!!.name)
+                    if (user?.name == "null" || user!!.name?.isEmpty() == true)
+                    {
+                        binding.username.text = getString(R.string.anonymous)
+                    }else
+                    {
+                        binding.username.text = user!!.name
+                    }
+                }
+            }
+
+            getUserPhoto(context!!.cacheDir.absolutePath + "/" + getUserEmail() + ".jpg")
+
             val calendar = Calendar.getInstance()
 
             when (calendar.get(Calendar.HOUR_OF_DAY)) {
@@ -126,7 +146,6 @@ class MyFragment : BaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val user = getUserInfo()
         when (requestCode) {
             1 -> if (data != null) {
                 val uri = data.data
@@ -139,7 +158,7 @@ class MyFragment : BaseFragment() {
                     saveBitmap(
                         bitmap,
                         activity,
-                        context!!.cacheDir.absolutePath + "/" + user!!.email + ".jpg"
+                        context!!.cacheDir.absolutePath + "/" + getUserEmail() + ".jpg"
                     )
                     binding.ivProfileImage.setImageBitmap(bitmap)
                 }

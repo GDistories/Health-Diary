@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import com.blankj.utilcode.util.RegexUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
@@ -23,12 +24,18 @@ import com.google.firebase.ktx.Firebase
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityLoginBinding
+import com.healthdiary.repository.AuthRepository
+import com.healthdiary.viewmodel.AuthViewModel
 
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private var passwordVisibility = false
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+
+    private val authViewModel: AuthViewModel by viewModels {
+        AuthViewModel.Provider(AuthRepository.repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,11 +113,6 @@ class LoginActivity : BaseActivity() {
             binding.etPassword.requestFocus()
             return
         }
-        if (!RegexUtils.isMatch("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{6,20}\$", password)) {
-            binding.etPassword.error = getString(R.string.password_must_contain_at_least_one_letter_and_one_number)
-            binding.etPassword.requestFocus()
-            return
-        }
 
         signIn()
     }
@@ -118,10 +120,15 @@ class LoginActivity : BaseActivity() {
     private fun signIn() {
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
-        //TODO: Implement sign in
-        lateinit var auth: FirebaseAuth
-
-        finish()
+        authViewModel.login(email, password).observe(this) {
+            if (it) {
+                ToastUtils.showShort(getString(R.string.login_successfully))
+                finish()
+            } else {
+                ToastUtils.showShort(getString(R.string.email_or_password_is_incorrect))
+                binding.etPassword.requestFocus()
+            }
+        }
     }
 
     private fun signInWithGoogle() {

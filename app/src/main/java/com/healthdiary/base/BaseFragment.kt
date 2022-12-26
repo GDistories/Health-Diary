@@ -2,13 +2,22 @@ package com.healthdiary.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.blankj.utilcode.util.LogUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.healthdiary.data.User
+import com.healthdiary.repository.AuthRepository
+import com.healthdiary.repository.UserRepository
+import com.healthdiary.viewmodel.AuthViewModel
+import com.healthdiary.viewmodel.UserViewModel
 
 open class BaseFragment : Fragment() {
+    private val userViewModel: UserViewModel by viewModels {
+        UserViewModel.Provider(UserRepository.repository)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -22,13 +31,10 @@ open class BaseFragment : Fragment() {
         return auth.currentUser != null
     }
 
-    open fun getUserInfo(): User? {
+    open fun getUserEmail(): String? {
         if (isLogin()) {
             val currentUser = Firebase.auth.currentUser
-            val user: User = User()
-            user.email = currentUser?.email
-            user.name = currentUser?.displayName
-            return user
+            return currentUser?.email
         }
         return null
     }

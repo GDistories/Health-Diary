@@ -32,10 +32,8 @@ class ProfileActivity : BaseActivity() {
     private val monthNow = TimeUtils.getNowString(SimpleDateFormat("MM"))
     private val dayNow = TimeUtils.getNowString(SimpleDateFormat("dd"))
 
-    var name: String? = null
     var gender: String? = null
     var birthday: String? = null
-    var phoneNum: String? = null
 
     var yearSelected: String = yearNow
     var monthSelected: String = monthNow
@@ -54,6 +52,7 @@ class ProfileActivity : BaseActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideStatusAndActionBar()
+        var user: User? = null
 
         if (!isLogin()){
             ToastUtils.showShort(getString(R.string.please_login))
@@ -67,15 +66,10 @@ class ProfileActivity : BaseActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        var user = getUserInfo()
-        userViewModel.getUser(user?.email.toString()).observe(this){
-            if (it != null) {
-                user = it
-                updateUI(user)
-            }
+        userViewModel.getUser(getUserEmail()!!).observe(this){
+            user = it
+            updateUI(user)
         }
-
-        updateUI(user)
 
 
         binding.ivBack.setOnClickListener {
@@ -107,11 +101,27 @@ class ProfileActivity : BaseActivity() {
     }
 
     private fun updateUI(user: User?){
-        binding.tvEmail.text = user?.email ?: ""
-        binding.etName.setText(user?.name ?: "")
-        binding.tvGender.text = user?.gender ?: ""
-        binding.tvBirthday.text = user?.birthday ?: ""
-        binding.etPhoneNumber.setText(user?.phone ?: "")
+        binding.tvEmail.text = ""
+        binding.etName.setText("")
+        binding.tvGender.text = ""
+        binding.tvBirthday.text = ""
+        binding.etPhoneNumber.setText("")
+
+        if (user?.email != "null" || user.email?.isEmpty() == true) {
+            binding.tvEmail.text = user?.email
+        }
+        if (user?.name != "null" || user.name?.isEmpty() == true) {
+            binding.etName.setText(user?.name)
+        }
+        if (user?.gender != "null" || user.gender?.isEmpty() == true) {
+            binding.tvGender.text = user?.gender
+        }
+        if (user?.birthday != "null" || user.birthday?.isEmpty() == true) {
+            binding.tvBirthday.text = user?.birthday
+        }
+        if (user?.phone != "null" || user.phone?.isEmpty() == true) {
+            binding.etPhoneNumber.setText(user?.phone)
+        }
     }
 
     private fun showYearMonthDayPicker(view: View?) {
