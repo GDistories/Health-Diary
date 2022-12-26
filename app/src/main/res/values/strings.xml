@@ -256,6 +256,7 @@
     <string name="email_or_password_is_incorrect">Email or Password Is Incorrect</string>
     <string name="email_not_found">Email Not Found</string>
     <string name="reset_password_email_sent">Reset Password Email Has Sent</string>
+    <string name="notifications">Notifications</string>
 
     <!---->
 </resources>

@@ -10,6 +10,10 @@
             android:key="language"
             android:title="@string/language"
             app:useSimpleSummaryProvider="true" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="notifications"
+            android:title="@string/notifications" />
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

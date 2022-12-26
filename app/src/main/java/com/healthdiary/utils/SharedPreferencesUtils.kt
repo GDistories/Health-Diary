@@ -24,6 +24,10 @@ open class SharedPreferencesUtils {
             return sharedPreferences!!.getString(key, defaultValue)
         }
 
+        fun getBooleanParam(key: String?, defaultValue: Boolean): Boolean {
+            return sharedPreferences!!.getBoolean(key, defaultValue)
+        }
+
         fun clear() {
             editor!!.clear()
             editor!!.apply()

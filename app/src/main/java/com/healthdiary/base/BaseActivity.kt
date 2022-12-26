@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.blankj.utilcode.util.NotificationUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -34,6 +35,14 @@ open class BaseActivity : AppCompatActivity() {
         val lang = SharedPreferencesUtils.getParam("language", getSysLang(newBase!!)).toString()
         val context: Context = changeLang(newBase, lang)
         super.attachBaseContext(context)
+    }
+
+    open fun hasNotificationPermission(): Boolean {
+        return NotificationUtils.areNotificationsEnabled()
+    }
+
+    open fun canNotify(): Boolean {
+        return SharedPreferencesUtils.getBooleanParam("notifications", true)
     }
 
     /*

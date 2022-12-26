@@ -10,6 +10,7 @@ import cn.addapp.pickers.picker.DatePicker
 import cn.addapp.pickers.picker.DatePicker.OnYearMonthDayPickListener
 import cn.addapp.pickers.picker.SinglePicker
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.NotificationUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.TimeUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -61,7 +62,7 @@ class ProfileActivity : BaseActivity() {
         }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(StringUtils.getString(R.string.default_web_client_id))
+            .requestIdToken(StringUtils.getString(R.string.server_client_id))
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)

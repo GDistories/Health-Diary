@@ -7,6 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.NotificationUtils
 import com.blankj.utilcode.util.RegexUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
@@ -45,12 +47,11 @@ class LoginActivity : BaseActivity() {
         setContentView(view)
         auth = Firebase.auth
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.server_client_id))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-
+        
         binding.ivBack.setOnClickListener {
             finish()
         }
