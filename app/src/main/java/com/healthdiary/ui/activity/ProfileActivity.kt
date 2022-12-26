@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.LiveData
 import cn.addapp.pickers.picker.DatePicker
 import cn.addapp.pickers.picker.DatePicker.OnYearMonthDayPickListener
 import cn.addapp.pickers.picker.SinglePicker
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.TimeUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -16,9 +18,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
+import com.healthdiary.data.User
 import com.healthdiary.databinding.ActivityProfileBinding
 import com.healthdiary.repository.AuthRepository
+import com.healthdiary.repository.UserRepository
 import com.healthdiary.viewmodel.AuthViewModel
+import com.healthdiary.viewmodel.UserViewModel
 import java.text.SimpleDateFormat
 
 class ProfileActivity : BaseActivity() {
@@ -37,8 +42,11 @@ class ProfileActivity : BaseActivity() {
     var daySelected: String = dayNow
     var googleSignInClient: GoogleSignInClient? = null
 
-    private val viewModel: AuthViewModel by viewModels {
+    private val authViewModel: AuthViewModel by viewModels {
         AuthViewModel.Provider(AuthRepository.repository)
+    }
+    private val userViewModel: UserViewModel by viewModels {
+        UserViewModel.Provider(UserRepository.repository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,13 +67,16 @@ class ProfileActivity : BaseActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        val user = getUserInfo()
+        var user = getUserInfo()
+        userViewModel.getUser(user?.email.toString()).observe(this){
+            if (it != null) {
+                user = it
+                updateUI(user)
+            }
+        }
 
-        binding.tvEmail.text = user?.email ?: ""
-        binding.etName.setText(user?.name ?: "")
-        binding.tvGender.text = user?.gender ?: ""
-        binding.tvBirthday.text = user?.birthday ?: ""
-        binding.etPhoneNumber.setText(user?.phone ?: "")
+        updateUI(user)
+
 
         binding.ivBack.setOnClickListener {
             finish()
@@ -80,15 +91,27 @@ class ProfileActivity : BaseActivity() {
         }
 
         binding.btnSubmit.setOnClickListener {
-
+            user?.name = binding.etName.text.toString()
+            user?.gender = binding.tvGender.text.toString()
+            user?.birthday = binding.tvBirthday.text.toString()
+            user?.phone = binding.etPhoneNumber.text.toString()
+            userViewModel.updateUser(user!!)
             finish()
         }
         binding.btnLogout.setOnClickListener {
-            viewModel.logout()
+            authViewModel.logout()
             googleSignInClient?.signOut()
             ToastUtils.showShort(getString(R.string.logout_success))
             finish()
         }
+    }
+
+    private fun updateUI(user: User?){
+        binding.tvEmail.text = user?.email ?: ""
+        binding.etName.setText(user?.name ?: "")
+        binding.tvGender.text = user?.gender ?: ""
+        binding.tvBirthday.text = user?.birthday ?: ""
+        binding.etPhoneNumber.setText(user?.phone ?: "")
     }
 
     private fun showYearMonthDayPicker(view: View?) {

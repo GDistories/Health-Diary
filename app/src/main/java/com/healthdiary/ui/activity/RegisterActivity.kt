@@ -17,9 +17,6 @@ class RegisterActivity : BaseActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private var passwordVisibility = false
     private var passwordConfirmVisibility = false
-    private var sendHandler = Handler(Looper.getMainLooper())
-    private var sendRunnable: Runnable? = null
-    private var sendTime = 60
 
     private val viewModel: AuthViewModel by viewModels {
         AuthViewModel.Provider(AuthRepository.repository)
@@ -33,29 +30,12 @@ class RegisterActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
 
-        sendRunnable = Runnable {
-            var time = binding.btnSendEmail.text.toString().replace("s", "").toInt()
-            if (time > 0) {
-                time--
-                binding.btnSendEmail.text = "$time"+"s"
-                sendHandler.postDelayed(sendRunnable!!, 1000)
-            } else {
-                binding.btnSendEmail.isEnabled = true
-                binding.btnSendEmail.text = "Send"
-                binding.btnSendEmail.background = getDrawable(R.drawable.btn_blue)
-                binding.btnSendEmail.setTextColor(getColor(R.color.white))
-            }
-        }
-
 
         binding.ivBack.setOnClickListener {
             finish()
         }
         binding.ivEmailRemove.setOnClickListener {
             binding.etEmail.setText("")
-        }
-        binding.ivVerifyCodeRemove.setOnClickListener {
-            binding.etVerifyCode.setText("")
         }
         binding.ivPasswordVisibility.setOnClickListener {
             passwordVisibility = !passwordVisibility
@@ -68,18 +48,9 @@ class RegisterActivity : BaseActivity() {
         binding.btnSignUp.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
-        binding.btnSendEmail.setOnClickListener {
-            binding.btnSendEmail.isEnabled = false
-            binding.btnSendEmail.text = sendTime.toString() + "s"
-            binding.etVerifyCode.requestFocus()
-            binding.btnSendEmail.background = getDrawable(R.drawable.bg_search)
-            binding.btnSendEmail.setTextColor(getColor(R.color.silver_gray))
-            sendHandler.postDelayed(sendRunnable!!, 1000)
-        }
 
         binding.btnSignUp.setOnClickListener {
             inputValidation()
-
         }
 
     }
@@ -94,17 +65,11 @@ class RegisterActivity : BaseActivity() {
 
     private fun inputValidation(){
         val email = binding.etEmail.text.toString()
-        val verifyCode = binding.etVerifyCode.text.toString()
         val password = binding.etPassword.text.toString()
         val passwordConfirm = binding.etPasswordConfirm.text.toString()
         if (email.isEmpty()) {
             binding.etEmail.error = getString(R.string.email_is_required)
             binding.etEmail.requestFocus()
-            return
-        }
-        if (verifyCode.isEmpty()) {
-            binding.etVerifyCode.error = getString(R.string.verify_code_is_required)
-            binding.etVerifyCode.requestFocus()
             return
         }
         if (password.isEmpty()) {
@@ -123,7 +88,17 @@ class RegisterActivity : BaseActivity() {
             return
         }
         if (password.length < 6) {
-            binding.etPassword.error = getString(R.string.password_length_is_too_short)
+            binding.etPassword.error = getString(R.string.password_must_at_least_6_characters)
+            binding.etPassword.requestFocus()
+            return
+        }
+        if (password.length > 20) {
+            binding.etPassword.error = getString(R.string.password_must_be_at_most_20_characters)
+            binding.etPassword.requestFocus()
+            return
+        }
+        if (!RegexUtils.isMatch("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{6,20}\$", password)) {
+            binding.etPassword.error = getString(R.string.password_must_contain_at_least_one_letter_and_one_number)
             binding.etPassword.requestFocus()
             return
         }
