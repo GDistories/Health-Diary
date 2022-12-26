@@ -142,9 +142,10 @@ class LoginActivity : BaseActivity() {
             val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
             auth.signInWithCredential(credential).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    ToastUtils.showShort("Login Success")
+                    ToastUtils.showShort(getString(R.string.login_successfully))
+                    finish()
                 } else {
-                    ToastUtils.showShort("Login Failed")
+                    ToastUtils.showShort(getString(R.string.login_failed))
                 }
             }
         }

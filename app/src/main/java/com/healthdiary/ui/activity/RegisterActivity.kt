@@ -127,7 +127,7 @@ class RegisterActivity : BaseActivity() {
             binding.etPassword.requestFocus()
             return
         }
-        if (RegexUtils.isEmail(email)) {
+        if (!RegexUtils.isEmail(email)) {
             binding.etEmail.error = getString(R.string.not_a_valid_email)
             binding.etEmail.requestFocus()
             return
@@ -139,9 +139,9 @@ class RegisterActivity : BaseActivity() {
     private fun signUp(email: String, password: String) {
         viewModel.signUp(email, password).observe(this) {
             if (it) {
-                ToastUtils.showShort("Sign up successfully")
+                ToastUtils.showShort(getString(R.string.sign_up_success))
             } else {
-                ToastUtils.showShort("Sign up failed")
+                ToastUtils.showShort(getString(R.string.email_already_used))
             }
         }
     }

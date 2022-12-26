@@ -8,6 +8,11 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.blankj.utilcode.util.LogUtils
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.healthdiary.data.User
 import com.healthdiary.utils.SharedPreferencesUtils
 import com.healthdiary.utils.Utils.Companion.changeLang
 import com.healthdiary.utils.Utils.Companion.getSysLang
@@ -154,6 +159,22 @@ open class BaseActivity : AppCompatActivity() {
 
     open fun exitApp(delay: Int) {
         Handler(Looper.getMainLooper()).postDelayed({ exitProcess(0) }, delay.toLong())
+    }
+
+    open fun isLogin(): Boolean {
+        val auth = FirebaseAuth.getInstance()
+        return auth.currentUser != null
+    }
+
+    open fun getUserInfo(): User? {
+        if (isLogin()) {
+            val currentUser = Firebase.auth.currentUser
+            val user: User = User()
+            user.email = currentUser?.email
+            user.name = currentUser?.displayName
+            return user
+        }
+        return null
     }
 
     open fun restartApp(delay: Int) {
