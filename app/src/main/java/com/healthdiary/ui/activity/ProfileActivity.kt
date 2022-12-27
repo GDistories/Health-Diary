@@ -55,10 +55,16 @@ class ProfileActivity : BaseActivity() {
         hideStatusAndActionBar()
         var user: User? = null
 
-        if (!isLogin()){
+        if (!isLogin()) {
             ToastUtils.showShort(getString(R.string.please_login))
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+        }
+        else{
+            userViewModel.getUser(getUserEmail()!!).observe(this){
+                user = it
+                updateUI(user)
+            }
         }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -66,11 +72,6 @@ class ProfileActivity : BaseActivity() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-
-        userViewModel.getUser(getUserEmail()!!).observe(this){
-            user = it
-            updateUI(user)
-        }
 
         binding.ivBack.setOnClickListener {
             finish()
