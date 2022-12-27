@@ -183,6 +183,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_devices">
 
                 <LinearLayout
+                    android:id="@+id/checkInHistoryView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

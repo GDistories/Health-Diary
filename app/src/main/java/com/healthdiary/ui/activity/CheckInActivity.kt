@@ -10,6 +10,7 @@ import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityCheckInBinding
+import kotlinx.android.synthetic.main.activity_check_in.*
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -24,6 +25,13 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
 
     private lateinit var binding: ActivityCheckInBinding
 
+    var temperatureFilled: String?=null
+    var heartRateFilled: String?=null
+    var symptomFilled: String?=null
+    var medicineFilled: String?=null
+
+    var temp1: String?=null
+    var temp2: String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -34,11 +42,32 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
             finish()
         }
         binding.btnCheckInSubmit.setOnClickListener {
+            temperatureFilled = binding.etTemperature.text.toString()
+            heartRateFilled = binding.etHeartRate.text.toString()
+            symptomFilled = binding.etSymptom.text.toString()
+            medicineFilled = binding.etMedicine.text.toString()
             startActivity(Intent(this, CheckInSuccessActivity::class.java))
         }
         binding.iconCheckInHistory.setOnClickListener {
             startActivity(Intent(this, CheckInHistoryActivity::class.java))
         }
+//        binding.btnSymptom1.setOnClickListener {
+//            temp1 = binding.etSymptom.text.toString()
+//            temp2 = binding.btnSymptom1.text.toString()
+//            binding.etSymptom.text = "temp2"
+//        }
+//        binding.btnSymptom2.setOnClickListener {
+//            binding.etSymptom.text = binding.etSymptom.text + binding.btnSymptom2.text + ", "
+//        }
+//        binding.btnSymptom3.setOnClickListener {
+//            binding.etSymptom.text = binding.etSymptom.text + binding.btnSymptom3.text + ", "
+//        }
+//        binding.btnSymptom4.setOnClickListener {
+//            binding.etSymptom.text = binding.etSymptom.text + binding.btnSymptom4.text + ", "
+//        }
+//        binding.btnMed1.setOnClickListener {
+//            binding.etMedicine.text = binding.etMedicine.text + binding.btnMed1.text + ", "
+//        }
 
     }
 
