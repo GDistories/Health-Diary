@@ -36,9 +36,7 @@ class ScoreActivity : BaseActivity() {
         setContentView(binding.root)
         hideStatusAndActionBar()
 
-        val textView: TextView = findViewById(R.id.health_score) as TextView
-        val str: String = textView.text.toString()
-        var healthScore:Int = str.toInt()
+        val healthScore:Int = binding.healthScore.text.toString().toInt()
 
         ///获取系统通知服务
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
