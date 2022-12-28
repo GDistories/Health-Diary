@@ -9,9 +9,11 @@ import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.NotificationUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.healthdiary.R
 import com.healthdiary.utils.SharedPreferencesUtils
 import com.healthdiary.utils.Utils.Companion.changeLang
 import com.healthdiary.utils.Utils.Companion.getSysLang

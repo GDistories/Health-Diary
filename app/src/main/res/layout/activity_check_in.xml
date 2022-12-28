@@ -166,294 +166,467 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:id="@+id/checkInView"
-                    android:layout_marginHorizontal="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:id="@+id/checkInView"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_gravity="right
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="right
 "
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="12dp">
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:text="@string/history"/>
+
+                            <ImageView
+                                android:id="@+id/icon_check_in_history"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_jump"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/dmsans_bold"
+                            android:text="@string/today_thur"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/dmsans_bold"
+                            android:text="@string/how_you_feel"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/dmsans_bold"
+                            android:layout_marginHorizontal="12dp"
+                            android:layout_marginVertical="10dp"
+                            android:text="@string/temperature"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_temperature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:layout_marginHorizontal="12dp"
+                            android:hint="@string/enter_temp"
+                            android:inputType="numberSigned"
+                            android:minHeight="48dp" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/dmsans_bold"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginHorizontal="12dp"
+                            android:text="@string/heartRate"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_heart_rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="39dp"
+                            android:layout_marginHorizontal="12dp"
+                            android:ems="10"
+                            android:hint="@string/enter_heart_rate"
+                            android:inputType="numberSigned"
+                            android:minHeight="48dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/dmsans_bold"
-                            android:textColor="@color/black"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginHorizontal="12dp"
+                            android:text="@string/symptoms"
                             android:textSize="18sp"
-                            android:text="@string/history"/>
+                            android:textStyle="bold" />
 
-                        <ImageView
-                            android:id="@+id/icon_check_in_history"
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp">
+
+                            <Button
+                                android:id="@+id/btn_symptom1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:padding="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="@string/vomit"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <Button
+                                android:id="@+id/btn_symptom2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:padding="10dp"
+                                android:text="@string/fatigue"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/btn_symptom1"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <Button
+                                android:id="@+id/btn_symptom3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:padding="10dp"
+                                android:text="@string/fever"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/btn_symptom1" />
+
+                            <Button
+                                android:id="@+id/btn_symptom4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:padding="10dp"
+                                android:text="@string/other_check_in"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/btn_symptom3"
+                                app:layout_constraintTop_toBottomOf="@+id/btn_symptom2" />
+
+                            <EditText
+                                android:id="@+id/et_symptom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="12dp"
+                                android:layout_marginTop="10dp"
+                                android:ems="10"
+                                android:hint="Describe Your Symptom Today"
+                                android:inputType="textShortMessage"
+                                android:minHeight="48dp"
+                                app:layout_constraintTop_toBottomOf="@+id/btn_symptom3" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/ic_jump"/>
+                            android:fontFamily="@font/dmsans_bold"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginHorizontal="12dp"
+                            android:text="@string/medicine"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp">
+
+                            <Button
+                                android:id="@+id/btn_med1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:padding="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="@string/med_A"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <Button
+                                android:id="@+id/btn_med2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:padding="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="@string/med_B"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/btn_med1"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <Button
+                                android:id="@+id/btn_med3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:padding="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="@string/none"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/btn_med2"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <Button
+                                android:id="@+id/btn_med4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:padding="10dp"
+                                android:background="@drawable/btn_normal"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="@string/other"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/btn_med1" />
+
+                            <EditText
+                                android:id="@+id/et_medicine"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="12dp"
+                                android:layout_marginTop="10dp"
+                                android:ems="10"
+                                android:hint="Enter the medicine you taken today"
+                                android:inputType="textShortMessage"
+                                android:minHeight="48dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/btn_med4" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <Button
+                            android:id="@+id/btn_check_in_submit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"
+                            android:background="@drawable/btn_blue"
+                            android:fontFamily="@font/dmsans_bold"
+                            android:text="@string/submit"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="80dp"/>
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="12dp"
-                        android:layout_marginTop="30dp"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:text="@string/today_thur"
-                        android:textColor="@color/black"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/checkInHistoryView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="12dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:text="@string/how_you_feel"
-                        android:textColor="@color/black"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/textView7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:layout_marginHorizontal="12dp"
-                        android:layout_marginVertical="10dp"
-                        android:text="@string/temperature"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/et_temperature"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:layout_marginHorizontal="12dp"
-                        android:hint="@string/enter_temp"
-                        android:inputType="numberSigned"
-                        android:minHeight="48dp" />
-
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:layout_marginVertical="10dp"
-                        android:layout_marginHorizontal="12dp"
-                        android:text="@string/heartRate"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/et_heart_rate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:layout_marginHorizontal="12dp"
-                        android:hint="@string/enter_heart_rate"
-                        android:inputType="numberSigned"
-                        android:minHeight="48dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:layout_marginVertical="10dp"
-                        android:layout_marginHorizontal="12dp"
-                        android:text="@string/symptoms"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="12dp">
-
-                        <Button
-                            android:id="@+id/btn_symptom1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:padding="10dp"
-                            android:background="@drawable/btn_normal"
-                            android:fontFamily="@font/dmsans_bold"
-                            android:text="@string/vomit"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <Button
-                            android:id="@+id/btn_symptom2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/btn_normal"
-                            android:fontFamily="@font/dmsans_bold"
-                            android:padding="10dp"
-                            android:text="@string/fatigue"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toEndOf="@+id/btn_symptom1"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <Button
-                            android:id="@+id/btn_symptom3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/btn_normal"
-                            android:fontFamily="@font/dmsans_bold"
-                            android:padding="10dp"
-                            android:text="@string/fever"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/btn_symptom1" />
-
-                        <Button
-                            android:id="@+id/btn_symptom4"
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/btn_normal"
                             android:fontFamily="@font/dmsans_bold"
-                            android:padding="10dp"
-                            android:text="@string/other_check_in"
+                            android:text="@string/history_day"
                             android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toEndOf="@+id/btn_symptom3"
-                            app:layout_constraintTop_toBottomOf="@+id/btn_symptom2" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                        <EditText
-                            android:id="@+id/et_symptom"
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="12dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginVertical="5dp"
+                            app:cardCornerRadius="20dp"
+                            android:elevation="10dp"
+                            android:backgroundTint="@color/light_blue">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/dmsans_medium"
+                                android:textColor="@color/text_blue"
+                                android:layout_gravity="center"
+                                android:layout_margin="10dp"
+                                android:textSize="14sp"
+                                android:text="@string/no_sympton"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginVertical="5dp"
+                            app:cardCornerRadius="20dp"
+                            android:elevation="10dp"
+                            android:backgroundTint="@color/light_purple">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="10dp"
+                                android:fontFamily="@font/dmsans_medium"
+                                android:text="@string/no_medicine"
+                                android:textColor="@color/text_purple"
+                                android:textSize="14sp" />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginVertical="5dp"
+                            app:cardCornerRadius="20dp"
+                            android:elevation="10dp"
+                            android:backgroundTint="@color/light_green">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/dmsans_medium"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="10dp"
+                                android:textSize="14sp"
+                                android:text="@string/your_temp_was"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="@font/dmsans_medium"
+                                android:textColor="@color/text_green"
+                                android:textSize="30sp"
+                                android:text="36.8℃"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginVertical="5dp"
+                            app:cardCornerRadius="20dp"
+                            android:elevation="10dp"
+                            android:backgroundTint="@color/light_pink">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="10dp"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/dmsans_medium"
+                                android:text="@string/your_heart_rate_was"
+                                android:textColor="@color/text_purple" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="@font/dmsans_medium"
+                                android:textColor="@color/text_purple"
+                                android:textSize="30sp"
+                                android:text="82 bpm"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:ems="10"
-                            android:hint="Describe Your Symptom Today"
-                            android:inputType="textShortMessage"
-                            android:minHeight="48dp"
-                            app:layout_constraintTop_toBottomOf="@+id/btn_symptom3" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:layout_marginVertical="10dp"
-                        android:layout_marginHorizontal="12dp"
-                        android:text="@string/medicine"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="12dp">
-
-                        <Button
-                            android:id="@+id/btn_med1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:padding="10dp"
-                            android:background="@drawable/btn_normal"
-                            android:fontFamily="@font/dmsans_bold"
-                            android:text="@string/med_A"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <Button
-                            android:id="@+id/btn_med2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:padding="10dp"
-                            android:background="@drawable/btn_normal"
-                            android:fontFamily="@font/dmsans_bold"
-                            android:text="@string/med_B"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toEndOf="@+id/btn_med1"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <Button
-                            android:id="@+id/btn_med3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:padding="10dp"
-                            android:background="@drawable/btn_normal"
-                            android:fontFamily="@font/dmsans_bold"
-                            android:text="@string/none"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toEndOf="@+id/btn_med2"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <Button
-                            android:id="@+id/btn_med4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:padding="10dp"
-                            android:background="@drawable/btn_normal"
+                            android:text="@string/past_week_heart"
                             android:fontFamily="@font/dmsans_bold"
-                            android:text="@string/other"
                             android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/btn_med1" />
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
 
-                        <EditText
-                            android:id="@+id/et_medicine"
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="12dp"
-                            android:layout_marginTop="10dp"
-                            android:ems="10"
-                            android:hint="Enter the medicine you taken today"
-                            android:inputType="textShortMessage"
-                            android:minHeight="48dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/btn_med3" />
+                            android:layout_height="120dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginVertical="5dp"
+                            app:cardCornerRadius="20dp"
+                            android:elevation="10dp"
+                            android:background="@color/white">
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img_heart_rate"
+                                android:layout_gravity="center"/>
 
+                        </androidx.cardview.widget.CardView>
 
-                    <Button
-                        android:id="@+id/btn_check_in_submit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:background="@drawable/btn_blue"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:text="@string/submit"
-                        android:textColor="@color/white"
-                        android:textSize="18sp" />
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="80dp"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="80dp"/>
+                    </LinearLayout>
+
                 </LinearLayout>
+
+
+
+            </ScrollView>
+
+            <ScrollView
+                android:id="@+id/recyclerView_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_devices">
 
             </ScrollView>
 

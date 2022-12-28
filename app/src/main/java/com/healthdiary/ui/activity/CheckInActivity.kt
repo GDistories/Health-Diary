@@ -5,12 +5,24 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
+import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.TimeUtils
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
+import com.healthdiary.data.CheckInRecord
 import com.healthdiary.databinding.ActivityCheckInBinding
+import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.repository.UserRepository
+import com.healthdiary.viewmodel.CheckInRecordViewModel
+import com.healthdiary.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_check_in.*
+import kotlinx.android.synthetic.main.fragment_health.view.*
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -23,6 +35,12 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
     private var mYear: Int = 0
     private var green = -0x66bf24db
 
+    private val yearNow = TimeUtils.getNowString(SimpleDateFormat("yyyy"))
+    private val monthNow = TimeUtils.getNowString(SimpleDateFormat("MM"))
+    private val dayNow = TimeUtils.getNowString(SimpleDateFormat("dd"))
+    var dateToday = dayNow + monthNow + yearNow
+    var googleSignInClient: GoogleSignInClient? = null
+
     private lateinit var binding: ActivityCheckInBinding
 
     var temperatureFilled: String?=null
@@ -32,20 +50,41 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
 
     var temp1: String?=null
     var temp2: String?=null
+
+    private val recordViewModel: CheckInRecordViewModel by viewModels {
+        CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        var record: CheckInRecord? = null
+//        binding.checkInHistoryView.visibility = View.INVISIBLE
 
         super.onCreate(savedInstanceState)
         binding = ActivityCheckInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideStatusAndActionBar()
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(StringUtils.getString(R.string.server_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
         binding.ivBack.setOnClickListener {
             finish()
         }
         binding.btnCheckInSubmit.setOnClickListener {
-            temperatureFilled = binding.etTemperature.text.toString()
-            heartRateFilled = binding.etHeartRate.text.toString()
-            symptomFilled = binding.etSymptom.text.toString()
-            medicineFilled = binding.etMedicine.text.toString()
+            record?.email = getUserEmail()
+            record?.date = dateToday
+            record?.temperature = binding.etTemperature.text.toString()
+            record?.heartRate =  binding.etHeartRate.text.toString()
+            record?.symptom = binding.etSymptom.text.toString()
+            record?.medicine = binding.etMedicine.text.toString()
+//            temperatureFilled = binding.etTemperature.text.toString()
+//            heartRateFilled = binding.etHeartRate.text.toString()
+//            symptomFilled = binding.etSymptom.text.toString()
+//            medicineFilled = binding.etMedicine.text.toString()
+            recordViewModel.updateRecord(record!!)
             startActivity(Intent(this, CheckInSuccessActivity::class.java))
         }
         binding.iconCheckInHistory.setOnClickListener {
@@ -173,5 +212,9 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
     }
     override fun onClick(v: View?) {}
     override fun onCalendarOutOfRange(calendar: Calendar?) {}
+
+    private fun combineStrings(str1: String, str2: String){
+
+    }
 
 }
