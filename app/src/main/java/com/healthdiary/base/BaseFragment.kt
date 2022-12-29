@@ -2,10 +2,12 @@ package com.healthdiary.base
 
 import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.NotificationUtils
+import com.blankj.utilcode.util.TimeUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.healthdiary.utils.SharedPreferencesUtils
+import java.text.SimpleDateFormat
 
 open class BaseFragment : Fragment() {
 
@@ -20,6 +22,14 @@ open class BaseFragment : Fragment() {
 
     open fun canNotify(): Boolean {
         return SharedPreferencesUtils.getBooleanParam("notifications", true)
+    }
+
+    open fun getToday(): String{
+        val yearNow = TimeUtils.getNowString(SimpleDateFormat("yyyy"))
+        val monthNow = TimeUtils.getNowString(SimpleDateFormat("MM"))
+        val dayNow = TimeUtils.getNowString(SimpleDateFormat("dd"))
+        var dateToday = dayNow + monthNow + yearNow
+        return dateToday
     }
 
     open fun getUserEmail(): String? {

@@ -9,6 +9,7 @@ import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.NotificationUtils
+import com.blankj.utilcode.util.TimeUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -17,6 +18,7 @@ import com.healthdiary.R
 import com.healthdiary.utils.SharedPreferencesUtils
 import com.healthdiary.utils.Utils.Companion.changeLang
 import com.healthdiary.utils.Utils.Companion.getSysLang
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -177,6 +179,14 @@ open class BaseActivity : AppCompatActivity() {
             return currentUser?.email
         }
         return null
+    }
+
+    open fun getToday(): String{
+        val yearNow = TimeUtils.getNowString(SimpleDateFormat("yyyy"))
+        val monthNow = TimeUtils.getNowString(SimpleDateFormat("MM"))
+        val dayNow = TimeUtils.getNowString(SimpleDateFormat("dd"))
+        var dateToday = dayNow + monthNow + yearNow
+        return dateToday
     }
 
     open fun restartApp(delay: Int) {
