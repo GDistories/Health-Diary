@@ -68,10 +68,7 @@
                     android:id="@+id/search_card_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="42dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="42dp"
+                    android:layout_margin="20dp"
                     android:background="@color/white"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="2dp"
@@ -107,8 +104,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:weightSum="90"
                 android:orientation="horizontal">
 
                 <!--Doctor-->
@@ -116,8 +113,7 @@
                     android:id="@+id/category_doctor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_weight="30"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
@@ -152,8 +148,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_weight="30"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
@@ -189,8 +184,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_weight="30"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView

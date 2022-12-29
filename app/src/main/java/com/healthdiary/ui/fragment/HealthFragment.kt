@@ -1,7 +1,10 @@
 package com.healthdiary.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +16,7 @@ import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentHealthBinding
 import com.healthdiary.ui.activity.*
+import java.io.File
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -32,6 +36,13 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         super.onStart()
         initView()
         initData()
+        if (isLogin()) {
+            getUserPhoto(context!!.cacheDir.absolutePath + "/" + getUserEmail() + ".jpg")
+        }
+        else
+        {
+            binding.ivAvatar.setImageResource(R.drawable.default_profile_pic)
+        }
 
         binding.iconEdit.setOnClickListener {
             startActivity(Intent(activity, ProfileActivity::class.java))
@@ -160,6 +171,30 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
             }
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    private fun getUserPhoto(savePath: String?) {
+        val file = File(savePath!!)
+        if (!file.exists()) {
+            binding.ivAvatar.setImageResource(R.drawable.default_profile_pic)
+        } else {
+            val bitmap: Bitmap? = readBitmap(context, savePath)
+            binding.ivAvatar.setImageBitmap(bitmap)
+        }
+    }
+
+    private fun readBitmap(ct: Context?, savePath: String?): Bitmap? {
+        val bitmap: Bitmap
+        return try {
+            val filePic = File(savePath!!)
+            if (!filePic.exists()) {
+                return null
+            }
+            bitmap = BitmapFactory.decodeFile(savePath)
+            bitmap
+        } catch (e: Exception) {
+            null
         }
     }
 

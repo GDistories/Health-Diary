@@ -40,7 +40,7 @@ object BotResponse {
                 when (random) {
                     0 -> "Hello there!"
                     1 -> "Sup"
-                    2 -> "Buongiorno!"
+                    2 -> "Halo!"
                     else -> "error" }
             }
 
