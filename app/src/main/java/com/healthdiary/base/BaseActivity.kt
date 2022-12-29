@@ -185,7 +185,7 @@ open class BaseActivity : AppCompatActivity() {
         val yearNow = TimeUtils.getNowString(SimpleDateFormat("yyyy"))
         val monthNow = TimeUtils.getNowString(SimpleDateFormat("MM"))
         val dayNow = TimeUtils.getNowString(SimpleDateFormat("dd"))
-        var dateToday = dayNow + monthNow + yearNow
+        var dateToday = yearNow + monthNow + dayNow
         return dateToday
     }
 

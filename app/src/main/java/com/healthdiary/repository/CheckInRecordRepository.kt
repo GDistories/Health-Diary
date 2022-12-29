@@ -19,38 +19,43 @@ class CheckInRecordRepository {
             .whereEqualTo("date", date)
             .get()
             .addOnSuccessListener { documents ->
+//                LogUtils.e(documents.isEmpty)
+                if(documents.isEmpty){
+                    existId.value = "NotCheckInYet"
+                }
+                for (document in documents) {
+//                    LogUtils.e(document==null)
+//                    Log.e(TAG, "Record - rep - ${document.id} => ${document.data}")
+                    if (existId != null) {
+                        existId.value = document.id
+                    }
+//                    Log.e(TAG,"Record - rep - exist: $existId")
+                }
+            }
+            .addOnFailureListener { exception ->
+//                Log.e(TAG, "Record - rep - Error getting documents: ", exception)
+            }
+
+        return existId!!
+    }
+
+    fun checkAllRecord(email: String): MutableLiveData<String>{
+        var existId: MutableLiveData<String> = MutableLiveData()
+        db.collection("CheckInRecord")
+            .whereEqualTo("email", email)
+            .get()
+            .addOnSuccessListener { documents ->
                 LogUtils.e(documents.isEmpty)
                 if(documents.isEmpty){
                     existId.value = "NotCheckInYet"
                 }
                 for (document in documents) {
-                    LogUtils.e(document==null)
-                    Log.e(TAG, "Record - rep - ${document.id} => ${document.data}")
-                    if (existId != null) {
-                        existId.value = document.id
-                    }
-                    Log.e(TAG,"Record - rep - exist: $existId")
+                    existId.value = document.id
                 }
-//                if(documents != null){
-//                    for (document in documents) {
-//                        Log.e(TAG, "Record - rep - ${document.id} => ${document.data}")
-//                        if (existId != null) {
-//                            existId.value = document.id
-//                        }
-//                        Log.e(TAG,"Record - rep - exist: $existId")
-//                    }
-//                }
-//                else{
-//                    Log.e(TAG,"Record - rep - not exist: none")
-//                    existId?.value = "NotCheckInYet"
-//                }
             }
             .addOnFailureListener { exception ->
                 Log.e(TAG, "Record - rep - Error getting documents: ", exception)
             }
-
-
-//                //todo: 判断get()是否为空
 
         return existId!!
     }
@@ -92,19 +97,19 @@ class CheckInRecordRepository {
         return status
     }
 
-    fun getRecord(email: String) : MutableLiveData<CheckInRecord> {
+    fun getRecord(recordID: String) : MutableLiveData<CheckInRecord> {
         val RecordLiveData: MutableLiveData<CheckInRecord> = MutableLiveData()
-        db.collection("CheckInRecord").document(email).get()
+        db.collection("CheckInRecord").document(recordID).get()
             .addOnSuccessListener { result ->
                 val Record = CheckInRecord(
-//                    result.data?.get("name").toString(),
-//                    result.id,
-//                    result.data?.get("phone").toString(),
-//                    result.data?.get("birthday").toString(),
-//                    result.data?.get("gender").toString()
+                    result.data?.get("email").toString(),
+                    result.data?.get("date").toString(),
+                    result.data?.get("temperature").toString(),
+                    result.data?.get("heartRate").toString(),
+                    result.data?.get("symptom").toString(),
+                    result.data?.get("medicine").toString()
                 )
                 RecordLiveData.value = Record
-                LogUtils.e(Record.email)
             }
             .addOnFailureListener {
                 RecordLiveData.value = null
