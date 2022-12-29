@@ -15,6 +15,6 @@ class NewsWebContentActivity : BaseActivity() {
         setContentView(binding.root)
         hideStatusAndActionBar()
 
-        binding.wvNewsContent.loadUrl("https://www.nbcnews.com/health/health-news/adults-say-expecting-stress-2023-survey-finds-rcna62580")
+        binding.wvNewsContent.loadUrl("https://www.sciencedaily.com/releases/2022/08/220831210024.htm")
     }
 }
