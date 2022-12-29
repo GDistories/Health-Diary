@@ -1,11 +1,13 @@
 package com.healthdiary.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.TimeUtils
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -28,6 +30,7 @@ import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
+import kotlin.reflect.jvm.internal.impl.types.TypeCheckerState.SupertypesPolicy.None
 
 class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
     CalendarView.OnCalendarSelectListener, View.OnClickListener {
@@ -43,17 +46,10 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
 
     private lateinit var binding: ActivityCheckInBinding
 
-    var temperatureFilled: String?=null
-    var heartRateFilled: String?=null
-    var symptomFilled: String?=null
-    var medicineFilled: String?=null
-
-    var temp1: String?=null
-    var temp2: String?=null
-
     private val recordViewModel: CheckInRecordViewModel by viewModels {
         CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val record: CheckInRecord =  CheckInRecord()
@@ -80,12 +76,26 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
             record?.heartRate =  binding.etHeartRate.text.toString()
             record?.symptom = binding.etSymptom.text.toString()
             record?.medicine = binding.etMedicine.text.toString()
-//            temperatureFilled = binding.etTemperature.text.toString()
-//            heartRateFilled = binding.etHeartRate.text.toString()
-//            symptomFilled = binding.etSymptom.text.toString()
-//            medicineFilled = binding.etMedicine.text.toString()
-            recordViewModel.updateRecord(record!!)
-            startActivity(Intent(this, CheckInSuccessActivity::class.java))
+
+            recordViewModel.checkRecord(getUserEmail().toString(),dateToday).observe(this){
+                var checkId = it
+                Log.e(ContentValues.TAG, "Record - exe - $checkId")
+                if(checkId != null){
+                    if (checkId == "NotCheckInYet")
+                    {
+                        recordViewModel.addRecord(record!!)
+                        Log.e(ContentValues.TAG, "Record - exe - add -  $checkId")
+                    }
+                    else
+                    {
+                        recordViewModel.updateRecord(record!!, checkId)
+                        Log.e(ContentValues.TAG, "Record - exe - update -  $checkId")
+                    }
+                }
+
+                startActivity(Intent(this, CheckInSuccessActivity::class.java))
+            }
+
         }
         binding.iconCheckInHistory.setOnClickListener {
             startActivity(Intent(this, CheckInHistoryActivity::class.java))
