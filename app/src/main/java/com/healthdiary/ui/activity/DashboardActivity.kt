@@ -3,6 +3,7 @@ package com.healthdiary.ui.activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import com.blankj.utilcode.util.ToastUtils
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
@@ -11,6 +12,7 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityDashboardBinding
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -20,6 +22,12 @@ class DashboardActivity : BaseActivity() {
     private lateinit var binding: ActivityDashboardBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!isLogin()) {
+            ToastUtils.showShort(getString(R.string.please_login))
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideStatusAndActionBar()
@@ -27,9 +35,6 @@ class DashboardActivity : BaseActivity() {
         set_lineCharts()
         set_Data_to_Lines()
 
-        //setDataToLineChart();
-//        sleep_lineChart2
-//        workout_lineChart1
 
         binding.ivBack.setOnClickListener {
             finish()
@@ -95,7 +100,6 @@ class DashboardActivity : BaseActivity() {
 
     fun sleep_data_1(): ArrayList<Entry>{
         val sleep = ArrayList<Entry>()
-        // float from 0.0 to 2.0
         sleep.add(Entry(0f, 1.1f))
         sleep.add(Entry(1f, 1.2f))
         sleep.add(Entry(2f, 1.3f))

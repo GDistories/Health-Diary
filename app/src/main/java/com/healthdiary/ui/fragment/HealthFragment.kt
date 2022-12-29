@@ -10,12 +10,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
+import com.blankj.utilcode.util.ToastUtils
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentHealthBinding
+import com.healthdiary.repository.CheckInRecordRepository
 import com.healthdiary.ui.activity.*
+import com.healthdiary.viewmodel.CheckInRecordViewModel
+import kotlinx.android.synthetic.main.fragment_health.*
 import java.io.File
 import java.text.DateFormat
 import java.text.DecimalFormat
@@ -32,10 +38,20 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
     private val binding get() = _binding!!
     private var green = -0x66bf24db
 
+    private val recordViewModel: CheckInRecordViewModel by viewModels {
+        CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
+    }
+
     override fun onStart() {
         super.onStart()
         initView()
-        initData()
+        if (!isLogin()) {
+            binding.username.text = "(Unknown User)"
+            ToastUtils.showShort(getString(R.string.please_login))
+        }
+        else{
+            initData()
+        }
         if (isLogin()) {
             getUserPhoto(context!!.cacheDir.absolutePath + "/" + getUserEmail() + ".jpg")
         }
@@ -101,24 +117,24 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         val year: Int = binding.calendarView.curYear
         val month: Int = binding.calendarView.curMonth
         val map: MutableMap<String, Calendar> = HashMap()
-        map[getSchemeCalendar(year, month, 3, green).toString()] =
-            getSchemeCalendar(year, month, 3, green)
-        map[getSchemeCalendar(year, month, 6, green).toString()] =
-            getSchemeCalendar(year, month, 6, green)
-        map[getSchemeCalendar(year, month, 9, green).toString()] =
-            getSchemeCalendar(year, month, 9, green)
-        map[getSchemeCalendar(year, month, 13, green).toString()] =
-            getSchemeCalendar(year, month, 13, green)
-        map[getSchemeCalendar(year, month, 14, green).toString()] =
-            getSchemeCalendar(year, month, 14, green)
-        map[getSchemeCalendar(year, month, 15, green).toString()] =
-            getSchemeCalendar(year, month, 15, green)
-        map[getSchemeCalendar(year, month, 18, green).toString()] =
-            getSchemeCalendar(year, month, 18, green)
-        map[getSchemeCalendar(year, month, 25, green).toString()] =
-            getSchemeCalendar(year, month, 25, green)
-        map[getSchemeCalendar(year, month, 27, green).toString()] =
-            getSchemeCalendar(year, month, 27, green)
+
+        recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
+            var checkId = it
+            var dateStr = ""
+
+            recordViewModel.getRecord(checkId).observe(this){
+                var record = it
+                dateStr = record.date.toString()
+                var year:Int = dateStr.substring(0,4).toInt()
+                var month:Int = dateStr.substring(4,6).toInt()
+                var day:Int = dateStr.substring(6,8).toInt()
+
+                map[getSchemeCalendar(year, month, day, green).toString()] =
+                    getSchemeCalendar(year, month, day, green)
+
+                binding.calendarView.setSchemeDate(map)
+            }
+        }
         binding.calendarView.setSchemeDate(map)
     }
 

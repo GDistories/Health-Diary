@@ -9,6 +9,8 @@ import com.healthdiary.repository.CheckInRecordRepository
 class CheckInRecordViewModel (val repository: CheckInRecordRepository): ViewModel() {
     fun checkRecord(email:String, date:String):LiveData<String> = repository.checkRecord(email, date)
 
+    fun checkAllRecord(email:String):LiveData<String> = repository.checkAllRecord(email)
+
     fun addRecord(record: CheckInRecord): LiveData<Boolean> =
         repository.addRecord(record)
 
@@ -18,8 +20,8 @@ class CheckInRecordViewModel (val repository: CheckInRecordRepository): ViewMode
     fun deleteRecord(email: String): LiveData<Boolean> =
         repository.deleteRecord(email)
 
-    fun getRecord(email: String): LiveData<CheckInRecord> =
-        repository.getRecord(email)
+    fun getRecord(recordID: String): LiveData<CheckInRecord> =
+        repository.getRecord(recordID)
 
     class Provider(private val repository: CheckInRecordRepository) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
