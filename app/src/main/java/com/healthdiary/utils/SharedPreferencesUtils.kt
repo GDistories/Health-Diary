@@ -20,6 +20,15 @@ open class SharedPreferencesUtils {
             editor!!.apply()
         }
 
+        fun setNumberParam(key: String?, value: Number) {
+            editor!!.putInt(key, value.toInt())
+            editor!!.apply()
+        }
+
+        fun getNumberParam(key: String?, defaultValue: Number): Number {
+            return sharedPreferences!!.getInt(key, 0)
+        }
+
         fun getParam(key: String?, defaultValue: String?): String? {
             return sharedPreferences!!.getString(key, defaultValue)
         }

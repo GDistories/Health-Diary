@@ -259,6 +259,10 @@
     <string name="notifications">Notifications</string>
     <string name="cm">CM</string>
     <string name="kg">KG</string>
+    <string name="please_fill_in_height_and_weight">Please Fill In Height And Weight First!</string>
+    <string name="base_score">Base Score</string>
+    <string name="thin">Thin</string>
+    <string name="obese">Obese</string>
 
     <!---->
 </resources>

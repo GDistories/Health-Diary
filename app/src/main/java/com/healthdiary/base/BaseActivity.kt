@@ -189,6 +189,15 @@ open class BaseActivity : AppCompatActivity() {
         return dateToday
     }
 
+    open fun getHealthScore(): Int {
+        val savedEmail = SharedPreferencesUtils.getParam("healthScoreEmail", "").toString()
+        val healthScore = SharedPreferencesUtils.getNumberParam("healthScore", 0)
+        if (savedEmail == getUserEmail()) {
+            return healthScore.toInt()
+        }
+        return -1
+    }
+
     open fun restartApp(delay: Int) {
         Handler(Looper.getMainLooper()).postDelayed({
             val launchIntent = packageManager.getLaunchIntentForPackage(application.packageName)

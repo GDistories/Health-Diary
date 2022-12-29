@@ -39,4 +39,13 @@ open class BaseFragment : Fragment() {
         }
         return null
     }
+
+    open fun getHealthScore(): Int {
+        val savedEmail = SharedPreferencesUtils.getParam("healthScoreEmail", "").toString()
+        val healthScore = SharedPreferencesUtils.getNumberParam("healthScore", 0)
+        if (savedEmail == getUserEmail()) {
+            return healthScore.toInt()
+        }
+        return -1
+    }
 }
