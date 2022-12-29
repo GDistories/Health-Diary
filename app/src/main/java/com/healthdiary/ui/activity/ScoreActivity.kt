@@ -116,7 +116,7 @@ class ScoreActivity : BaseActivity() {
                 }
                 LogUtils.e(healthScore)
                 checkInRecordViewModel.checkRecord(getUserEmail().toString(),getToday()).observe(this){ it1 ->
-                    if (it1 != "NotCheckInYet"){
+                    if (it1 == "NotCheckInYet"){
                         healthScore -= 20
                         binding.cvCheckInScore.visibility = View.VISIBLE
                     }

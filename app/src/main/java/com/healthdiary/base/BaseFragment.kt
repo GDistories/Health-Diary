@@ -32,8 +32,6 @@ open class BaseFragment : Fragment() {
         return dateToday
     }
 
-
-
     open fun getUserEmail(): String? {
         if (isLogin()) {
             val currentUser = Firebase.auth.currentUser

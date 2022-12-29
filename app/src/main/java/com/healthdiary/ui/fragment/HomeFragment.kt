@@ -29,8 +29,8 @@ class HomeFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-        var status_image = view?.findViewById(R.id.home_user_statusicon) as ImageView
-        var status_text = view?.findViewById(R.id.home_user_statustext) as TextView
+        val status_image = view?.findViewById(R.id.home_user_statusicon) as ImageView
+        val status_text = view?.findViewById(R.id.home_user_statustext) as TextView
         binding.news1.setOnClickListener {
             startActivity(Intent(activity, NewsContentActivity::class.java))
         }
@@ -47,7 +47,6 @@ class HomeFragment : BaseFragment() {
             startActivity(Intent(activity, TrackerActivity::class.java))
         }
         if (isLogin()){
-
             checkInRecordViewModel.checkRecord(getUserEmail().toString(),getToday()).observe(this){
                 if (it != "NotCheckInYet"){
                     status_image.setImageResource(R.drawable.ic_checkin_success)
@@ -60,8 +59,17 @@ class HomeFragment : BaseFragment() {
                     status_text.setTextColor(ContextCompat.getColor(requireContext(),R.color.warning))
                 }
             }
-        }
 
+            val healthScore = getHealthScore()
+            if (healthScore == -1){
+                binding.healthScore.text = "---"
+            }
+            else{
+                binding.healthScore.text = healthScore.toString()
+            }
+
+
+        }
         else{
             status_image.setImageResource(R.drawable.ic_warning)
             status_text.setText(R.string.home_login_status)
