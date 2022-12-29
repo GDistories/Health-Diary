@@ -20,6 +20,9 @@ class NewsFragment : BaseFragment() {
         binding.news1.setOnClickListener {
             startActivity(Intent(activity,NewsContentActivity::class.java))
         }
+        binding.news2.setOnClickListener {
+            startActivity(Intent(activity,NewsWebContentActivity::class.java))
+        }
     }
 
     override fun onCreateView(

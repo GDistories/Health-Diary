@@ -269,6 +269,7 @@
     <string name="History_no_record_1">You didn\'t check out in this day.</string>
     <string name="History_no_record_2">Don\'t forget to check-in today!</string>
     <string name="hello_track_today">Let\'s check in for today.</string>
+    <string name="news_content">News Content</string>
 
     <!---->
 </resources>
