@@ -81,7 +81,9 @@ class HomeFragment : BaseFragment() {
                     status_image.setImageResource(R.drawable.ic_warning)
                     status_text.setText(R.string.home_check_status_false)
                     status_text.setTextColor(ContextCompat.getColor(requireContext(),R.color.warning))
-                    notificationManager.notify(notificationId, notification_checkin)
+                    if(canNotify()) {
+                        notificationManager.notify(notificationId, notification_checkin)
+                    }
                 }
             }
 
