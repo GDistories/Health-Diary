@@ -60,9 +60,8 @@ class DoctorListActivity : BaseActivity() {
             LinearLayoutManager.VERTICAL,
             false
         )
-        recyclerView.adapter = DoctorListAdapter(listDoctor)
         // Adapt the data to the recyclerview using Adapter
-        recyclerView.adapter = DoctorListAdapter(locations)
+        recyclerView.adapter = DoctorListAdapter(listDoctor)
         binding.searchDoctors.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 return false
