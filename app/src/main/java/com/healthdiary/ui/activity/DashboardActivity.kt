@@ -82,6 +82,17 @@ class DashboardActivity : BaseActivity() {
             animateX(500)
         }
 
+        with(temperature_lineChart){
+            xAxis.setDrawGridLines(false)
+            xAxis.position = com.github.mikephil.charting.components.XAxis.XAxisPosition.BOTTOM
+
+            setDrawGridBackground(false)
+
+            description.isEnabled = false
+            axisRight.isEnabled = false
+            animateX(500)
+        }
+
     }
 
     class MyAxisFormatter : IndexAxisValueFormatter() {
@@ -209,8 +220,6 @@ class DashboardActivity : BaseActivity() {
         val lineData2 = LineData(dataSet2)
         sleep_lineChart2.data = lineData2
 
-
-
         val weekWorkoutData3 = LineDataSet(workout_data_1(), "Workout")
         val dataSet3 = ArrayList<ILineDataSet>()
         weekWorkoutData3.lineWidth = 2f
@@ -234,6 +243,30 @@ class DashboardActivity : BaseActivity() {
         dataSet3.add(weekWorkoutData3)
         val lineData3 = LineData(dataSet3)
         workout_lineChart1.data = lineData3
+
+        val weekTemperatureData = LineDataSet(workout_data_1(), "Workout")
+        val dataSet4 = ArrayList<ILineDataSet>()
+        weekTemperatureData.lineWidth = 2f
+        weekTemperatureData.color = Color.GRAY
+        weekTemperatureData.setDrawValues(false)
+        //to make the smooth line
+        weekTemperatureData.mode = LineDataSet.Mode.CUBIC_BEZIER
+        //to enable the cubic density : if 1 then it will be sharp curve
+        weekTemperatureData.cubicIntensity = 0.2f
+        //to fill the below of smooth line in graph
+        weekTemperatureData.setDrawFilled(true)
+        weekTemperatureData.fillColor= Color.RED
+        //set the transparency
+        weekTemperatureData.fillAlpha = 70
+        //set legend disable or enable to hide {the left down corner name of graph}
+        val legend4: Legend = temperature_lineChart.legend
+        legend4.isEnabled = false
+        //to remove the circle from the graph
+        weekTemperatureData.setDrawCircles(false)
+        //Display
+        dataSet3.add(weekTemperatureData)
+        val lineData4 = LineData(dataSet4)
+        temperature_lineChart.data = lineData4
 
     }
 
