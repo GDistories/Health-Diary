@@ -56,7 +56,7 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
     }
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var record: CheckInRecord? = null
+        val record: CheckInRecord =  CheckInRecord()
 //        binding.checkInHistoryView.visibility = View.INVISIBLE
 
         super.onCreate(savedInstanceState)
