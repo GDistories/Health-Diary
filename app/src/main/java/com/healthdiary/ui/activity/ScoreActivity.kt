@@ -18,18 +18,16 @@ import com.healthdiary.databinding.ActivityScoreBinding
 class ScoreActivity : BaseActivity() {
     private lateinit var binding: ActivityScoreBinding
 
-    //渠道Id
+    //channel
     private val channelId = "test"
-    //渠道名
     private val channelName = "测试通知"
-    //渠道重要级
     private val importance = NotificationManagerCompat.IMPORTANCE_HIGH
-    //通知管理者
+    //notification
     private lateinit var notificationManager: NotificationManager
-    //通知
-    private lateinit var notification: Notification
-    //通知Id
+    private lateinit var notification_low: Notification
+    private lateinit var notification_high: Notification
     private val notificationId = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScoreBinding.inflate(layoutInflater)
@@ -38,14 +36,16 @@ class ScoreActivity : BaseActivity() {
 
         val healthScore:Int = binding.healthScore.text.toString().toInt()
 
-        ///获取系统通知服务
+        ///Get system notification service
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        //初始化通知
+        //Initialize notification
         initNotification()
 
 
-        if(healthScore<=200 && canNotify()){
-            notificationManager.notify(notificationId, notification)
+        if(healthScore<=140 && canNotify()){
+            notificationManager.notify(notificationId, notification_low)
+        }else if(healthScore>140 && canNotify()){
+            notificationManager.notify(notificationId, notification_high)
         }
         binding.ivBack.setOnClickListener {
             finish()
@@ -53,27 +53,40 @@ class ScoreActivity : BaseActivity() {
     }
 
     /**
-     * 创建通知渠道
+     * Create notification channel
      */
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel(channelId: String, channelName: String, importance: Int) =
         notificationManager.createNotificationChannel(NotificationChannel(channelId, channelName, importance))
 
     /**
-     * 初始化通知
+     * Initialize notification
      */
     private fun initNotification() {
-        notification = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            //创建通知渠道
+        notification_low = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //Create notification channel
             createNotificationChannel(channelId,channelName,importance)
             NotificationCompat.Builder(this, channelId)
         } else {
             NotificationCompat.Builder(this)
         }.apply {
-            setSmallIcon(R.mipmap.ic_launcher)//小图标（显示在状态栏）
-            setLargeIcon(BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher))//大图标（显示在通知上）
-            setContentTitle("Health Status Reminder")//标题
-            setContentText("Care more about you health...")//内容
+            setSmallIcon(R.mipmap.ic_launcher)
+            setLargeIcon(BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher))
+            setContentTitle("Health Status Reminder")
+            setContentText("Kindly care more about you health...")
+        }.build()
+
+        notification_high = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //Create notification channel
+            createNotificationChannel(channelId,channelName,importance)
+            NotificationCompat.Builder(this, channelId)
+        } else {
+            NotificationCompat.Builder(this)
+        }.apply {
+            setSmallIcon(R.mipmap.ic_launcher)
+            setLargeIcon(BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher))
+            setContentTitle("Health Status Reminder")
+            setContentText("Good job. Keep it up.")
         }.build()
     }
 }
