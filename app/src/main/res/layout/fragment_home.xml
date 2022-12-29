@@ -9,6 +9,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:scrollbars="none"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -19,9 +20,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="15dp"
                 android:orientation="horizontal"
                 android:weightSum="100">
                 <!--Check-in status-->
@@ -29,14 +30,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="50"
+                    android:layout_weight="40"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         app:cardBackgroundColor="#DED1F6"
                         app:cardCornerRadius="20dp"
+                        android:layout_margin="11dp"
                         app:cardElevation="10dp">
 
                         <LinearLayout
@@ -73,13 +75,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="50"
+                    android:layout_weight="60"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="11dp"
                         app:cardBackgroundColor="@color/light_pink"
                         app:cardCornerRadius="20dp"
                         app:cardElevation="10dp">
@@ -131,6 +134,7 @@
                 <!--Check-in Record-->
                 <LinearLayout
                     android:layout_width="88dp"
+                    android:layout_marginTop="10dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
                     android:orientation="vertical">
@@ -170,6 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
+                    android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
@@ -205,6 +210,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="30"
                     android:orientation="vertical">
 
@@ -244,7 +250,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/recommended_articles"
                 android:theme="@style/activity_title" />
 
