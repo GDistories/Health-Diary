@@ -7,11 +7,13 @@ import com.healthdiary.data.CheckInRecord
 import com.healthdiary.repository.CheckInRecordRepository
 
 class CheckInRecordViewModel (val repository: CheckInRecordRepository): ViewModel() {
+    fun checkRecord(email:String, date:String):LiveData<String> = repository.checkRecord(email, date)
+
     fun addRecord(record: CheckInRecord): LiveData<Boolean> =
         repository.addRecord(record)
 
-    fun updateRecord(record: CheckInRecord): LiveData<Boolean> =
-        repository.updateRecord(record)
+    fun updateRecord(record: CheckInRecord, id: String): LiveData<Boolean> =
+        repository.updateRecord(record, id)
 
     fun deleteRecord(email: String): LiveData<Boolean> =
         repository.deleteRecord(email)
