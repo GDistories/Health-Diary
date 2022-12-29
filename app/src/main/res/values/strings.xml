@@ -125,7 +125,7 @@
     <string name="news_content_figure_desc">7-day average as of Sep. 29, 2022.</string>
 
     <!--Home Page-->
-    <string name="home_check_status">You haven’t check-in today.</string>
+    <string name="home_check_status">You haven’t check in today.</string>
     <string name="score">Score</string>
     <string name="check_in_record">Check-in Record</string>
     <string name="health_tips">Health Tips</string>
