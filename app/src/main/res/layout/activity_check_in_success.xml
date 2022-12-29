@@ -92,28 +92,19 @@
                 android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/share_with_professionals"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/ic_share_1" />
+                android:src="@drawable/ic_doctor" />
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/ic_share_2" />
 
-            <ImageView
+            <Button
+                android:id="@+id/check_in_share"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:src="@drawable/ic_share_3" />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/ic_share_4" />
+                android:background="@drawable/ic_share_24" />
         </LinearLayout>
 
     </LinearLayout>
