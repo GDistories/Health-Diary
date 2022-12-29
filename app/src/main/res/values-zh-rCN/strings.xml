@@ -60,7 +60,6 @@
     <string name="doctor_list_personal_info">个人简介</string>
     <string name="doctor_list_abstract">心脏外科，伦敦桥医院</string>
     <string name="news_content_time">2022年10月2日，11：38</string>
-    <string name="home_check_status">您今天还没打卡</string>
     <string name="score">健康分</string>
     <string name="check_in_record">打卡记录</string>
     <string name="health_tips">健康贴士</string>
@@ -209,4 +208,7 @@
     <string name="password_must_contain_at_least_one_letter_and_one_number">密码需要至少包含1个字母和1个数字</string>
     <string name="update_3_minutes_ago">更新于3分钟前</string>
     <string name="language">语言</string>
+    <string name="home_login_status">请先登录</string>
+    <string name="home_check_status_false">您今天还没打卡</string>
+    <string name="home_check_status_true">已完成今日打卡</string>
 </resources>

@@ -5,9 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
+import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentHomeBinding
 import com.healthdiary.ui.activity.*
+import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.viewmodel.CheckInRecordViewModel
 
 
 class HomeFragment : BaseFragment() {
@@ -15,8 +23,14 @@ class HomeFragment : BaseFragment() {
 
     private val binding get() = _binding!!
 
+    private val checkInRecordViewModel: CheckInRecordViewModel by viewModels {
+        CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
+    }
+
     override fun onStart() {
         super.onStart()
+        var status_image = view?.findViewById(R.id.home_user_statusicon) as ImageView
+        var status_text = view?.findViewById(R.id.home_user_statustext) as TextView
         binding.news1.setOnClickListener {
             startActivity(Intent(activity, NewsContentActivity::class.java))
         }
@@ -31,6 +45,27 @@ class HomeFragment : BaseFragment() {
         }
         binding.trackData.setOnClickListener{
             startActivity(Intent(activity, TrackerActivity::class.java))
+        }
+        if (isLogin()){
+
+            checkInRecordViewModel.checkRecord(getUserEmail().toString(),getToday()).observe(this){
+                if (it != "NotCheckInYet"){
+                    status_image.setImageResource(R.drawable.ic_checkin_success)
+                    status_text.setText(R.string.home_check_status_true)
+                    status_text.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+                }
+                else {
+                    status_image.setImageResource(R.drawable.ic_warning)
+                    status_text.setText(R.string.home_check_status_false)
+                    status_text.setTextColor(ContextCompat.getColor(requireContext(),R.color.warning))
+                }
+            }
+        }
+
+        else{
+            status_image.setImageResource(R.drawable.ic_warning)
+            status_text.setText(R.string.home_login_status)
+            status_text.setTextColor(ContextCompat.getColor(requireContext(),R.color.warning))
         }
     }
 
