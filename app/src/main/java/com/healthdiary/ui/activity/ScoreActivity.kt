@@ -38,7 +38,7 @@ class ScoreActivity : BaseActivity() {
         UserViewModel.Provider(UserRepository.repository)
     }
 
-    //channel
+    //notification channel
     private val channelId = "test"
     private val channelName = "测试通知"
     private val importance = NotificationManagerCompat.IMPORTANCE_HIGH
@@ -56,14 +56,9 @@ class ScoreActivity : BaseActivity() {
         setContentView(binding.root)
         hideStatusAndActionBar()
 
-
-
         ///Get system notification service
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         initNotification()
-
-
-
 
         binding.ivBack.setOnClickListener {
             finish()
