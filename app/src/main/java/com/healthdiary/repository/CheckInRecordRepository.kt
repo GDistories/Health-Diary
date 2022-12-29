@@ -45,7 +45,6 @@ class CheckInRecordRepository {
             .whereEqualTo("email", email)
             .get()
             .addOnSuccessListener { documents ->
-                LogUtils.e(documents.isEmpty)
                 if(documents.isEmpty){
                     existId.value = "NoCheckInResult"
                 }
