@@ -8,15 +8,22 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityScoreBinding
+import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.viewmodel.CheckInRecordViewModel
 
 class ScoreActivity : BaseActivity() {
     private lateinit var binding: ActivityScoreBinding
+
+    private val checkInRecordViewModel: CheckInRecordViewModel by viewModels {
+        CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
+    }
 
     //channel
     private val channelId = "test"
@@ -38,9 +45,19 @@ class ScoreActivity : BaseActivity() {
 
         ///Get system notification service
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        //Initialize notification
         initNotification()
 
+        if (isLogin()){
+
+            checkInRecordViewModel.checkRecord(getUserEmail().toString(),getToday()).observe(this){
+                if (it != "NotCheckInYet"){
+                    //TODO: 今天已经打卡
+                }
+                else {
+                    //TODO: 今天还未打卡
+                }
+            }
+        }
 
         if(healthScore<=140 && canNotify()){
             notificationManager.notify(notificationId, notification_low)

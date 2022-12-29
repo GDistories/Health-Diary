@@ -1,8 +1,11 @@
 package com.healthdiary.ui.activity
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.blankj.utilcode.util.LogUtils
 import com.healthdiary.R
 import com.healthdiary.adapter.DoctorListAdapter
 import com.healthdiary.base.BaseActivity
@@ -20,7 +23,6 @@ class DoctorListActivity : BaseActivity() {
         binding.ivBack.setOnClickListener {
             finish()
         }
-
 
         val locations: ArrayList<DoctorList> = arrayListOf(
             DoctorList(
@@ -50,28 +52,33 @@ class DoctorListActivity : BaseActivity() {
             )
         )
 
-//        locations.add(
-//            DoctorList(
-//                "Airport",
-//                "07/05/2022",
-//                R.drawable.ic_home
-//            )
-//        )
-
-
+        var listDoctor = ArrayList<DoctorList>()
+        listDoctor.addAll(locations)
         val recyclerView = findViewById<RecyclerView>(R.id.doctor_list_recylerview)
-
         recyclerView.layoutManager = LinearLayoutManager(
             this,
             LinearLayoutManager.VERTICAL,
             false
         )
-
-
+        recyclerView.adapter = DoctorListAdapter(listDoctor)
         // Adapt the data to the recyclerview using Adapter
         recyclerView.adapter = DoctorListAdapter(locations)
+        binding.searchDoctors.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
 
-
+            override fun onQueryTextChange(newText: String): Boolean {
+                listDoctor = ArrayList<DoctorList>()
+                for (doctor in locations) {
+                    if (doctor.doctorName.contains(newText, true)) {
+                        listDoctor.add(doctor)
+                    }
+                }
+                recyclerView.adapter = DoctorListAdapter(listDoctor)
+                return false
+            }
+        })
     }
 
 //    override fun onItemClick(position: Int) {

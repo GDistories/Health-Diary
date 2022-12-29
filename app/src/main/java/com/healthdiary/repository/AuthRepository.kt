@@ -47,11 +47,10 @@ class AuthRepository {
         auth = FirebaseAuth.getInstance()
 
         auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(
-                OnCompleteListener { task ->
+            .addOnCompleteListener(){ task ->
                     status.value = task.isSuccessful
                     LogUtils.e(task.exception.toString())
-                })
+                }
         return status
     }
 
@@ -59,10 +58,9 @@ class AuthRepository {
         val status: MutableLiveData<Boolean> = MutableLiveData()
         auth = FirebaseAuth.getInstance()
 
-        auth.currentUser?.updatePassword(password)?.addOnCompleteListener(
-            OnCompleteListener { task ->
+        auth.currentUser?.updatePassword(password)?.addOnCompleteListener() { task ->
                 status.value = task.isSuccessful
-            })
+            }
 
         return status
     }
