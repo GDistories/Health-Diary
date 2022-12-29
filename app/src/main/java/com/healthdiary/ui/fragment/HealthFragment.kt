@@ -122,18 +122,21 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
             var checkId = it
             var dateStr = ""
 
-            recordViewModel.getRecord(checkId).observe(this){
-                var record = it
-                dateStr = record.date.toString()
-                var year:Int = dateStr.substring(0,4).toInt()
-                var month:Int = dateStr.substring(4,6).toInt()
-                var day:Int = dateStr.substring(6,8).toInt()
+            if(checkId != "NoCheckInResult"){
+                recordViewModel.getRecord(checkId).observe(this){
+                    var record = it
+                    dateStr = record.date.toString()
+                    var yearRecord:Int = dateStr.substring(0,4).toInt()
+                    var monthRecord:Int = dateStr.substring(4,6).toInt()
+                    var dayRecord:Int = dateStr.substring(6,8).toInt()
 
-                map[getSchemeCalendar(year, month, day, green).toString()] =
-                    getSchemeCalendar(year, month, day, green)
+                    map[getSchemeCalendar(yearRecord, monthRecord, dayRecord, green).toString()] =
+                        getSchemeCalendar(yearRecord, monthRecord, dayRecord, green)
 
-                binding.calendarView.setSchemeDate(map)
+                    binding.calendarView.setSchemeDate(map)
+                }
             }
+
         }
         binding.calendarView.setSchemeDate(map)
     }

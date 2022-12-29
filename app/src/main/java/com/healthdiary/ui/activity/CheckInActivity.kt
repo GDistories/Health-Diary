@@ -136,10 +136,9 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
             var checkId = it
             var dateStr = ""
 
-            recordViewModel.getRecord(checkId).observe(this){ it1 ->
-                var record = it1
-
-                if(record.date!!.length == 8){
+            if (checkId != "NoCheckInResult"){
+                recordViewModel.getRecord(checkId).observe(this){ it1 ->
+                    var record = it1
                     dateStr = record.date.toString()
                     var yearRecord:Int = dateStr.substring(0,4).toInt()
                     var monthRecord:Int = dateStr.substring(4,6).toInt()
@@ -150,8 +149,8 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
 
                     binding.calendarView.setSchemeDate(map)
                 }
-
             }
+
         }
         binding.calendarView.setSchemeDate(map)
     }

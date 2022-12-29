@@ -47,7 +47,7 @@ class CheckInRecordRepository {
             .addOnSuccessListener { documents ->
                 LogUtils.e(documents.isEmpty)
                 if(documents.isEmpty){
-                    existId.value = "NotCheckInYet"
+                    existId.value = "NoCheckInResult"
                 }
                 for (document in documents) {
                     existId.value = document.id
