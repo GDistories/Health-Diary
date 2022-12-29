@@ -270,32 +270,45 @@ class DashboardActivity : BaseActivity() {
 
         var temperatureData = ArrayList<Entry>()
         var heartRateData = ArrayList<Entry>()
-        var xValue = 0.0f
+        var xValue1 = 0.0f
+        var xValue2 = 0.0f
         recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
             var checkId = it
 
             if(checkId != "NoCheckInResult"){
                 recordViewModel.getRecord(checkId).observe(this){ it1 ->
                     var record = it1
-                    var temp = record.temperature.toString().substring(0,2).toFloat()
-                    var heart = record.heartRate.toString().substring(0,3).toFloat()
+                    if(record.temperature.toString().length>=3){
+                        var temp = record.temperature.toString().substring(0,2).toFloat()
+                        xValue1 += 1.0f
+                        temperatureData.add(Entry(xValue1, temp))
+                    }
+                    if(record.heartRate.toString().length>=6){
+                        var heart = record.heartRate.toString().substring(0,3).toFloat()
+                        xValue2 += 1.0f
+                        heartRateData.add(Entry(xValue2, heart))
+                    }
 
-                    xValue += 1.0f
-                    temperatureData.add(Entry(xValue, temp))
-                    heartRateData.add(Entry(xValue, heart))
-
-                    if(xValue >= 5.0f){
+                    if(xValue1 >= 5.0f)
+                    {
                         binding.temperatureLineChart.visibility = View.VISIBLE
                         binding.temperatureRemind.visibility = View.GONE
-                        binding.heartRateLineChart.visibility = View.VISIBLE
-                        binding.heartRateRemind.visibility = View.GONE
                         drawTemperatureLineChart(temperatureData)
-                        drawHeartRateLineChart(heartRateData)
                     }
                     else
                     {
                         binding.temperatureLineChart.visibility = View.GONE
                         binding.temperatureRemind.visibility = View.VISIBLE
+                    }
+
+                    if(xValue2 >= 5.0f)
+                    {
+                        binding.heartRateLineChart.visibility = View.VISIBLE
+                        binding.heartRateRemind.visibility = View.GONE
+                        drawHeartRateLineChart(heartRateData)
+                    }
+                    else
+                    {
                         binding.heartRateLineChart.visibility = View.GONE
                         binding.heartRateRemind.visibility = View.VISIBLE
                     }

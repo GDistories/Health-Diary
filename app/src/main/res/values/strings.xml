@@ -273,6 +273,13 @@
     <string name="recent_temperature_data">Recent Temperature Data</string>
     <string name="question_about">Question about</string>
     <string name="notification">Notification</string>
+    <string name="recent_heart_rate_data">Recent Heart Rate Data</string>
+    <string name="current_data_are_not_enough_for_graph_please_keep_check_in_and_offer_more_data_at_least_5_days">Current data are not enough for graph, please keep check in, and offer more data (at least 5 days)!</string>
+    <string name="history_record">In this day, your check-in record</string>
+    <string name="not_given">(Not Given)</string>
+    <string name="history_symptom">Your symptom description:</string>
+    <string name="history_medicine">Your took medicine:</string>
+    <string name="home_check_status">You have not checked in yet today</string>
 
     <!---->
 </resources>
