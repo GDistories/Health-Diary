@@ -9,6 +9,8 @@ class User(
     var email: String? = "",
     var phone: String? = "",
     var birthday: String? = "",
-    var gender: String? = ""
+    var gender: String? = "",
+    var height: Number? = 0,
+    var weight: Number? = 0
 ) : Parcelable
 

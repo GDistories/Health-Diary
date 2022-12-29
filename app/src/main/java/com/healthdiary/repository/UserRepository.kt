@@ -55,7 +55,9 @@ class UserRepository {
                     result.id,
                     result.data?.get("phone").toString(),
                     result.data?.get("birthday").toString(),
-                    result.data?.get("gender").toString()
+                    result.data?.get("gender").toString(),
+                    result.data?.get("height") as Number?,
+                    result.data?.get("weight") as Number?
                 )
                 userLiveData.value = user
                 LogUtils.e(user.email)
