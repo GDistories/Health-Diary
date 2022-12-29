@@ -270,6 +270,8 @@
     <string name="History_no_record_2">Don\'t forget to check-in today!</string>
     <string name="hello_track_today">Let\'s check in for today.</string>
     <string name="news_content">News Content</string>
+    <string name="question_about">Question about</string>
+    <string name="notification">Notification</string>
 
     <!---->
 </resources>
