@@ -257,6 +257,8 @@
     <string name="email_not_found">Email Not Found</string>
     <string name="reset_password_email_sent">Reset Password Email Has Sent</string>
     <string name="notifications">Notifications</string>
+    <string name="cm">CM</string>
+    <string name="kg">KG</string>
 
     <!---->
 </resources>

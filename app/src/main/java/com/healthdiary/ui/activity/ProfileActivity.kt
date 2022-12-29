@@ -5,12 +5,11 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.LiveData
 import cn.addapp.pickers.picker.DatePicker
 import cn.addapp.pickers.picker.DatePicker.OnYearMonthDayPickListener
+import cn.addapp.pickers.picker.NumberPicker
+import cn.addapp.pickers.picker.NumberPicker.OnNumberPickListener
 import cn.addapp.pickers.picker.SinglePicker
-import com.blankj.utilcode.util.LogUtils
-import com.blankj.utilcode.util.NotificationUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.TimeUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -35,6 +34,8 @@ class ProfileActivity : BaseActivity() {
 
     var gender: String? = null
     var birthday: String? = null
+    var height: Number = 0
+    var weight: Number = 0
 
     var yearSelected: String = yearNow
     var monthSelected: String = monthNow
@@ -85,11 +86,21 @@ class ProfileActivity : BaseActivity() {
             showYearMonthDayPicker(it)
         }
 
+        binding.tvHeight.setOnClickListener {
+            showHeightPicker(it)
+        }
+
+        binding.tvWeight.setOnClickListener {
+            showWeightPicker(it)
+        }
+
         binding.btnSubmit.setOnClickListener {
             user?.name = binding.etName.text.toString()
             user?.gender = binding.tvGender.text.toString()
             user?.birthday = binding.tvBirthday.text.toString()
             user?.phone = binding.etPhoneNumber.text.toString()
+            user?.height = height
+            user?.weight = weight
             userViewModel.updateUser(user!!)
             finish()
         }
@@ -122,6 +133,14 @@ class ProfileActivity : BaseActivity() {
         }
         if (user?.phone != "null" || user.phone?.isEmpty() == true) {
             binding.etPhoneNumber.setText(user?.phone)
+        }
+        if (user?.height != 0 && user?.height != null) {
+            height = user.height!!
+            binding.tvHeight.text = user.height.toString() + " " + getString(R.string.cm)
+        }
+        if (user?.weight != 0 && user?.height != null) {
+            weight = user.weight!!
+            binding.tvWeight.text = user.weight.toString() + " " + getString(R.string.kg)
         }
     }
 
@@ -182,6 +201,50 @@ class ProfileActivity : BaseActivity() {
             binding.tvGender.text = item
             gender = item
         }
+        picker.show()
+    }
+
+    private fun showHeightPicker(view: View?) {
+        val picker = NumberPicker(this)
+        picker.setGravity(Gravity.BOTTOM)
+        picker.setAnimationStyle(R.style.Animation_CustomPopup)
+        picker.setCanLoop(false)
+        picker.setLineVisible(true)
+        picker.setTextSize(18)
+        picker.setItemWidth(100)
+        picker.selectedIndex = 0
+        picker.isOuterLabelEnable = true
+        picker.setRange(120, 220, 1) //数字范围
+        picker.setSelectedItem(170)
+        picker.setLabel(getString(R.string.cm))
+        picker.setOnNumberPickListener(object : OnNumberPickListener() {
+            override fun onNumberPicked(index: Int, item: Number) {
+                binding.tvHeight.text = item.toString() + " " + getString(R.string.cm)
+                height = item
+            }
+        })
+        picker.show()
+    }
+
+    private fun showWeightPicker(view: View?) {
+        val picker = NumberPicker(this)
+        picker.setGravity(Gravity.BOTTOM)
+        picker.setAnimationStyle(R.style.Animation_CustomPopup)
+        picker.setCanLoop(false)
+        picker.setLineVisible(true)
+        picker.setTextSize(18)
+        picker.setItemWidth(100)
+        picker.selectedIndex = 0
+        picker.isOuterLabelEnable = true
+        picker.setRange(40, 150, 1) //数字范围
+        picker.setSelectedItem(60)
+        picker.setLabel(getString(R.string.kg))
+        picker.setOnNumberPickListener(object : OnNumberPickListener() {
+            override fun onNumberPicked(index: Int, item: Number) {
+                binding.tvWeight.text = item.toString() + " " +getString(R.string.kg)
+                weight = item
+            }
+        })
         picker.show()
     }
 }
