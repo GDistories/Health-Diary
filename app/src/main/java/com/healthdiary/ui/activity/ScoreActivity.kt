@@ -133,6 +133,7 @@ class ScoreActivity : BaseActivity() {
         else{
             ToastUtils.showShort(getString(R.string.please_login))
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 
