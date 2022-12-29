@@ -13,7 +13,8 @@ class NewsWebContentActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewsWebContentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        hideStatusAndActionBar()
 
-        binding.wvNewsContent.loadUrl("https://www.google.com")
+        binding.wvNewsContent.loadUrl("https://www.nbcnews.com/health/health-news/adults-say-expecting-stress-2023-survey-finds-rcna62580")
     }
 }
