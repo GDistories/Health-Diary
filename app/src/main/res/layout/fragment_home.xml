@@ -115,7 +115,7 @@
                                 android:layout_marginRight="10dp"
                                 android:layout_marginBottom="10dp"
                                 android:fontFamily="@font/dmsans_bold"
-                                android:text="124"
+                                android:text="---"
                                 android:textColor="@color/rose_pink"
                                 android:textSize="24dp" />
                         </LinearLayout>
@@ -167,7 +167,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="@string/check_in_record"
+                        android:text="@string/check_in"
                         android:theme="@style/my_fragment_style" />
                 </LinearLayout>
 

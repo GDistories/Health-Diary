@@ -59,7 +59,7 @@ class HomeFragment : BaseFragment() {
             startActivity(Intent(activity, NewsContentActivity::class.java))
         }
         binding.checkInRecord.setOnClickListener{
-            startActivity(Intent(activity, CheckInHistoryActivity::class.java))
+            startActivity(Intent(activity, CheckInActivity::class.java))
         }
         binding.healthScore.setOnClickListener{
             startActivity(Intent(activity, ScoreActivity::class.java))
