@@ -12,15 +12,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
+import com.healthdiary.data.User
 import com.healthdiary.databinding.FragmentHealthBinding
 import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.repository.UserRepository
 import com.healthdiary.ui.activity.*
 import com.healthdiary.viewmodel.CheckInRecordViewModel
+import com.healthdiary.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_health.*
 import java.io.File
 import java.text.DateFormat
@@ -37,6 +41,11 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
     private var mYear: Int = 0
     private val binding get() = _binding!!
     private var green = -0x66bf24db
+
+    private val userViewModel: UserViewModel by viewModels {
+        UserViewModel.Provider(UserRepository.repository)
+    }
+
 
     private val recordViewModel: CheckInRecordViewModel by viewModels {
         CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
@@ -117,6 +126,23 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         val year: Int = binding.calendarView.curYear
         val month: Int = binding.calendarView.curMonth
         val map: MutableMap<String, Calendar> = HashMap()
+
+        userViewModel.getUser(getUserEmail()!!).observe(this){
+            var user: User? = null
+            user = it
+            if (user != null) {
+                LogUtils.e(user!!.name)
+                LogUtils.e(user!!.name)
+                if (user?.name == "null" || user!!.name?.isEmpty() == true)
+                {
+                    binding.username.text = getString(R.string.anonymous)
+                }
+                else
+                {
+                    binding.username.text = user!!.name
+                }
+            }
+        }
 
         recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
             var checkId = it
