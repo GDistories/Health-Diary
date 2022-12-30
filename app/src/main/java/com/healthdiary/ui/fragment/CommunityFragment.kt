@@ -46,7 +46,7 @@ class CommunityFragment : BaseFragment() {
         }
         else
         {
-            binding.ivProfilePhoto.setImageResource(R.drawable.default_profile_pic)
+            binding.ivProfilePhoto.setImageResource(R.drawable.ic_user_profile_photo_unlogin)
         }
 
     }
@@ -54,7 +54,7 @@ class CommunityFragment : BaseFragment() {
     private fun getUserPhoto(savePath: String?) {
         val file = File(savePath!!)
         if (!file.exists()) {
-            binding.ivProfilePhoto.setImageResource(R.drawable.default_profile_pic)
+            binding.ivProfilePhoto.setImageResource(R.drawable.ic_user_profile_photo_unlogin)
         } else {
             val bitmap: Bitmap? = readBitmap(context, savePath)
             binding.ivProfilePhoto.setImageBitmap(bitmap)
