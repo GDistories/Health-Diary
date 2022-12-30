@@ -3,6 +3,10 @@ package com.healthdiary.ui.activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.blankj.utilcode.util.ToastUtils
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.Legend
@@ -14,12 +18,22 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
+import com.healthdiary.data.CheckInRecord
 import com.healthdiary.databinding.ActivityDashboardBinding
+import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.viewmodel.CheckInRecordViewModel
 import kotlinx.android.synthetic.main.activity_dashboard.*
+import org.checkerframework.checker.units.qual.Temperature
+import org.jzvd.jzvideo.TAG
 
 
 class DashboardActivity : BaseActivity() {
     private lateinit var binding: ActivityDashboardBinding
+
+    private val recordViewModel: CheckInRecordViewModel by viewModels {
+        CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (!isLogin()) {
@@ -27,6 +41,8 @@ class DashboardActivity : BaseActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+
+
 
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -71,42 +87,23 @@ class DashboardActivity : BaseActivity() {
             animateX(500)
         }
 
-        with(workout_lineChart1){
-            xAxis.setDrawGridLines(false)
-            xAxis.position = XAxis.XAxisPosition.BOTTOM
-
-            setDrawGridBackground(false)
-
-            description.isEnabled = false
-            axisRight.isEnabled = false
-            animateX(500)
-        }
 
         with(temperature_lineChart){
             xAxis.setDrawGridLines(false)
-            xAxis.position = com.github.mikephil.charting.components.XAxis.XAxisPosition.BOTTOM
-
+            xAxis.position = XAxis.XAxisPosition.BOTTOM
             setDrawGridBackground(false)
-
             description.isEnabled = false
-            axisRight.isEnabled = false
             animateX(500)
         }
 
-    }
-
-    class MyAxisFormatter : IndexAxisValueFormatter() {
-
-        private var items = arrayListOf("Milk", "Butter", "Cheese", "Ice cream", "Milkshake")
-
-        override fun getAxisLabel(value: Float, axis: AxisBase?): String? {
-            val index = value.toInt()
-            return if (index < items.size) {
-                items[index]
-            } else {
-                null
-            }
+        with(heartRate_lineChart){
+            xAxis.setDrawGridLines(false)
+            xAxis.position = XAxis.XAxisPosition.BOTTOM
+            setDrawGridBackground(false)
+            description.isEnabled = false
+            animateX(500)
         }
+
     }
 
     fun sleep_data_1(): ArrayList<Entry>{
@@ -155,6 +152,8 @@ class DashboardActivity : BaseActivity() {
     fun workout_data_1(): ArrayList<Entry>{
         val workout = ArrayList<Entry>()
         // float from 0.0 to 2.0
+        workout.add(Entry(0f, 36f))
+        var xValue = 0f
         workout.add(Entry(0f, 0f))
         workout.add(Entry(1f, 0.25f))
         workout.add(Entry(2f, 1.75f))
@@ -164,10 +163,64 @@ class DashboardActivity : BaseActivity() {
         return workout
     }
 
+    fun temperatureDataSet(): ArrayList<Entry>{
+        var workout = ArrayList<Entry>()
+        var xValue = 0.0f
+        workout.add(Entry(0f, 0f))
+        recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
+            var checkId = it
 
-//    fun set_sleep_chart(){
-//        sleep_lineChart1
-//    }
+            if(checkId != "NoCheckInResult"){
+                recordViewModel.getRecord(checkId).observe(this){ it1 ->
+                    var record = it1
+                    var temp = record.temperature.toString().substring(0,2).toFloat()
+                    xValue += 1.0f
+                    workout.add(Entry(xValue, temp))
+                }
+            }
+        }
+
+        return workout
+    }
+
+    fun drawTemperatureLineChart(list: ArrayList<Entry>){
+        val weekTemperatureData = LineDataSet(list, "temperature")
+        val dataSet3 = ArrayList<ILineDataSet>()
+        weekTemperatureData.lineWidth = 2f
+        weekTemperatureData.color = Color.GRAY
+        weekTemperatureData.setDrawValues(false)
+        weekTemperatureData.mode = LineDataSet.Mode.CUBIC_BEZIER
+        weekTemperatureData.cubicIntensity = 0.2f
+        weekTemperatureData.setDrawFilled(true)
+        weekTemperatureData.fillColor= Color.RED
+        weekTemperatureData.fillAlpha = 70
+        val legend3: Legend = temperature_lineChart.legend
+        legend3.isEnabled = false
+        weekTemperatureData.setDrawCircles(true)
+        dataSet3.add(weekTemperatureData)
+        val lineData3 = LineData(dataSet3)
+        temperature_lineChart.data = lineData3
+    }
+
+    fun drawHeartRateLineChart(list: ArrayList<Entry>){
+        val weekHeartRateData = LineDataSet(list, "heartRate")
+        val dataSet4 = ArrayList<ILineDataSet>()
+        weekHeartRateData.lineWidth = 2f
+        weekHeartRateData.color = Color.GRAY
+        weekHeartRateData.setDrawValues(false)
+        weekHeartRateData.mode = LineDataSet.Mode.CUBIC_BEZIER
+        weekHeartRateData.cubicIntensity = 0.2f
+        weekHeartRateData.setDrawFilled(true)
+        weekHeartRateData.fillColor= Color.BLUE
+        weekHeartRateData.fillAlpha = 70
+        val legend4: Legend = heartRate_lineChart.legend
+        legend4.isEnabled = false
+        weekHeartRateData.setDrawCircles(true)
+        dataSet4.add(weekHeartRateData)
+        val lineData4 = LineData(dataSet4)
+        heartRate_lineChart.data = lineData4
+    }
+
 
     fun set_Data_to_Lines(){
         val weekSleepData = LineDataSet(sleep_data_1(), "Sleep 1")
@@ -201,72 +254,72 @@ class DashboardActivity : BaseActivity() {
         weekSleepData2.lineWidth = 2f
         weekSleepData2.color = Color.GRAY
         weekSleepData2.setDrawValues(false)
-        //to make the smooth line
         weekSleepData2.mode = LineDataSet.Mode.CUBIC_BEZIER
-        //to enable the cubic density : if 1 then it will be sharp curve
         weekSleepData2.cubicIntensity = 0.2f
-        //to fill the below of smooth line in graph
         weekSleepData2.setDrawFilled(true)
         weekSleepData2.fillColor= Color.RED
-        //set the transparency
         weekSleepData2.fillAlpha = 70
-        //set legend disable or enable to hide {the left down corner name of graph}
         val legend2: Legend = sleep_lineChart2.legend
         legend2.isEnabled = false
-        //to remove the circle from the graph
         weekSleepData2.setDrawCircles(false)
-        //Display
         dataSet2.add(weekSleepData2)
         val lineData2 = LineData(dataSet2)
         sleep_lineChart2.data = lineData2
 
-        val weekWorkoutData3 = LineDataSet(workout_data_1(), "Workout")
-        val dataSet3 = ArrayList<ILineDataSet>()
-        weekWorkoutData3.lineWidth = 2f
-        weekWorkoutData3.color = Color.GRAY
-        weekWorkoutData3.setDrawValues(false)
-        //to make the smooth line
-        weekWorkoutData3.mode = LineDataSet.Mode.CUBIC_BEZIER
-        //to enable the cubic density : if 1 then it will be sharp curve
-        weekWorkoutData3.cubicIntensity = 0.2f
-        //to fill the below of smooth line in graph
-        weekWorkoutData3.setDrawFilled(true)
-        weekWorkoutData3.fillColor= Color.RED
-        //set the transparency
-        weekWorkoutData3.fillAlpha = 70
-        //set legend disable or enable to hide {the left down corner name of graph}
-        val legend3: Legend = workout_lineChart1.legend
-        legend3.isEnabled = false
-        //to remove the circle from the graph
-        weekWorkoutData3.setDrawCircles(false)
-        //Display
-        dataSet3.add(weekWorkoutData3)
-        val lineData3 = LineData(dataSet3)
-        workout_lineChart1.data = lineData3
 
-        val weekTemperatureData = LineDataSet(workout_data_1(), "Workout")
-        val dataSet4 = ArrayList<ILineDataSet>()
-        weekTemperatureData.lineWidth = 2f
-        weekTemperatureData.color = Color.GRAY
-        weekTemperatureData.setDrawValues(false)
-        //to make the smooth line
-        weekTemperatureData.mode = LineDataSet.Mode.CUBIC_BEZIER
-        //to enable the cubic density : if 1 then it will be sharp curve
-        weekTemperatureData.cubicIntensity = 0.2f
-        //to fill the below of smooth line in graph
-        weekTemperatureData.setDrawFilled(true)
-        weekTemperatureData.fillColor= Color.RED
-        //set the transparency
-        weekTemperatureData.fillAlpha = 70
-        //set legend disable or enable to hide {the left down corner name of graph}
-        val legend4: Legend = temperature_lineChart.legend
-        legend4.isEnabled = false
-        //to remove the circle from the graph
-        weekTemperatureData.setDrawCircles(false)
-        //Display
-        dataSet3.add(weekTemperatureData)
-        val lineData4 = LineData(dataSet4)
-        temperature_lineChart.data = lineData4
+
+        var temperatureData = ArrayList<Entry>()
+        var heartRateData = ArrayList<Entry>()
+        var xValue1 = 0.0f
+        var xValue2 = 0.0f
+        recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
+            var checkId = it
+
+            if(checkId != "NoCheckInResult"){
+                recordViewModel.getRecord(checkId).observe(this){ it1 ->
+                    var record = it1
+                    if(record.temperature.toString().length>=3){
+                        var temp = record.temperature.toString().substring(0,2).toFloat()
+                        xValue1 += 1.0f
+                        temperatureData.add(Entry(xValue1, temp))
+                    }
+                    if(record.heartRate.toString().length>=6){
+                        var heart = record.heartRate.toString().substring(0,3).toFloat()
+                        xValue2 += 1.0f
+                        heartRateData.add(Entry(xValue2, heart))
+                    }
+
+                    if(xValue1 >= 5.0f)
+                    {
+                        binding.temperatureLineChart.visibility = View.VISIBLE
+                        binding.temperatureRemind.visibility = View.GONE
+                        drawTemperatureLineChart(temperatureData)
+                    }
+                    else
+                    {
+                        binding.temperatureLineChart.visibility = View.GONE
+                        binding.temperatureRemind.visibility = View.VISIBLE
+                    }
+
+                    if(xValue2 >= 5.0f)
+                    {
+                        binding.heartRateLineChart.visibility = View.VISIBLE
+                        binding.heartRateRemind.visibility = View.GONE
+                        drawHeartRateLineChart(heartRateData)
+                    }
+                    else
+                    {
+                        binding.heartRateLineChart.visibility = View.GONE
+                        binding.heartRateRemind.visibility = View.VISIBLE
+                    }
+
+                }
+            }
+
+        }
+
+
+
 
     }
 

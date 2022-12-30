@@ -317,7 +317,7 @@
                             android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/dmsans_bold"
-                            android:text="In this day, your check-in record"
+                            android:text="@string/history_record"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -349,7 +349,7 @@
                                 android:layout_marginTop="40dp"
                                 android:layout_marginBottom="10dp"
                                 android:fontFamily="@font/dmsans_medium"
-                                android:text="(Not Given)"
+                                android:text="@string/not_given"
                                 android:textColor="@color/text_green"
                                 android:textSize="30sp" />
                         </androidx.cardview.widget.CardView>
@@ -381,7 +381,7 @@
                                 android:layout_marginTop="40dp"
                                 android:layout_marginBottom="10dp"
                                 android:fontFamily="@font/dmsans_medium"
-                                android:text="(Not Given)"
+                                android:text="@string/not_given"
                                 android:textColor="@color/text_purple"
                                 android:textSize="30sp" />
                         </androidx.cardview.widget.CardView>
@@ -402,7 +402,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_margin="10dp"
                                 android:textSize="14sp"
-                                android:text="Your symptom description:"/>
+                                android:text="@string/history_symptom"/>
 
                             <TextView
                                 android:id="@+id/tv_history_symptom"
@@ -412,7 +412,7 @@
                                 android:layout_marginTop="40dp"
                                 android:layout_marginBottom="10dp"
                                 android:fontFamily="@font/dmsans_medium"
-                                android:text="(Not Given)"
+                                android:text="@string/not_given"
                                 android:textColor="@color/text_blue"
                                 android:textSize="25sp" />
 
@@ -435,7 +435,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_margin="10dp"
                                 android:textSize="14sp"
-                                android:text="Your took medicine:"/>
+                                android:text="@string/history_medicine"/>
                             <TextView
                                 android:id="@+id/tv_history_medicine"
                                 android:layout_width="wrap_content"
@@ -444,7 +444,7 @@
                                 android:layout_marginTop="40dp"
                                 android:layout_marginBottom="10dp"
                                 android:fontFamily="@font/dmsans_medium"
-                                android:text="(Not Given)"
+                                android:text="@string/not_given"
                                 android:textColor="@color/text_blue"
                                 android:textSize="25sp" />
                         </androidx.cardview.widget.CardView>

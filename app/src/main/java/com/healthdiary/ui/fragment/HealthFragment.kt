@@ -156,6 +156,8 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         return calendar
     }
     override fun onCalendarSelect(calendar: Calendar, isClick: Boolean) {
+        startActivity(Intent(activity, CheckInActivity::class.java))
+
         binding.tvLunar.visibility = View.VISIBLE
         binding.tvYear.visibility = View.VISIBLE
         val g1 = DecimalFormat("00")
