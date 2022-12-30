@@ -22,6 +22,7 @@ import com.healthdiary.data.User
 import com.healthdiary.databinding.ActivityProfileBinding
 import com.healthdiary.repository.AuthRepository
 import com.healthdiary.repository.UserRepository
+import com.healthdiary.utils.SharedPreferencesUtils
 import com.healthdiary.viewmodel.AuthViewModel
 import com.healthdiary.viewmodel.UserViewModel
 import java.text.SimpleDateFormat
@@ -108,6 +109,8 @@ class ProfileActivity : BaseActivity() {
             authViewModel.logout()
             googleSignInClient?.signOut()
             ToastUtils.showShort(getString(R.string.logout_success))
+            SharedPreferencesUtils.setParam("notifyUser", getUserEmail())
+            SharedPreferencesUtils.setBooleanParam("isNotify", false)
             finish()
         }
     }
