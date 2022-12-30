@@ -1,15 +1,20 @@
 package com.healthdiary.ui.fragment
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentCommunityBinding
 import com.healthdiary.codepalace.chatbot.ui.ChatActivity
 import com.healthdiary.ui.activity.DoctorInfoActivity
 import com.healthdiary.ui.activity.DoctorListActivity
+import java.io.File
 
 
 class CommunityFragment : BaseFragment() {
@@ -36,7 +41,38 @@ class CommunityFragment : BaseFragment() {
         binding.communityTop2.doctorChat.setOnClickListener {
             startActivity(Intent(activity, ChatActivity::class.java))
         }
+        if (isLogin()) {
+            getUserPhoto(context!!.cacheDir.absolutePath + "/" + getUserEmail() + ".jpg")
+        }
+        else
+        {
+            binding.ivProfilePhoto.setImageResource(R.drawable.default_profile_pic)
+        }
 
+    }
+
+    private fun getUserPhoto(savePath: String?) {
+        val file = File(savePath!!)
+        if (!file.exists()) {
+            binding.ivProfilePhoto.setImageResource(R.drawable.default_profile_pic)
+        } else {
+            val bitmap: Bitmap? = readBitmap(context, savePath)
+            binding.ivProfilePhoto.setImageBitmap(bitmap)
+        }
+    }
+
+    private fun readBitmap(ct: Context?, savePath: String?): Bitmap? {
+        val bitmap: Bitmap
+        return try {
+            val filePic = File(savePath!!)
+            if (!filePic.exists()) {
+                return null
+            }
+            bitmap = BitmapFactory.decodeFile(savePath)
+            bitmap
+        } catch (e: Exception) {
+            null
+        }
     }
 
 
