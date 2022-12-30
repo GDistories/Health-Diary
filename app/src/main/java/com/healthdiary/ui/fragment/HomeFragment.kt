@@ -26,6 +26,7 @@ import com.healthdiary.base.BaseFragment
 import com.healthdiary.databinding.FragmentHomeBinding
 import com.healthdiary.ui.activity.*
 import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.utils.SharedPreferencesUtils
 import com.healthdiary.viewmodel.CheckInRecordViewModel
 
 
@@ -81,9 +82,18 @@ class HomeFragment : BaseFragment() {
                     status_image.setImageResource(R.drawable.ic_warning)
                     status_text.setText(R.string.home_check_status_false)
                     status_text.setTextColor(ContextCompat.getColor(requireContext(),R.color.warning))
-                    if(canNotify()) {
-                        notificationManager.notify(notificationId, notification_checkin)
+                    if (SharedPreferencesUtils.getParam("notifyUser", "") == getUserEmail()){
+                        if(canNotify() && SharedPreferencesUtils.getBooleanParam("isNotify",false)){
+                            notificationManager.notify(notificationId, notification_checkin)
+                            SharedPreferencesUtils.setBooleanParam("isNotify", true)
+                        }
+                        else{
+                            notificationManager.notify(notificationId, notification_checkin)
+                            SharedPreferencesUtils.setBooleanParam("isNotify", true)
+                            SharedPreferencesUtils.setParam("notifyUser", getUserEmail())
+                        }
                     }
+
                 }
             }
 
