@@ -2,7 +2,6 @@ package com.healthdiary.ui.activity
 
 import android.os.Bundle
 import android.util.Log
-import com.blankj.utilcode.util.ClipboardUtils
 import com.google.gson.Gson
 import com.healthdiary.api.API
 import com.healthdiary.api.RetrofitClient

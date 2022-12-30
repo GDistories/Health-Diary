@@ -15,7 +15,7 @@ import com.healthdiary.R
 import com.healthdiary.ui.activity.MainActivity
 
 const val channelId = "notification_channel"
-const val channelName = "com.eazyalgo.fcmpushnotification"
+const val channelName = "com.healthdiary"
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
     // generate the notification
@@ -28,7 +28,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 
     fun getRemoteView(title: String, message: String): RemoteViews {
-        val remoteView = RemoteViews("com.eazyalgo.fcmpushnotification",R.layout.notification)
+        val remoteView = RemoteViews("com.healthdiary",R.layout.notification)
         remoteView.setTextViewText(R.id.title_in_notification,title)
         remoteView.setImageViewResource(R.id.logo_in_notification,R.mipmap.ic_launcher)
         remoteView.setTextViewText(R.id.msg_in_notification,message)

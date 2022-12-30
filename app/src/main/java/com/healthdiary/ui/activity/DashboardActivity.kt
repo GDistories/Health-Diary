@@ -149,40 +149,6 @@ class DashboardActivity : BaseActivity() {
         return sleep
     }
 
-    fun workout_data_1(): ArrayList<Entry>{
-        val workout = ArrayList<Entry>()
-        // float from 0.0 to 2.0
-        workout.add(Entry(0f, 36f))
-        var xValue = 0f
-        workout.add(Entry(0f, 0f))
-        workout.add(Entry(1f, 0.25f))
-        workout.add(Entry(2f, 1.75f))
-        workout.add(Entry(3f, 0.35f))
-        workout.add(Entry(4f, 1.5f))
-        workout.add(Entry(5f, 1.0f))
-        return workout
-    }
-
-    fun temperatureDataSet(): ArrayList<Entry>{
-        var workout = ArrayList<Entry>()
-        var xValue = 0.0f
-        workout.add(Entry(0f, 0f))
-        recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
-            var checkId = it
-
-            if(checkId != "NoCheckInResult"){
-                recordViewModel.getRecord(checkId).observe(this){ it1 ->
-                    var record = it1
-                    var temp = record.temperature.toString().substring(0,2).toFloat()
-                    xValue += 1.0f
-                    workout.add(Entry(xValue, temp))
-                }
-            }
-        }
-
-        return workout
-    }
-
     fun drawTemperatureLineChart(list: ArrayList<Entry>){
         val weekTemperatureData = LineDataSet(list, "temperature")
         val dataSet3 = ArrayList<ILineDataSet>()

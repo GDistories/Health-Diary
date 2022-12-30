@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.LiveData
-import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.TimeUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -75,23 +73,23 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
             finish()
         }
         binding.btnCheckInSubmit.setOnClickListener {
-            record?.email = getUserEmail()
-            record?.date = dateToday
-            record?.temperature = binding.etTemperature.text.toString() + "℃"
-            record?.heartRate =  binding.etHeartRate.text.toString() + " Bpm"
-            record?.symptom = binding.etSymptom.text.toString()
-            record?.medicine = binding.etMedicine.text.toString()
+            record.email = getUserEmail()
+            record.date = dateToday
+            record.temperature = binding.etTemperature.text.toString() + "℃"
+            record.heartRate =  binding.etHeartRate.text.toString() + " Bpm"
+            record.symptom = binding.etSymptom.text.toString()
+            record.medicine = binding.etMedicine.text.toString()
 
             recordViewModel.checkRecord(getUserEmail().toString(),dateToday).observe(this){
                 var checkId = it
                 if(checkId != null){
                     if (checkId == "NotCheckInYet")
                     {
-                        recordViewModel.addRecord(record!!)
+                        recordViewModel.addRecord(record)
                     }
                     else
                     {
-                        recordViewModel.updateRecord(record!!, checkId)
+                        recordViewModel.updateRecord(record, checkId)
                     }
                 }
                 startActivity(Intent(this, CheckInSuccessActivity::class.java))
@@ -241,16 +239,16 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
                         recordViewModel.getRecord(checkId).observe(this){ it1 ->
                             var record = it1
                             // update the texts
-                            if(record.temperature != null || record.temperature != ""){
+                            if(record.temperature != null && record.temperature != ""){
                                 binding.tvHistoryTemperature.text = record.temperature
                             }
-                            if(record.heartRate != null || record.heartRate != ""){
+                            if(record.heartRate != null && record.heartRate != ""){
                                 binding.tvHistoryHeartRate.text = record.heartRate
                             }
-                            if(record.symptom != null || record.symptom != ""){
+                            if(record.symptom != null && record.symptom != ""){
                                 binding.tvHistorySymptom.text = record.symptom
                             }
-                            if(record.medicine != null || record.medicine != ""){
+                            if(record.medicine != null && record.medicine != ""){
                                 binding.tvHistoryMedicine.text = record.medicine
                             }
                         }
