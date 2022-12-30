@@ -315,6 +315,12 @@ class DashboardActivity : BaseActivity() {
 
                 }
             }
+            else{
+                binding.temperatureLineChart.visibility = View.GONE
+                binding.temperatureRemind.visibility = View.VISIBLE
+                binding.heartRateLineChart.visibility = View.GONE
+                binding.heartRateRemind.visibility = View.VISIBLE
+            }
 
         }
 
