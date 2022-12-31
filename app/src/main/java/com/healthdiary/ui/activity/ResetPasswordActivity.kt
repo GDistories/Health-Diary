@@ -4,17 +4,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.viewModels
+import com.blankj.utilcode.util.RegexUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityResetPasswordBinding
+import com.healthdiary.repository.AuthRepository
+import com.healthdiary.viewmodel.AuthViewModel
 
 class ResetPasswordActivity : BaseActivity() {
     private lateinit var binding: ActivityResetPasswordBinding
     private var passwordVisibility = false
     private var passwordConfirmVisibility = false
-    private var sendHandler = Handler(Looper.getMainLooper())
-    private var sendRunnable: Runnable? = null
-    private var sendTime = 60
+    private val authViewModel: AuthViewModel by viewModels {
+        AuthViewModel.Provider(AuthRepository.repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,85 +28,56 @@ class ResetPasswordActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
 
-        sendRunnable = Runnable {
-            var time = binding.btnSendEmail.text.toString().replace("s", "").toInt()
-            if (time > 0) {
-                time--
-                binding.btnSendEmail.text = "$time"+"s"
-                sendHandler.postDelayed(sendRunnable!!, 1000)
-            } else {
-                binding.btnSendEmail.isEnabled = true
-                binding.btnSendEmail.text = "Send"
-                binding.btnSendEmail.background = getDrawable(R.drawable.btn_blue)
-                binding.btnSendEmail.setTextColor(getColor(R.color.white))
-            }
-        }
-
         binding.ivBack.setOnClickListener {
             finish()
         }
         binding.ivEmailRemove.setOnClickListener {
             binding.etEmail.setText("")
         }
-        binding.ivVerifyCodeRemove.setOnClickListener {
-            binding.etVerifyCode.setText("")
-        }
-        binding.ivPasswordVisibility.setOnClickListener {
-            passwordVisibility = !passwordVisibility
-            setPasswordVisibility()
-        }
-        binding.ivPasswordConfirmVisibility.setOnClickListener {
-            passwordConfirmVisibility = !passwordConfirmVisibility
-            setPasswordConfirmVisibility()
-        }
+
         binding.btnResetPassword.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            inputValidation()
         }
-        binding.btnSendEmail.setOnClickListener {
-            binding.btnSendEmail.isEnabled = false
-            binding.btnSendEmail.text = sendTime.toString() + "s"
-            binding.etVerifyCode.requestFocus()
-            binding.btnSendEmail.background = getDrawable(R.drawable.bg_search)
-            binding.btnSendEmail.setTextColor(getColor(R.color.silver_gray))
-            sendHandler.postDelayed(sendRunnable!!, 1000)
+
+    }
+
+    private fun inputValidation() {
+        val email = binding.etEmail.text.toString()
+        if (email.isEmpty()) {
+            binding.etEmail.error = getString(R.string.email_is_required)
+            binding.etEmail.requestFocus()
+            return
+        }
+        if (!RegexUtils.isEmail(email)) {
+            binding.etEmail.error = getString(R.string.please_enter_a_valid_email)
+            binding.etEmail.requestFocus()
+            return
+        }
+
+        resetPassword(email)
+    }
+
+    private fun resetPassword(email: String) {
+        authViewModel.forgotPassword(email).observe(this) {
+            if (it) {
+                ToastUtils.showShort(getString(R.string.reset_password_email_sent))
+                Handler(Looper.getMainLooper()).postDelayed({
+                    finish()
+                }, 2000)
+            } else {
+                ToastUtils.showShort(getString(R.string.email_not_found))
+            }
         }
     }
+
 
     override fun onStart() {
         super.onStart()
         passwordVisibility = false
         passwordConfirmVisibility = false
-        setPasswordVisibility()
-        setPasswordConfirmVisibility()
     }
 
-    private fun setPasswordVisibility(){
-        val typeface = resources.getFont(R.font.dmsans_medium)
-        if(passwordVisibility) {
-            binding.ivPasswordVisibility.setImageResource(R.drawable.ic_visible)
-            binding.etPassword.inputType = 0x91
-            binding.etPassword.typeface = typeface
-            binding.etPassword.setSelection(binding.etPassword.text.length)
-        } else {
-            binding.ivPasswordVisibility.setImageResource(R.drawable.ic_invisible)
-            binding.etPassword.inputType = 0x81
-            binding.etPassword.typeface = typeface
-            binding.etPassword.setSelection(binding.etPassword.text.length)
-        }
-    }
 
-    private fun setPasswordConfirmVisibility(){
-        val typeface = resources.getFont(R.font.dmsans_medium)
-        if(passwordConfirmVisibility) {
-            binding.ivPasswordConfirmVisibility.setImageResource(R.drawable.ic_visible)
-            binding.etPasswordConfirm.inputType = 0x91
-            binding.etPasswordConfirm.typeface = typeface
-            binding.etPasswordConfirm.setSelection(binding.etPasswordConfirm.text.length)
-        } else {
-            binding.ivPasswordConfirmVisibility.setImageResource(R.drawable.ic_invisible)
-            binding.etPasswordConfirm.inputType = 0x81
-            binding.etPasswordConfirm.typeface = typeface
-            binding.etPasswordConfirm.setSelection(binding.etPasswordConfirm.text.length)
-        }
-    }
+
+
 }

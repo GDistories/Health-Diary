@@ -18,7 +18,7 @@
             <!--Top part CardView of Community page-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/community_border">
 
                 <TextView
@@ -51,25 +51,26 @@
                     app:layout_constraintEnd_toStartOf="@id/iv_profile_photo"
                     app:layout_constraintTop_toBottomOf="@+id/community_welcome" />
 
-                <ImageView
+                <com.healthdiary.utils.RoundPicture
                     android:id="@+id/iv_profile_photo"
-                    android:layout_width="81dp"
-                    android:layout_height="81dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:layout_marginTop="80dp"
-                    android:layout_marginEnd="32dp"
-                    android:src="@drawable/community_avatar"
+                    android:layout_marginEnd="20dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_user_profile_photo_unlogin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/search_card_view"
-                    android:layout_width="370dp"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="42dp"
-                    android:layout_marginBottom="42dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:background="@color/white"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="2dp"
+                    android:scaleX="1.11"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.609"
@@ -78,8 +79,8 @@
 
                     <SearchView
                         android:id="@+id/search_professionals"
-                        android:layout_width="370dp"
-                        android:layout_height="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:iconifiedByDefault="false"
                         android:queryBackground="@android:color/transparent"
@@ -101,8 +102,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:weightSum="90"
                 android:orientation="horizontal">
 
                 <!--Doctor-->
@@ -110,22 +111,24 @@
                     android:id="@+id/category_doctor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_weight="30"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@color/white"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="2dp">
 
                         <ImageView
-                            android:layout_width="49dp"
-                            android:layout_height="49dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:scaleY="1"
+                            android:scaleX="1"
+                            android:layout_margin="20dp"
                             android:background="@color/white"
                             android:src="@drawable/ic_doctor" />
                     </androidx.cardview.widget.CardView>
@@ -143,23 +146,25 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_weight="30"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/category_nutritionist"
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@color/white"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="2dp">
 
                         <ImageView
-                            android:layout_width="49dp"
-                            android:layout_height="49dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:scaleY="1"
+                            android:scaleX="1"
+                            android:layout_margin="20dp"
                             android:background="@color/white"
                             android:src="@drawable/ic_nutritionist" />
                     </androidx.cardview.widget.CardView>
@@ -177,23 +182,25 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_weight="30"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/category_coach"
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@color/white"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="2dp">
 
                         <ImageView
-                            android:layout_width="49dp"
-                            android:layout_height="49dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:scaleY="1"
+                            android:scaleX="1"
+                            android:layout_margin="20dp"
                             android:background="@color/white"
                             android:src="@drawable/ic_coach" />
                     </androidx.cardview.widget.CardView>

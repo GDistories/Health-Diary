@@ -54,7 +54,7 @@
     <string name="sign_in">Sign In</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="enter_your_password">Enter your password</string>
-    <string name="server_client_id" translatable="false">34100753456-u8d4h1allue3da32omovfsls385fvtuj.apps.googleusercontent.com</string>
+    <string name="server_client_id" translatable="false">636241345510-ftcbqvs8qtkqcl217qrl22o0aufrimf2.apps.googleusercontent.com</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="if_you_don_t_an_account">If you don’t an account</string>
     <string name="register_here">Register Here!</string>
@@ -125,7 +125,9 @@
     <string name="news_content_figure_desc">7-day average as of Sep. 29, 2022.</string>
 
     <!--Home Page-->
-    <string name="home_check_status">You haven’t check-in today.</string>
+    <string name="home_check_status_false">You haven’t checked in today.</string>
+    <string name="home_login_status">You haven’t logged in.</string>
+    <string name="home_check_status_true">You already checked in.</string>
     <string name="score">Score</string>
     <string name="check_in_record">Check-in Record</string>
     <string name="health_tips">Health Tips</string>
@@ -236,6 +238,48 @@
     <string name="password_must_contain_at_least_one_letter_and_one_number">Password must contain at least one letter and one number</string>
     <string name="update_3_minutes_ago">Updated 3 minutes ago</string>
     <string name="language">Language</string>
+    <string name="verify_code_is_required">Verify Code Is Required</string>
+    <string name="password_confirm_is_required">Password Confirm Is Required</string>
+    <string name="password_confirm_is_not_match">Password Confirm Is Not Match</string>
+    <string name="not_a_valid_email">Not a Valid Email</string>
+    <string name="password_length_is_too_short">Password Length Is Too Short</string>
+    <string name="login_successfully">Login Successfully</string>
+    <string name="login_failed">Login Failed</string>
+    <string name="logout_success">Logout Success</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="good_morning">Good Morning!</string>
+    <string name="good_afternoon">Good Afternoon!</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="email">Email</string>
+    <string name="email_address">Email Address</string>
+    <string name="please_login">Please Login First</string>
+    <string name="email_already_used">The email address is already in use by another account.</string>
+    <string name="sign_up_success">Sign Up Success</string>
+    <string name="email_or_password_is_incorrect">Email or Password Is Incorrect</string>
+    <string name="email_not_found">Email Not Found</string>
+    <string name="reset_password_email_sent">Reset Password Email Has Sent</string>
+    <string name="notifications">Notifications</string>
+    <string name="cm">CM</string>
+    <string name="kg">KG</string>
+    <string name="please_fill_in_height_and_weight">Please Fill In Height And Weight First!</string>
+    <string name="base_score">Base Score</string>
+    <string name="thin">Thin</string>
+    <string name="obese">Obese</string>
+    <string name="History_no_record">No record was given</string>
+    <string name="History_no_record_1">You didn\'t check out in this day.</string>
+    <string name="History_no_record_2">Don\'t forget to check-in today!</string>
+    <string name="hello_track_today">Let\'s check in for today.</string>
+    <string name="news_content">News Content</string>
+    <string name="recent_temperature_data">Recent Temperature Data</string>
+    <string name="question_about">Question about</string>
+    <string name="notification">Notification</string>
+    <string name="recent_heart_rate_data">Recent Heart Rate Data</string>
+    <string name="current_data_are_not_enough_for_graph_please_keep_check_in_and_offer_more_data_at_least_5_days">Current data are not enough for graph, please keep check in, and offer more data (at least 5 days)!</string>
+    <string name="history_record">In this day, your check-in record</string>
+    <string name="not_given">(Not Given)</string>
+    <string name="history_symptom">Your symptom description:</string>
+    <string name="history_medicine">Your took medicine:</string>
+    <string name="home_check_status">You have not checked in yet today</string>
 
     <!---->
 </resources>

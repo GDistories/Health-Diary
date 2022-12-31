@@ -1,20 +1,36 @@
 package com.healthdiary.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
+import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.TimeUtils
+import com.blankj.utilcode.util.ToastUtils
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
+import com.healthdiary.data.CheckInRecord
 import com.healthdiary.databinding.ActivityCheckInBinding
+import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.repository.UserRepository
+import com.healthdiary.viewmodel.CheckInRecordViewModel
+import com.healthdiary.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.activity_check_in.*
+import kotlinx.android.synthetic.main.fragment_health.view.*
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
+import kotlin.reflect.jvm.internal.impl.types.TypeCheckerState.SupertypesPolicy.None
 
 class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
     CalendarView.OnCalendarSelectListener, View.OnClickListener {
@@ -22,28 +38,71 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
     private var mYear: Int = 0
     private var green = -0x66bf24db
 
+    // To get string of DATE TODAY
+    var dateToday = getToday()
+    var googleSignInClient: GoogleSignInClient? = null
+
     private lateinit var binding: ActivityCheckInBinding
+
+    private val recordViewModel: CheckInRecordViewModel by viewModels {
+        CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+        val record: CheckInRecord =  CheckInRecord()
+
         super.onCreate(savedInstanceState)
+        if (!isLogin()) {
+            ToastUtils.showShort(getString(R.string.please_login))
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
         binding = ActivityCheckInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideStatusAndActionBar()
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(StringUtils.getString(R.string.server_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
         binding.ivBack.setOnClickListener {
             finish()
         }
         binding.btnCheckInSubmit.setOnClickListener {
-            startActivity(Intent(this, CheckInSuccessActivity::class.java))
-        }
-        binding.iconCheckInHistory.setOnClickListener {
-            startActivity(Intent(this, CheckInHistoryActivity::class.java))
+            record.email = getUserEmail()
+            record.date = dateToday
+            record.temperature = binding.etTemperature.text.toString() + "℃"
+            record.heartRate =  binding.etHeartRate.text.toString() + " Bpm"
+            record.symptom = binding.etSymptom.text.toString()
+            record.medicine = binding.etMedicine.text.toString()
+
+            recordViewModel.checkRecord(getUserEmail().toString(),dateToday).observe(this){
+                var checkId = it
+                if(checkId != null){
+                    if (checkId == "NotCheckInYet")
+                    {
+                        recordViewModel.addRecord(record)
+                    }
+                    else
+                    {
+                        recordViewModel.updateRecord(record, checkId)
+                    }
+                }
+                startActivity(Intent(this, CheckInSuccessActivity::class.java))
+            }
         }
 
     }
 
     override fun onStart() {
         super.onStart()
+        binding.checkInView.visibility = View.VISIBLE
+        binding.checkInHistoryView.visibility = View.GONE
+
         initView()
         initData()
     }
@@ -70,24 +129,27 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
         val year: Int = binding.calendarView.curYear
         val month: Int = binding.calendarView.curMonth
         val map: MutableMap<String, Calendar> = HashMap()
-        map[getSchemeCalendar(year, month, 3, green).toString()] =
-            getSchemeCalendar(year, month, 3, green)
-        map[getSchemeCalendar(year, month, 6, green).toString()] =
-            getSchemeCalendar(year, month, 6, green)
-        map[getSchemeCalendar(year, month, 9, green).toString()] =
-            getSchemeCalendar(year, month, 9, green)
-        map[getSchemeCalendar(year, month, 13, green).toString()] =
-            getSchemeCalendar(year, month, 13, green)
-        map[getSchemeCalendar(year, month, 14, green).toString()] =
-            getSchemeCalendar(year, month, 14, green)
-        map[getSchemeCalendar(year, month, 15, green).toString()] =
-            getSchemeCalendar(year, month, 15, green)
-        map[getSchemeCalendar(year, month, 18, green).toString()] =
-            getSchemeCalendar(year, month, 18, green)
-        map[getSchemeCalendar(year, month, 25, green).toString()] =
-            getSchemeCalendar(year, month, 25, green)
-        map[getSchemeCalendar(year, month, 27, green).toString()] =
-            getSchemeCalendar(year, month, 27, green)
+
+        recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
+            var checkId = it
+            var dateStr = ""
+
+            if (checkId != "NoCheckInResult"){
+                recordViewModel.getRecord(checkId).observe(this){ it1 ->
+                    var record = it1
+                    dateStr = record.date.toString()
+                    var yearRecord:Int = dateStr.substring(0,4).toInt()
+                    var monthRecord:Int = dateStr.substring(4,6).toInt()
+                    var dayRecord:Int = dateStr.substring(6,8).toInt()
+
+                    map[getSchemeCalendar(yearRecord, monthRecord, dayRecord, green).toString()] =
+                        getSchemeCalendar(yearRecord, monthRecord, dayRecord, green)
+
+                    binding.calendarView.setSchemeDate(map)
+                }
+            }
+
+        }
         binding.calendarView.setSchemeDate(map)
     }
 
@@ -141,8 +203,63 @@ class CheckInActivity : BaseActivity(), CalendarView.OnYearChangeListener,
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
+        val g1 = DecimalFormat("00")
+        val dateString = calendar.year.toString() + g1.format(calendar.month.toLong()) + g1.format(calendar.day.toLong())
+        changeView(dateString)
     }
     override fun onClick(v: View?) {}
     override fun onCalendarOutOfRange(calendar: Calendar?) {}
+
+    fun changeView(dateString: String){
+        if(binding.tvLunar.text == getString(R.string.today)){
+            Log.e(ContentValues.TAG, "Mode 1")
+            binding.checkInView.visibility = View.VISIBLE
+            binding.checkInHistoryView.visibility = View.GONE
+            binding.checkInNoHistoryView.visibility = View.GONE
+        }
+        else {
+            //  Checkrecord() - by its (email, date)
+            recordViewModel.checkRecord(getUserEmail().toString(),dateString).observe(this){
+                var checkId = it
+                if(checkId != null){
+                    if(checkId == "NotCheckInYet"){
+                        Log.e(ContentValues.TAG, "Mode 2")
+                        binding.checkInView.visibility = View.GONE
+                        binding.checkInHistoryView.visibility = View.GONE
+                        binding.checkInNoHistoryView.visibility = View.VISIBLE
+                    }
+                    else
+                    {
+                        Log.e(ContentValues.TAG, "Mode 3")
+                        binding.checkInView.visibility = View.GONE
+                        binding.checkInHistoryView.visibility = View.VISIBLE
+                        binding.checkInNoHistoryView.visibility = View.GONE
+                        //  getRecord() - find record by its id
+                        recordViewModel.getRecord(checkId).observe(this){ it1 ->
+                            var record = it1
+                            // update the texts
+                            if(record.temperature != null && record.temperature != ""){
+                                binding.tvHistoryTemperature.text = record.temperature
+                            }
+                            if(record.heartRate != null && record.heartRate != ""){
+                                binding.tvHistoryHeartRate.text = record.heartRate
+                            }
+                            if(record.symptom != null && record.symptom != ""){
+                                binding.tvHistorySymptom.text = record.symptom
+                            }
+                            if(record.medicine != null && record.medicine != ""){
+                                binding.tvHistoryMedicine.text = record.medicine
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+    }
+
 
 }

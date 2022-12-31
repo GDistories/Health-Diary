@@ -15,12 +15,14 @@ object BotResponse {
 
         return when {
 
-            //Flips a coin
-            message.contains("flip") && message.contains("coin") -> {
-                val r = (0..1).random()
-                val result = if (r == 0) "heads" else "tails"
+            //Feel tired/weak
+            message.contains("tired") || message.contains("weak") -> {
+                "You may go to sleep before 11:00 every night, don't be stressful, and take more vitamin C every day."
+            }
 
-                "I flipped a coin and it landed on $result"
+            //Inflammation&&Pain
+            message.contains("inflammation") && message.contains("pain") -> {
+                "You can buy amoxicillin at the drugstore and take it according to the instructions. Drink warm water as much as you can."
             }
 
             //Math calculations
@@ -40,7 +42,7 @@ object BotResponse {
                 when (random) {
                     0 -> "Hello there!"
                     1 -> "Sup"
-                    2 -> "Buongiorno!"
+                    2 -> "Halo!"
                     else -> "error" }
             }
 

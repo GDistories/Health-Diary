@@ -1,15 +1,43 @@
 package com.healthdiary.ui.activity
 
 import android.content.Intent
+import android.content.IntentSender
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.NotificationUtils
 import com.blankj.utilcode.util.RegexUtils
+import com.blankj.utilcode.util.ToastUtils
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
+import com.google.android.gms.auth.api.identity.Identity
+import com.google.android.gms.auth.api.identity.SignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.healthdiary.R
 import com.healthdiary.base.BaseActivity
 import com.healthdiary.databinding.ActivityLoginBinding
+import com.healthdiary.repository.AuthRepository
+import com.healthdiary.viewmodel.AuthViewModel
 
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private var passwordVisibility = false
+    private lateinit var auth: FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+    private val authViewModel: AuthViewModel by viewModels {
+        AuthViewModel.Provider(AuthRepository.repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +45,13 @@ class LoginActivity : BaseActivity() {
         hideStatusAndActionBar()
         val view = binding.root
         setContentView(view)
-
+        auth = Firebase.auth
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.server_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+        
         binding.ivBack.setOnClickListener {
             finish()
         }
@@ -39,6 +73,10 @@ class LoginActivity : BaseActivity() {
         }
         binding.btnSignIn.setOnClickListener {
             inputValidation()
+        }
+
+        binding.cvGoogle.setOnClickListener {
+            signInWithGoogle()
         }
     }
 
@@ -76,11 +114,6 @@ class LoginActivity : BaseActivity() {
             binding.etPassword.requestFocus()
             return
         }
-        if (!RegexUtils.isMatch("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{6,20}\$", password)) {
-            binding.etPassword.error = getString(R.string.password_must_contain_at_least_one_letter_and_one_number)
-            binding.etPassword.requestFocus()
-            return
-        }
 
         signIn()
     }
@@ -88,9 +121,45 @@ class LoginActivity : BaseActivity() {
     private fun signIn() {
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
-        //TODO: Implement sign in
+        authViewModel.login(email, password).observe(this) {
+            if (it) {
+                ToastUtils.showShort(getString(R.string.login_successfully))
+                finish()
+            } else {
+                ToastUtils.showShort(getString(R.string.email_or_password_is_incorrect))
+                binding.etPassword.requestFocus()
+            }
+        }
+    }
 
-        finish()
+    private fun signInWithGoogle() {
+        val signInIntent = googleSignInClient.signInIntent
+        launcher.launch(signInIntent)
+    }
+
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            handleResult(task)
+        }
+    }
+
+    private fun handleResult(task: Task<GoogleSignInAccount>) {
+        if (task.isSuccessful) {
+            val account = task.result
+            val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
+            auth.signInWithCredential(credential).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    ToastUtils.showShort(getString(R.string.login_successfully))
+                    finish()
+                } else {
+                    ToastUtils.showShort(getString(R.string.login_failed))
+                }
+            }
+        }
+        else {
+            Log.d("TAG", "handleResult: ${task.exception}")
+        }
     }
 
     private fun setPasswordVisibility(){

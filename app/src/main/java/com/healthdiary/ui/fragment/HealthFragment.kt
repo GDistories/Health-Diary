@@ -1,18 +1,32 @@
 package com.healthdiary.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
+import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
+import com.healthdiary.data.User
 import com.healthdiary.databinding.FragmentHealthBinding
+import com.healthdiary.repository.CheckInRecordRepository
+import com.healthdiary.repository.UserRepository
 import com.healthdiary.ui.activity.*
+import com.healthdiary.viewmodel.CheckInRecordViewModel
+import com.healthdiary.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.fragment_health.*
+import java.io.File
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -28,13 +42,35 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
     private val binding get() = _binding!!
     private var green = -0x66bf24db
 
+    private val userViewModel: UserViewModel by viewModels {
+        UserViewModel.Provider(UserRepository.repository)
+    }
+
+
+    private val recordViewModel: CheckInRecordViewModel by viewModels {
+        CheckInRecordViewModel.Provider(CheckInRecordRepository.repository)
+    }
+
     override fun onStart() {
         super.onStart()
         initView()
-        initData()
+        if (!isLogin()) {
+            binding.username.text = "(Unknown User)"
+            ToastUtils.showShort(getString(R.string.please_login))
+        }
+        else{
+            initData()
+        }
+        if (isLogin()) {
+            getUserPhoto(context!!.cacheDir.absolutePath + "/" + getUserEmail() + ".jpg")
+        }
+        else
+        {
+            binding.ivAvatar.setImageResource(R.drawable.default_profile_pic)
+        }
 
         binding.iconEdit.setOnClickListener {
-            startActivity(Intent(activity, EditInfoActivity::class.java))
+            startActivity(Intent(activity, ProfileActivity::class.java))
         }
         binding.iconCheckIn.setOnClickListener {
             startActivity(Intent(activity, CheckInActivity::class.java))
@@ -90,24 +126,44 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         val year: Int = binding.calendarView.curYear
         val month: Int = binding.calendarView.curMonth
         val map: MutableMap<String, Calendar> = HashMap()
-        map[getSchemeCalendar(year, month, 3, green).toString()] =
-            getSchemeCalendar(year, month, 3, green)
-        map[getSchemeCalendar(year, month, 6, green).toString()] =
-            getSchemeCalendar(year, month, 6, green)
-        map[getSchemeCalendar(year, month, 9, green).toString()] =
-            getSchemeCalendar(year, month, 9, green)
-        map[getSchemeCalendar(year, month, 13, green).toString()] =
-            getSchemeCalendar(year, month, 13, green)
-        map[getSchemeCalendar(year, month, 14, green).toString()] =
-            getSchemeCalendar(year, month, 14, green)
-        map[getSchemeCalendar(year, month, 15, green).toString()] =
-            getSchemeCalendar(year, month, 15, green)
-        map[getSchemeCalendar(year, month, 18, green).toString()] =
-            getSchemeCalendar(year, month, 18, green)
-        map[getSchemeCalendar(year, month, 25, green).toString()] =
-            getSchemeCalendar(year, month, 25, green)
-        map[getSchemeCalendar(year, month, 27, green).toString()] =
-            getSchemeCalendar(year, month, 27, green)
+
+        userViewModel.getUser(getUserEmail()!!).observe(this){
+            var user: User? = null
+            user = it
+            if (user != null) {
+                LogUtils.e(user!!.name)
+                LogUtils.e(user!!.name)
+                if (user?.name == "null" || user!!.name?.isEmpty() == true)
+                {
+                    binding.username.text = getString(R.string.anonymous)
+                }
+                else
+                {
+                    binding.username.text = user!!.name
+                }
+            }
+        }
+
+        recordViewModel.checkAllRecord(getUserEmail().toString()).observe(this){
+            var checkId = it
+            var dateStr = ""
+
+            if(checkId != "NoCheckInResult"){
+                recordViewModel.getRecord(checkId).observe(this){
+                    var record = it
+                    dateStr = record.date.toString()
+                    var yearRecord:Int = dateStr.substring(0,4).toInt()
+                    var monthRecord:Int = dateStr.substring(4,6).toInt()
+                    var dayRecord:Int = dateStr.substring(6,8).toInt()
+
+                    map[getSchemeCalendar(yearRecord, monthRecord, dayRecord, green).toString()] =
+                        getSchemeCalendar(yearRecord, monthRecord, dayRecord, green)
+
+                    binding.calendarView.setSchemeDate(map)
+                }
+            }
+
+        }
         binding.calendarView.setSchemeDate(map)
     }
 
@@ -126,6 +182,8 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
         return calendar
     }
     override fun onCalendarSelect(calendar: Calendar, isClick: Boolean) {
+        startActivity(Intent(activity, CheckInActivity::class.java))
+
         binding.tvLunar.visibility = View.VISIBLE
         binding.tvYear.visibility = View.VISIBLE
         val g1 = DecimalFormat("00")
@@ -160,6 +218,30 @@ open class HealthFragment : BaseFragment(), CalendarView.OnCalendarSelectListene
             }
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    private fun getUserPhoto(savePath: String?) {
+        val file = File(savePath!!)
+        if (!file.exists()) {
+            binding.ivAvatar.setImageResource(R.drawable.default_profile_pic)
+        } else {
+            val bitmap: Bitmap? = readBitmap(context, savePath)
+            binding.ivAvatar.setImageBitmap(bitmap)
+        }
+    }
+
+    private fun readBitmap(ct: Context?, savePath: String?): Bitmap? {
+        val bitmap: Bitmap
+        return try {
+            val filePic = File(savePath!!)
+            if (!filePic.exists()) {
+                return null
+            }
+            bitmap = BitmapFactory.decodeFile(savePath)
+            bitmap
+        } catch (e: Exception) {
+            null
         }
     }
 
