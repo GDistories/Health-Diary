@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.healthdiary.R
 import com.healthdiary.base.BaseFragment
 import com.healthdiary.data.User
@@ -79,8 +80,15 @@ class MyFragment : BaseFragment() {
 
             startActivity(Intent(context, HelpActivity::class.java))
         }
+
         binding.devices.setOnClickListener {
-            startActivity(Intent(context, DevicesActivity::class.java))
+            if (isLogin()) {
+                startActivity(Intent(context, DevicesActivity::class.java))
+            } else {
+                val intent = Intent(activity, LoginActivity::class.java)
+                ToastUtils.showShort(getString(R.string.please_login))
+                startActivity(intent)
+            }
         }
         binding.update.setOnClickListener {
             Toast.makeText(activity, R.string.searching_update, Toast.LENGTH_SHORT).show()

@@ -115,6 +115,7 @@ class RegisterActivity : BaseActivity() {
         viewModel.signUp(email, password).observe(this) {
             if (it) {
                 ToastUtils.showShort(getString(R.string.sign_up_success))
+                finish()
             } else {
                 ToastUtils.showShort(getString(R.string.email_already_used))
             }
